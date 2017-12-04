@@ -8,5 +8,20 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "摘录",
+      "iconPath": "icons/book.png"
+    },{
+      "pagePath":"pages/index/index",
+      "text":"广场",
+      "iconPath":"icons/twitter.png"
+    },{
+      "pagePath":"pages/index/index",
+      "text":"漂流",
+      "iconPath":"icons/tree.png"
+    }]
   }
 }
