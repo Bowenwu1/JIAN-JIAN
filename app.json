@@ -13,15 +13,18 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "摘录",
-      "iconPath": "icons/book.png"
+      "iconPath": "icons/note.png",
+      "selectedIconPath": "icons/note_selected.png"
     },{
       "pagePath":"pages/index/index",
       "text":"广场",
-      "iconPath":"icons/twitter.png"
+      "iconPath":"icons/square.png",
+      "selectedIconPath":"icons/square_selected.png"
     },{
       "pagePath":"pages/index/index",
-      "text":"漂流",
-      "iconPath":"icons/tree.png"
+      "text":"我的",
+      "iconPath":"icons/my.png",
+      "selectedIconPath":"icons/my_selected.png"
     }]
   }
 }
