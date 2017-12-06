@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main"
+    "pages/community/community"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,8 +26,8 @@
         "selectedIconPath": "icons/square_selected.png"
       },
       {
-        "pagePath": "pages/index/index",
-        "text": "我的",
+        "pagePath": "pages/community/community",
+        "text": "社群",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my_selected.png"
       }
