@@ -1,0 +1,24 @@
+/* pages/Main/Main.wxss */
+.action-bar {
+  height: 30%;
+  background-color: #fae8d2;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.new-button {
+  float: left;
+  padding-bottom: 0;
+}
+
+.edit-button {
+  float: right;
+  padding-bottom: 0;
+}
+
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 25px;
+}
