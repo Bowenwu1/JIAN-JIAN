@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Main/Main"
+    "pages/Main/Main",
     "pages/community/community"
   ],
   "window": {
