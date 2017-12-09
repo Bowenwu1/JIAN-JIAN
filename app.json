@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/Mine/Mine",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Main/Main"
+    "pages/Main/Main",
     "pages/community/community"
   ],
   "window": {
@@ -20,7 +21,7 @@
         "selectedIconPath": "icons/note_selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/Mine/Mine",
         "text": "广场",
         "iconPath": "icons/square.png",
         "selectedIconPath": "icons/square_selected.png"
