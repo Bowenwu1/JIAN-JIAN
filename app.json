@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
+    "pages/square/square",
     "pages/community/community"
   ],
   "window": {
@@ -20,7 +21,7 @@
         "selectedIconPath": "icons/note_selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/square/square",
         "text": "广场",
         "iconPath": "icons/square.png",
         "selectedIconPath": "icons/square_selected.png"

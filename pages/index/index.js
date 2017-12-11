@@ -16,6 +16,9 @@ Page({
     })
   },
   onLoad: function () {
+    wx.switchTab({
+      url: '/pages/Main/Main',
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -29,19 +32,12 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
-        wx.switchTab({
-          url: '/pages/Main/Main',
-        })
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
         }
       })
     }
