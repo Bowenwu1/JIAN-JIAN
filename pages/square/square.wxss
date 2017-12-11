@@ -1,0 +1,106 @@
+/* pages/square/square.wxss */
+.search-bar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.user-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  vertical-align: bottom;
+  margin-right: 35rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  margin-right: 28rpx;
+}
+.item-time {
+  font-size: 23rpx;
+  font-family: sans-serif;
+}
+
+.item-wrapper {
+  border-bottom: solid 0.5rpx #dedede;
+  padding: 38rpx;
+  padding-bottom: 25rpx;
+}
+
+.round-button {
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  display: block;
+  float: right;
+  height: 45rpx;
+  width: 80rpx;
+  text-align: center;
+  margin-top: 14rpx;
+  background: #FAF2E8;
+  box-shadow: 5rpx 5rpx 5rpx gray;
+}
+
+.item-body-wrapper {
+  padding: 30rpx;
+  padding-bottom: 0;
+}
+
+.item-body-wrapper > text, .item-footer > text {
+  font-size: 30rpx;
+}
+
+.item-sentence {
+  display: block;
+}
+
+.item-footer {
+  text-align: right;
+}
+
+.item-edit {
+    height: 32rpx;
+    width: 20rpx;
+    float: right;
+}
+.icon-heart {
+    position: relative;
+    height: 32rpx;
+    width: 20rpx;
+    display: block;
+}
+.icon-heart:before,
+.icon-heart:after {
+    position: absolute;
+    content: "";
+    left: 20rpx;
+    top: 0;
+    width: 20rpx;
+    height: 32rpx;
+    background: pink;
+    -moz-border-radius: 20rpx 20rpx 0 0;
+    border-radius: 20rpx 20rpx 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+.icon-heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
