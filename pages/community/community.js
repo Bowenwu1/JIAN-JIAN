@@ -8,7 +8,7 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    communityList: [
+    recCommunityList: [
       {
         identity: 'ToBeNo.1',
         leader: '抱脖脖',
@@ -27,6 +27,19 @@ Page({
         memberNum: 5,
         reason: '热门',
         bookImgPath: '../../images/example3.jpg'
+      }
+    ],
+    myCommunityList: [
+      {
+        identity: 'ToBeNo.2',
+        leader: 'BBB',
+        memberNum: 5,
+        bookImgPath: '../../images/example1.jpg'
+      }, {
+        identity: 'DOD',
+        leader: 'DDD',
+        memberNum: 4,
+        bookImgPath: '../../images/example2.jpg'
       }
     ]
   },
