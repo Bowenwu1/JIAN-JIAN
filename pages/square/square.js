@@ -140,11 +140,20 @@ Page({
   },
   getItems(offset, num, api) {
 
+  },
+  toggleLike(e) {
+    const { target: { dataset } = {} } = e
+    const { tabId, index } = dataset
+    const liked = this.data.tabs[tabId].list[index].liked
+    const likeKey = `tabs[${tabId}].list[${index}].liked`
+    this.setData({
+      [likeKey]: !liked,
+    })
   }
 })
 
 function mork() {
-  return [
+  const morkData = [
     {
       name: "藤椒椒",
       time: "2017.9.24",
@@ -152,7 +161,7 @@ function mork() {
       sentence: "梦里我听见莫扎特有似天来的音乐，随颤动的水纹与微风，一波波传来，推动着一艘船",
       book: "有一种候鸟",
       author: "陈少聪",
-      favored: false,
+      liked: false,
     },
     {
       name: "卓君君",
@@ -161,7 +170,7 @@ function mork() {
       sentence: "如果不相信灵魂不死，我们何以堪收这样的悲拗与绝望",
       book: "当年的体温",
       author: "王开岭",
-      favored: false,
+      liked: false,
     },
     {
       name: "抱脖脖",
@@ -170,7 +179,8 @@ function mork() {
       sentence: "我若在朝，必当荡涤奸邪，兴旺盛世！",
       book: "明朝那些事儿",
       author: "当年明月",
-      favored: false,
+      liked: false,
     },
   ]
+  return morkData.sort(() => Math.random() > 0.5)
 }

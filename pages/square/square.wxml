@@ -15,8 +15,10 @@
         <text class="item-book">《{{book}}》</text>
         <text class="item-author">{{author}}</text>
       </view>
-      <!-- <view class="icon-heart"></view>
-      <image class="item-edit" mode="aspectFit" src="/images/edit.png"/> -->
+      <view class="item-like-comment">
+        <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" bindtap="toggleLike"/>
+        <view class="fa fa-edit icon-edit"/>
+      </view>
     </view>
   </view>
 </template>
@@ -40,8 +42,8 @@
     <view class="weui-tab__panel">
       <block wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="tabId" wx:key="name">
         <scroll-view class="weui-tab__content" hidden="{{activeIndex != tabId}}">
-          <block wx:for="{{tab.list}}" wx:for-item="data" wx:key="*this">
-            <template is="square-item" data="{{...data}}"/>
+          <block wx:for="{{tab.list}}" wx:for-item="data" wx:key="this">
+            <template is="square-item" data="{{...data, index, tabId}}"/>
           </block>
         </scroll-view>
       </block>

@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import 'weui.wxss';
+@import 'FontAwesom.wxss';
 
 .container {
   height: 100%;
