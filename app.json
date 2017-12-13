@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/Mine/Mine",
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
@@ -30,6 +31,12 @@
         "pagePath": "pages/community/community",
         "text": "社群",
         "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_selected.png"
+      },
+      {
+        "pagePath":"pages/Mine/Mine",
+        "text":"我的",
+        "iconPath":"icons/my.png",
         "selectedIconPath": "icons/my_selected.png"
       }
     ]
