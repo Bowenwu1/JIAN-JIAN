@@ -1,0 +1,71 @@
+/* pages/raft/raft.wxss */
+
+.page {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.raft-book-wrapper {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.book-owner-info {
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.book-owner-info > image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 45rpx;
+}
+.book-owner-info > text {
+  font-size: 9pt;
+  margin-left: 30rpx;
+  align-self: flex-end;
+}
+.book-image {
+  width: 150rpx;
+  height: 210rpx; 
+}
+
+.book-detail-wrapper {
+  width: calc(100% - 150rpx);
+}
+
+.book-info-horizontal-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-detail-wrapper > text {
+  display: block;
+  font-size: 9pt;
+  margin-top: 20rpx;
+}
+.book-detail-wrapper > .book-isbn {
+  margin-left: 15rpx;
+}
+.book-detail-wrapper {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.contact-button {
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 9pt;
+  align-self: flex-end;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 40rpx;
+}
