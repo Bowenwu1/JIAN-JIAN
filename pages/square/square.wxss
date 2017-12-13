@@ -1,0 +1,79 @@
+/* pages/square/square.wxss */
+.search-bar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.user-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  vertical-align: bottom;
+  margin-right: 35rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  margin-right: 28rpx;
+}
+.item-time {
+  font-size: 23rpx;
+  font-family: sans-serif;
+}
+
+.item-wrapper {
+  border-bottom: solid 0.5rpx #dedede;
+  padding: 38rpx;
+  padding-bottom: 25rpx;
+}
+
+.round-button {
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  display: block;
+  float: right;
+  height: 45rpx;
+  width: 80rpx;
+  text-align: center;
+  margin-top: 14rpx;
+  background: #FAF2E8;
+  box-shadow: 5rpx 5rpx 5rpx gray;
+}
+
+.item-body-wrapper {
+  padding: 30rpx;
+  padding-bottom: 0;
+}
+
+.item-body-wrapper > text, .item-footer > text {
+  font-size: 30rpx;
+}
+
+.item-sentence {
+  display: block;
+}
+
+.item-footer, .item-like-comment {
+  text-align: right;
+}
+
+.item-like-comment {
+  margin-top: 10rpx;
+}
+.icon-like, .icon-unlike {
+  font-size: 45rpx;
+  vertical-align: text-top;
+  margin-right: 30rpx;
+  transition-duration: 0.2s;
+}
+.icon-like {
+  color: pink;
+}
+.icon-unlike {
+  color: grey;
+}
+.icon-edit {
+  font-size: 50rpx;
+  vertical-align: text-bottom;
+}

@@ -16,6 +16,9 @@ Page({
     })
   },
   onLoad: function () {
+    wx.switchTab({
+      url: '/pages/Main/Main',
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -35,10 +38,6 @@ Page({
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
         }
       })
     }

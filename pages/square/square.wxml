@@ -1,0 +1,53 @@
+<!--pages/square/square.wxml-->
+
+<template name="square-item">
+  <view class="item-wrapper">
+    <view class="item-title-wrapper">
+      <image bindtap="avatarTap" class="user-avatar" src="{{avatar}}" background-size="cover"/>
+      <text class="item-name">{{name}}</text>
+      <text class="item-time">{{time}}</text>
+      <view class="round-button" bindtap="digestItem">摘走</view>
+    </view>
+    <view class="item-body-wrapper">
+      <text class="item-sentence">{{sentence}}</text>
+      <view class="item-footer">
+        <text class="item-breakdash">——</text>
+        <text class="item-book">《{{book}}》</text>
+        <text class="item-author">{{author}}</text>
+      </view>
+      <view class="item-like-comment">
+        <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" bindtap="toggleLike"/>
+        <view class="fa fa-edit icon-edit"/>
+      </view>
+    </view>
+  </view>
+</template>
+
+<view class="page">
+  <view class="weui-search-bar__form search-bar" style="border-radius:20px">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
+    </view>
+  </view>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="name">
+        <view id="{{index}}" class="tab-item weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item.name}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"/>
+    </view>
+    <view class="weui-tab__panel">
+      <block wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="tabId" wx:key="name">
+        <scroll-view class="weui-tab__content" hidden="{{activeIndex != tabId}}">
+          <block wx:for="{{tab.list}}" wx:for-item="data" wx:key="this">
+            <template is="square-item" data="{{...data, index, tabId}}"/>
+          </block>
+        </scroll-view>
+      </block>
+      <view id="search-result" class="weui-tab__content" hidden="true"></view>
+    </view>
+  </view>
+</view>
