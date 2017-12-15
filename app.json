@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
-    "pages/community/community"
+    "pages/community/community",
+    "pages/newNote/newNote"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,7 +21,7 @@
         "selectedIconPath": "icons/note_selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/newNote/newNote",
         "text": "广场",
         "iconPath": "icons/square.png",
         "selectedIconPath": "icons/square_selected.png"
