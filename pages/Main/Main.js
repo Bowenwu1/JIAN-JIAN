@@ -24,14 +24,24 @@ Page({
           "哭和泪不同。放声大哭，是灵魂能量的一次迸溅，一次肆意的井喷。"
         ]
       }
-    ]
+    ],
+    windowWidth:0,
+    windowHeight:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowWidth:res.windowWidth,
+          windowHeight:res.windowHeight
+        });
+      }
+    });
   },
 
   /**
@@ -81,5 +91,17 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  testActionSheet: function() {
+    wx.showActionSheet({
+      itemList: ['A', 'B', 'C'],
+      success: function (res) {
+        console.log(res.tapIndex)
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
   }
 })

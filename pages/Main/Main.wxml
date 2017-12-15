@@ -11,18 +11,69 @@
   </view>
 
   <view class='item-wrapper' wx:for="{{booksList}}">
+    <view class='add-sentence-menu'>
+      <view>
+        <image src='../../icons/camera.png'></image>
+        <text>拍一拍</text>
+      </view>
+
+      <view>
+        <image src='../../icons/microphone.png'></image>
+        <text>读一读</text>
+      </view>
+
+      <view>
+        <image src='../../icons/pen.png'></image>
+        <text>写一写</text>
+      </view>
+    </view>
     <view class='book-info-row'>
       <text class='book-name'>{{item.bookName}}</text>
       <text class='from-username'>{{item.userName}}</text>
-      <view class='add-button-wrapper'><text>+</text></view>
+      <view class='add-button-wrapper' bindtap='testActionSheet'>
+        <text>+</text>
+      </view>
     </view>
 
     <view class='sentences-wrapper' wx:for="{{item.showSentences}}">
       <view class='sentences-item-wrapper'>
         <text class='sentences-item'>{{item}}</text>
+        <view class='add-book-menu'>
+          <view class='add-book-menu-firstrow'>
+            <view>
+              <image src='../../icons/pen.png'></image>
+              <text>编辑</text>
+            </view>
+            <view>
+              <image src='../../icons/pen.png'></image>
+              <text>删除</text>
+            </view>
+          </view>
+
+          <view class='add-book-menu-secondrow'>
+            <text>分享至其他平台</text>
+          </view>
+
+          <view class='add-book-menu-thirdrow'>
+            <view>
+              <image src='../../icons/pen.png'></image>
+              <text>生成文案</text>
+            </view>
+            <view>
+              <image src='../../icons/pen.png'></image>
+              <text>生成水印书签</text>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>
 
-  <button class='add-book-button'><text>+</text></button>
+  <button class='add-book-button'>
+    <text>+</text>
+  </button>
+
+  <image class='mask' style='width={{windowWidth}}px; height={{windowHeight}}px'>
+  </image>
 </view>
+

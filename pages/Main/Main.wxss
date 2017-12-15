@@ -36,6 +36,7 @@
   font-size: 9pt;
   margin-top: 30rpx;
   margin-bottom: 80rpx;
+  position: relative;
 }
 
 .book-name {
@@ -79,6 +80,7 @@
 .sentences-item-wrapper {
   margin-bottom: 30rpx;
   margin-top: 30rpx;
+  position: relative;
 }
 
 .add-book-button {
@@ -101,4 +103,92 @@ button[class="add-book-button"]::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.add-sentence-menu {
+  width: 200rpx;
+  padding-top: 10rpx;
+  border: solid 1rpx #bbbbbb;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 35rpx;
+  right: 90rpx;
+  background: #FFFFFF;
+  z-index: 9999;
+}
+
+.add-sentence-menu > view {
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.add-sentence-menu image {
+  height: 50rpx;
+  width: 50rpx;
+  align-self: center;
+}
+
+.add-sentence-menu text {
+  font-size: 7pt;
+  margin-left: 5rpx;
+  margin-right: 15rpx;
+  align-self: center;
+}
+
+.add-book-menu {
+  width: 340rpx;
+  display: flex;
+  flex-direction: column;
+  border: solid #bbbbbb 1rpx;
+  background: #ffffff;
+  padding-left: 5rpx;
+  position: absolute;
+  z-index: 9999;
+}
+
+.add-book-menu image {
+  width: 50rpx;
+  height: 50rpx;
+  align-self: center;
+}
+
+.add-book-menu text {
+  font-size: 7pt;
+  align-self: center;
+}
+
+.add-book-menu-firstrow {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  border-bottom: solid #bbbbbb 1rpx;
+}
+
+.add-book-menu-firstrow > view {
+  width: 170rpx;
+  display: flex;
+}
+.add-book-menu-secondrow {
+  margin-bottom: 15rpx;
+}
+.add-book-menu-thirdrow {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.add-book-menu-thirdrow > view {
+  width: 200rpx;
+  display: flex;
+}
+
+
+.mask {
+  position: absolute;
+  background: #bbbbbb;
+  opacity: 0.1;
 }
