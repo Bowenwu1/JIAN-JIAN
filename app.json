@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/Main/Main",
     "pages/square/square",
-    "pages/community/community"
+    "pages/community/community",
+    "pages/Camera/Camera"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -34,9 +35,9 @@
         "selectedIconPath": "icons/my_selected.png"
       },
       {
-        "pagePath":"pages/Mine/Mine",
-        "text":"我的",
-        "iconPath":"icons/my.png",
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my_selected.png"
       }
     ]
