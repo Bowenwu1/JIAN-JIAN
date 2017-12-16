@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/Mine/Mine",
+    "pages/community/detail/detail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
     "pages/square/square",
-    "pages/community/community",
-    "pages/community/detail/detail"
+    "pages/community/community"
   ],
   "window": {
     "backgroundTextStyle": "light",

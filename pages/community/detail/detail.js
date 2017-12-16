@@ -8,7 +8,7 @@ Page({
    */
   data: {
     tabs: ["美句汇集", "讨论区", "阅读进展"],
-    activeIndex: 1,
+    activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0
   },

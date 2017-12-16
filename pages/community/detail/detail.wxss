@@ -1,1 +1,162 @@
 /* pages/community/detail/detail.wxss */
+.weui-navbar__slider {
+    width: 25%;
+}
+
+.community-digest {
+    width: 86%;
+    margin: 0 7%;
+    font-size: 15px;
+    height: 130px;
+}
+
+.community-info {
+    margin-left: 30px;
+}
+
+.community-info view {
+    margin: 2px 0;
+}
+
+.member-avatar image{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.book-cover {
+    width: 100px;
+    height: 130px;
+    display: inline-block;
+}
+
+.community-info {
+    display: inline-block;
+}
+
+/*美句汇集*/
+.share-cell {
+    width: 86%;
+    margin: 0 7%;
+    margin-top: 8%;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.avatar {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    vertical-align: bottom;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.username {
+    display: inline-block;
+}
+
+.extract {
+    margin: 2%;
+}
+
+.btn-bar {
+    height: 30px;
+}
+
+.btn {
+    border: 1px #D0CFD0 solid;
+    box-shadow: 0 2px 2px #D0CFD0;
+    border-radius: 5px;
+    width: 29px;
+    padding: 3px 12px;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.comment {
+    float: right;
+}
+
+
+
+/*讨论区*/
+.msg-cell-container {
+    width: 86%;
+    margin: 2% 7%; 
+    height: 350px;
+}
+
+.msg-cell__username {
+    display: inline-block;
+    color: gray;
+    font-size: 15px;
+}
+
+.msg-cell__content {
+    font-size: 15px;
+    padding: 2% 0 0 3%;
+}
+
+.msg-input {
+    width: 86%;
+    margin: 0 7%;
+    font-size: 15px;
+    height: 18px;
+    padding:  0 3px;
+    border: 0.5px gray solid;
+}
+
+/*阅读进展*/
+
+.progress-cell-container {
+    width: 86%;
+    margin: 0 7%;
+    font-size: 15px;
+}
+
+.progress-cell {
+    margin: 5% 0;
+}
+
+.progress-cell-username {
+    display: inline-block;
+}
+
+.record-block {
+    border: 1px gray solid;
+    border-radius: 3% 3% 3% 3%;
+    box-shadow: 3px 3px 5px #888888;
+    margin: 3% 2% 0 2%;
+    padding: 3%;
+}
+
+.record-block__var {
+    display: inline;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #723483;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
