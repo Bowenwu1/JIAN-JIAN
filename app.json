@@ -8,7 +8,7 @@
     "pages/community/community",
     "pages/newNote/newNote",
     "pages/square/square",
-    "pages/Camera/Camera"
+    "pages/Camera/Camera",
     "pages/raft/raft"
   ],
   "window": {
@@ -23,31 +23,41 @@
         "pagePath": "pages/Main/Main",
         "text": "摘录",
         "iconPath": "icons/note.png",
-        "selectedIconPath": "icons/note_selected.png"
+        "selectedIconPath": "icons/note_selected.png",
+        "color": "#bbbbbb",
+        "selectedColor": "#8f7b76"
       },
       {
         "pagePath": "pages/square/square",
         "text": "广场",
         "iconPath": "icons/square.png",
-        "selectedIconPath": "icons/square_selected.png"
+        "selectedIconPath": "icons/square_selected.png",
+        "color": "#bbbbbb",
+        "selectedColor": "#8f7b76"
       },
       {
         "pagePath": "pages/community/community",
         "text": "社群",
-        "iconPath": "icons/my.png",
-        "selectedIconPath": "icons/my_selected.png"
+        "iconPath": "icons/community.png",
+        "selectedIconPath": "icons/community_selected.png",
+        "color": "#bbbbbb",
+        "selectedColor": "#8f7b76"
       },
       {
         "pagePath": "pages/raft/raft",
         "text": "漂流",
-        "iconPath": "icons/my.png",
-        "selectedIconPath": "icons/my_selected.png"
+        "iconPath": "icons/drift.png",
+        "selectedIconPath": "icons/drift_selected.png",
+        "color": "#bbbbbb",
+        "selectedColor": "#8f7b76"
       },
       {
         "pagePath": "pages/Mine/Mine",
         "text": "我的",
         "iconPath": "icons/my.png",
-        "selectedIconPath": "icons/my_selected.png"
+        "selectedIconPath": "icons/my_selected.png",
+        "color": "#bbbbbb",
+        "selectedColor": "#8f7b76"
       }
     ]
   }

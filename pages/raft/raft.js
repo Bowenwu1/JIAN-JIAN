@@ -29,7 +29,18 @@ Page({
       }
     ]
   },
-
+  showWorking: function () {
+    wx.showToast({
+      title: '正在开发中',
+      icon: '',
+      image: '../../icons/working.png',
+      duration: 1000,
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

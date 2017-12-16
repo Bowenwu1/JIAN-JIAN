@@ -22,7 +22,7 @@
       <view class='book-detail-wrapper'>
         <text class='book-name'>{{item.book_name}}</text>
         <text class='book-isbn'>{{item.book_isbn}}</text>
-        <button class='contact-button'>联系ta</button>
+        <button class='contact-button' bindtap='showWorking'>联系ta</button>
       </view>
     </view>
   </view>
