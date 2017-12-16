@@ -7,28 +7,20 @@ Page({
    */
   data: {
     bookshelf_image:[
-      '/images/example1.jpg',
-      '/images/example2.jpg',
-      '/images/example3.jpg',
-      '/images/example1.jpg',
-      '/images/example2.jpg',
-      '/images/example3.jpg'
+      '/images/txx.jpg',
+      '/images/lc.jpg',
+      '/images/hn.jpg',
+      '/images/mss.jpg'
     ],
     join_community:[
       {
-        avator: '/images/example1.jpg',
+        avator: '/images/hn.jpg',
         title: '《有一种候鸟》陈少聪',
         owner:'群主：BOB',
         number_partner:'群成员：4人'
       },
       {
-        avator: '/images/example2.jpg',
-        title: '《毛概》马爱云',
-        owner: '群主：藤椒兔',
-        number_partner: '群成员：4人'
-      },
-      {
-        avator: '/images/example3.jpg',
+        avator: '/images/lc.jpg',
         title: '《东方快车》阿加莎·克里斯蒂',
         owner: '群主：藤椒鸡',
         number_partner: '群成员：4人'
