@@ -138,16 +138,6 @@ Page({
     wx.navigateTo({
       url: '../Camera/Camera',
       success: function () {
-        wx.showToast({
-          title: '成功',
-          icon: '',
-          image: '../../icons/working.png',
-          duration: 1000,
-          mask: true,
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
       },
       fail:function() {
         wx.showToast({

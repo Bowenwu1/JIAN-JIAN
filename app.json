@@ -6,7 +6,7 @@
     "pages/logs/logs",
     "pages/Main/Main",
     "pages/community/community",
-    "pages/newNote/newNote"
+    "pages/newNote/newNote",
     "pages/square/square",
     "pages/Camera/Camera"
   ],

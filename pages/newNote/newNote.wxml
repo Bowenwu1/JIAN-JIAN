@@ -37,8 +37,8 @@
   </view>
 
   <view class='buttons-row'>
-    <button class='bottom-button' type='default' size='mini'>取消</button>
-    <button class='bottom-button' type='primary' size='mini'>保存</button>
+    <button class='bottom-button' type='default' size='mini' bindtap='goBack'>取消</button>
+    <button class='bottom-button' type='primary' size='mini' bindtap='goBack'>保存</button>
   </view>
 
 </view>

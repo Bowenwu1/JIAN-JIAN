@@ -17,11 +17,10 @@
   justify-content: center;
 }
 
-.takeButton > cover-image {
+.takeButtonIcon {
   width: 60rpx;
   height: 60rpx;
 }
-
 .review {
   position: absolute;
   width: 100%;

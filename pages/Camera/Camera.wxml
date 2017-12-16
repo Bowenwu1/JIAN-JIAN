@@ -1,11 +1,6 @@
 <!--pages/Camera/Camera.wxml-->
 <camera device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
-  <cover-view class='takeButton'>
-    <cover-view class='fa fa-camera' bindtap='takePhoto'></cover-view>
-  </cover-view>
-
-  <cover-view  class='review'>
-     <cover-image src='{{src}}'>
-    </cover-image>
+  <cover-view class='takeButton' bindtap='takePhoto' >
+    <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
   </cover-view>
 </camera>

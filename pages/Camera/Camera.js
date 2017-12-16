@@ -73,8 +73,9 @@ Page({
   
   },
 
-  takePhoto:function() {
+  takePhoto() {
     const ctx = wx.createCameraContext()
+    console.log('take photo')
     ctx.takePhoto({
       quality: 'high',
       success: (res) => {
@@ -83,7 +84,21 @@ Page({
         })
       },
       complete: (res) => {
-        
+        wx.redirectTo({
+          url: '../newNote/newNote',
+          fail: () => {
+            wx.showToast({
+              title: '失败',
+              icon: '',
+              image: '../../icons/working.png',
+              duration: 1000,
+              mask: true,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+        })
       }
     })
   },
