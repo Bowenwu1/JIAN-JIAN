@@ -16,12 +16,12 @@ page,
   border-bottom: solid 0.5rpx #dedede;
 }
 .community-item-content {
-  padding: 50rpx;
+  padding: 40rpx 80rpx;
   display: flex;
 }
 .community-item-img {
-  width: 200rpx;
-  height: 280rpx;
+  width: 150rpx;
+  height: 200rpx;
   margin-right: 50rpx;
 }
 .community-item-info {
@@ -30,7 +30,7 @@ page,
   align-items: flex-start;
 }
 .topic-info {
-  font-size: 14pt;
+  font-size: 11pt;
   color: black;
 }
 .descript-info {
@@ -38,11 +38,11 @@ page,
   color: grey;
 }
 .rcm-reason {
-  font-size: 11pt;
+  font-size: 9pt;
   border: solid 0.2rpx #09BB07;
   padding: 0 10rpx;
   color: #09BB07;
-  border-radius: 10%;
+  border-radius: 10rpx;
 }
 
 /* search-bar */

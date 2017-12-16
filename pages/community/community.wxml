@@ -49,8 +49,8 @@
                   </view>
                 </view>
               </view>
-              <block wx:for="{{myCommunityList}}" wx:key="this">
-                <template is="my-community-item" data="{{...item}}"/>
+              <block wx:for="{{recCommunityList}}" wx:key="this">
+                <template is="rec-community-item" data="{{...item}}"/>
               </block>
             </view>
 
@@ -63,8 +63,8 @@
                   </view>
                 </view>
               </view>
-              <block wx:for="{{recCommunityList}}" wx:key="this">
-                <template is="rec-community-item" data="{{...item}}"/>
+              <block wx:for="{{myCommunityList}}" wx:key="this">
+                <template is="my-community-item" data="{{...item}}"/>
               </block>
             </view>
 
