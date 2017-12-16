@@ -14,19 +14,19 @@ Page({
         leader: '抱脖脖',
         memberNum: 4,
         reason: '看过的书',
-        bookImgPath: '../../images/example1.jpg'
+        bookImgPath: '../../images/hn.jpg'
       }, {
         identity: 'BOB',
         leader: '李看山',
         memberNum: 7,
         reason: '热门',
-        bookImgPath: '../../images/example2.jpg'
+        bookImgPath: '../../images/mss.jpg'
       }, {
         identity: '笺笺粉丝会',
         leader: 'Nobody',
         memberNum: 5,
         reason: '热门',
-        bookImgPath: '../../images/example3.jpg'
+        bookImgPath: '../../images/lc.jpg'
       }
     ],
     myCommunityList: [
@@ -34,12 +34,12 @@ Page({
         identity: 'ToBeNo.2',
         leader: 'BBB',
         memberNum: 5,
-        bookImgPath: '../../images/example1.jpg'
+        bookImgPath: '../../images/hn.jpg'
       }, {
         identity: 'DOD',
         leader: 'DDD',
         memberNum: 4,
-        bookImgPath: '../../images/example2.jpg'
+        bookImgPath: '../../images/mss.jpg'
       }
     ]
   },

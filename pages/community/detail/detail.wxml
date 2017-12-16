@@ -1,6 +1,6 @@
 <!--pages/community/detail/detail.wxml-->
 <view class='community-digest'>
-  <image class='book-cover' src='/images/example1.jpg'></image>
+  <image class='book-cover' src='/images/hn.jpg'></image>
   <view class='community-info'>
      <view class='book-title'>《有一种候鸟》 陈少聪</view>
     <view class='community-leader'>群主：鲍勃</view>
