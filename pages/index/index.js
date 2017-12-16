@@ -11,14 +11,14 @@ Page({
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    // wx.navigateTo({
+    //   url: '../logs/logs'
+    // })
   },
   onLoad: function () {
-    wx.switchTab({
-      url: '/pages/Main/Main',
-    })
+    // wx.switchTab({
+    //   url: '/pages/Main/Main',
+    // })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

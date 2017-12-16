@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/Main/Main",
     "pages/Mine/Mine",
     "pages/community/detail/detail",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/Main/Main",
     "pages/community/community",
     "pages/newNote/newNote",
     "pages/square/square",

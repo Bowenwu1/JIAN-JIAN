@@ -50,7 +50,7 @@
                 </view>
               </view>
               <block wx:for="{{recCommunityList}}" wx:key="this">
-                <template is="rec-community-item" data="{{...item}}"/>
+                <template is="rec-community-item" data="{{...item}}" bindtap='showWorking'/>
               </block>
             </view>
 

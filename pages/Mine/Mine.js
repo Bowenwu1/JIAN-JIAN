@@ -1,3 +1,4 @@
+const app = getApp()
 // pages/Mine/Mine.js
 Page({
 
@@ -36,14 +37,32 @@ Page({
     personal_avator: '../../images/sample-avator.png',
     username:'藤椒兔',
     read_book:3,
-    read_hour:20
+    read_hour:20,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log('onLoad')
+    if (this.data.canIUse) {
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          username:res.userInfo.nickName,
+          personal_avator: res.userInfo.avatarUrl
+        })
+      }
+    } else {
+      wx.getUserInfo({
+        success:res=> {
+          this.setData({
+            username: res.userInfo.nickName,
+            personal_avator: res.userInfo.avatarUrl
+          })
+        }
+      })
+    }
   },
 
   /**

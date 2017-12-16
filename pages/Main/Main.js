@@ -124,7 +124,7 @@ Page({
   },
   showWorking: function () {
     wx.showToast({
-      title: '此功能正在开发中',
+      title: '正在开发中',
       icon: '',
       image: '../../icons/working.png',
       duration: 1000,

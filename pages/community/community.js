@@ -65,5 +65,17 @@ Page({
     wx.navigateTo({
       url: './detail/detail'
     })
+  },
+  showWorking: function () {
+    wx.showToast({
+      title: '正在开发中',
+      icon: '',
+      image: '../../icons/working.png',
+      duration: 1000,
+      mask: true,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   }
 });
