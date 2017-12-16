@@ -5,8 +5,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
-    "pages/square/square",
     "pages/community/community",
+    "pages/newNote/newNote"
+    "pages/square/square",
     "pages/Camera/Camera"
   ],
   "window": {
