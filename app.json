@@ -9,6 +9,7 @@
     "pages/newNote/newNote",
     "pages/square/square",
     "pages/Camera/Camera"
+    "pages/raft/raft"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,6 +34,12 @@
       {
         "pagePath": "pages/community/community",
         "text": "社群",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_selected.png"
+      },
+      {
+        "pagePath": "pages/raft/raft",
+        "text": "漂流",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my_selected.png"
       },
