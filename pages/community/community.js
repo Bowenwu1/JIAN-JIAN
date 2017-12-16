@@ -59,5 +59,11 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+
+  communityDetail() {
+    wx.navigateTo({
+      url: './detail/detail'
+    })
   }
 });

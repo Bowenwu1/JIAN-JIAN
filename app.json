@@ -1,10 +1,14 @@
 {
   "pages": [
+    "pages/Mine/Mine",
+    "pages/community/detail/detail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/Main/Main",
     "pages/community/community",
     "pages/newNote/newNote"
+    "pages/square/square",
+    "pages/Camera/Camera"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,7 +25,7 @@
         "selectedIconPath": "icons/note_selected.png"
       },
       {
-        "pagePath": "pages/newNote/newNote",
+        "pagePath": "pages/square/square",
         "text": "广场",
         "iconPath": "icons/square.png",
         "selectedIconPath": "icons/square_selected.png"
@@ -29,6 +33,12 @@
       {
         "pagePath": "pages/community/community",
         "text": "社群",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_selected.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
         "iconPath": "icons/my.png",
         "selectedIconPath": "icons/my_selected.png"
       }

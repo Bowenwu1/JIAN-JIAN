@@ -16,7 +16,7 @@
 </template>
 <template name="my-community-item">
   <view class="item-wrapper">
-    <view class="community-item-content">
+    <view class="community-item-content" bindtap='communityDetail'>
       <image class="community-item-img" src="{{bookImgPath}}"></image>
       <view class="community-item-info">
         <text class="topic-info"> {{identity}} </text>

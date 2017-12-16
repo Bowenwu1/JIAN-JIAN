@@ -1,0 +1,34 @@
+<!--pages/Mine/Mine.wxml-->
+<view class='mine'>
+  <view class='personal-info'>
+    <image class='avator' src='{{personal_avator}}'></image>
+      <view class='personal-info-vertical-wrapper'>
+        <view class='first-row'>
+          <text class='username'>{{username}}</text>
+        </view>
+        <view class='second-row'>
+          <text>读过的书:</text><text>{{read_book}}</text>
+          <text> 读书时长:</text><text>{{read_hour}}</text>
+        </view>
+      </view>
+  </view>
+
+  <view class='bookshelf-wrapper'>
+    <text class='bookshelf-title'>看过的书</text>
+    <scroll-view class='bookshelf' scroll-x="true">
+      <image wx:for = "{{bookshelf_image}}" src='{{item}}' class='bookshelf-item'></image>
+    </scroll-view>
+  </view>
+
+  <view class='join-community-wrapper'>
+    <text class='join-community-title'>加入的社群</text>
+    <view class='community-info-wrapper' wx:for='{{join_community}}'>
+      <image src='{{item.avator}}' class='community-info-avator'></image>
+      <view class='community-info-word-wrapper'>
+        <text class='community-info-word-name'>{{item.title}}</text>
+        <text class='community-info-word-owner community-info-word-less-stress'>{{item.owner}}</text>
+        <text class='community-info-word-partner-num community-info-word-less-stress'>{{item.number_partner}}</text>
+      </view>
+    </view>
+  </view>
+</view>
