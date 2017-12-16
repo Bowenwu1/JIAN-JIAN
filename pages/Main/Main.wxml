@@ -14,7 +14,7 @@
     <view class='book-info-row'>
       <text class='book-name'>{{item.bookName}}</text>
       <text class='from-username'>{{item.userName}}</text>
-      <view class='add-button-wrapper'><text>+</text></view>
+      <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
     </view>
 
     <view class='sentences-wrapper' wx:for="{{item.showSentences}}">
@@ -24,5 +24,5 @@
     </view>
   </view>
 
-  <button class='add-book-button'><text>+</text></button>
+  <button class='add-book-button' bindtap='onAddBookClick'><text>+</text></button>
 </view>
