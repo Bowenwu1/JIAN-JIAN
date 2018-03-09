@@ -7,14 +7,14 @@ Page({
   data: {
     raft_book_list:[
       {
-        book_owner_avator: '../../images/sample-avator.png',
+        book_owner_avator: '../../images/avatar1.jpg',
         book_owner_name:'藤椒兔',
         book_avator: '../../images/txx.jpg',
         book_name:'《檀香刑》莫言',
         book_isbn:'ISBN:9787505735446'
       },
       {
-        book_owner_avator: '../../images/sample-avator.png',
+        book_owner_avator: '../../images/avatar1.jpg',
         book_owner_name: '藤椒兔',
         book_avator: '../../images/mss.jpg',
         book_name: '《写给大家的西方美术史》蒋勋',
