@@ -1,0 +1,89 @@
+/* pages/SentencesOfBook/SentencesOfBook.wxss */
+.action-bar {
+  height: 30%;
+  background-color: #fae8d2;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.new-button {
+  float: left;
+  padding-bottom: 0;
+}
+
+.edit-button {
+  float: right;
+  padding-bottom: 0;
+}
+
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+.searchbar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 80rpx;
+  padding-right: 80rpx;
+  font-size: 9pt;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
+}
+
+.book-name {
+  color: #bbbbbb;
+}
+.from-username {
+  color: #bbbbbb;
+}
+.book-info-row {
+  position: relative;
+  /*border: 2rpx solid #bbbbbb;*/
+}
+.book-info-row > text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sentences-wrapper {
+  margin-top: 50rpx;
+}
+
+.sentences-item-wrapper {
+  margin-bottom: 10rpx;
+  margin-top: 50rpx;
+}
+
+
+.add-button-wrapper {
+
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #FF0000;
+  font-size: 11pt;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+}
+
+.add-button-wrapper > text {
+  font-size: 15pt;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+}
+
+.thought {
+  color: #bbbbbb;
+}

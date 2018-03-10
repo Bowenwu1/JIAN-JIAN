@@ -18,23 +18,23 @@
   margin-bottom: 80rpx;
 }
 
-.choose-box {
+.text-box {
   border-radius: 10rpx;
   padding: 20rpx 25rpx;
   border: #bbbbbb 0.5rpx solid;
 }
 
-.book-name {
+.thought {
   color: #bbbbbb;
 }
 .from-username {
   color: #bbbbbb;
 }
-.book-info-row {
+.thought-row {
   position: relative;
   /*border: 2rpx solid #bbbbbb;*/
 }
-.book-info-row > text {
+.thought-row > thought {
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -48,7 +48,7 @@
   margin-top: 30rpx;
 }
 
-.feeling-content {
+.thought-content {
   border-radius: 10rpx;
   padding: 20rpx 25rpx;
   border: #bbbbbb 0.5rpx solid;

@@ -3,27 +3,11 @@
 
 
   <view class='hint-row'>
-    <text>请选定你喜欢的美句</text>
+    <text>请编辑你喜欢的美句</text>
   </view>
   <view class='item-wrapper'>
-    <view class='choose-box'>
-      <text class='sentences-item'>{{allContent}}</text>
-    </view>
-  </view>
-
-  <view class='hint-row'>
-    <text>小笺预览</text>
-  </view>
-  <view class='item-wrapper'>
-    <view class='book-info-row'>
-      <text class='book-name'>{{book.bookName}}</text>
-      <text class='from-username'>{{book.userName}}</text>
-    </view>
-
-    <view class='sentences-wrapper' wx:for="{{book.showSentences}}">
-      <view class='sentences-item-wrapper'>
-        <text class='sentences-item'>{{item}}</text>
-      </view>
+    <view class='text-box'>
+      <textarea class='sentences-item' value="{{sentenceContent}}" auto-height='true' confirm-type='done' bindinput="changeSentencePreview"	placeholder="书摘内容" />
     </view>
   </view>
 
@@ -31,14 +15,28 @@
     <text>感受</text>
   </view>
   <view class='item-wrapper'>
-    <view class="input-wrapper">
-      <input class='feeling-content' placeholder="写一写感受..." />
+    <view class="text-box">
+      <textarea class='sentences-item' auto-height='true' confirm-type='done' bindinput="changeThoughtPreview"	placeholder="写一写感受..." />
+    </view>
+  </view>
+
+  <view class='hint-row'>
+    <text>小笺预览</text>
+  </view>
+  <view class='item-wrapper'>
+    <view class='sentences-wrapper'>
+      <view class='sentences-item-wrapper'>
+        <text class='sentences-item'>{{sentenceContent}}</text>
+      </view>
+    </view>
+    <view class='thought-row'>
+      <text class='thought'>{{thoughtContent}}</text>
     </view>
   </view>
 
   <view class='buttons-row'>
     <button class='bottom-button' type='default' size='mini' bindtap='goBack'>取消</button>
-    <button class='bottom-button' type='primary' size='mini' bindtap='goBack'>保存</button>
+    <button class='bottom-button' type='primary' size='mini' bindtap='submitNewNote'>保存</button>
   </view>
 
 </view>

@@ -1,0 +1,29 @@
+<!--pages/SentencesOfBook/SentencesOfBook.wxml-->
+<view class='page'>
+
+  <view class='page_hd'>
+    <view class="weui-search-bar__form searchbar" style="border-radius:20px">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
+      </view>
+    </view>
+  </view>
+
+  <view class='item-wrapper'>
+    <view class='book-info-row'>
+      <text class='book-name'>《{{title}}》</text>
+      <text class='from-username'> ——{{author}}</text>
+      <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
+    </view>
+    
+    <view class='sentences-wrapper' wx:for="{{sentences}}">
+      <view class='sentences-item-wrapper'>
+        <text class='sentences-item'>{{item.content}}</text>
+      </view>
+      <view class='thought-row' wx:if="{{item.thought != null && item.thought !== 'undefined'}}">
+        <text class='thought'>{{item.thought}}</text>
+      </view>
+    </view>
+  </view>
+</view>
