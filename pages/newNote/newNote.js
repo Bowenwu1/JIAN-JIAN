@@ -1,28 +1,30 @@
 // pages/newNote/newNote.js
 
+import { JJRequest } from '../../utils/util'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    allContent: "我一直认为，在上苍给人类原配的生存元素和美学资源中，“寂静”，乃最贵重的成分之一。音乐未诞生前，它是耳朵最大的福祉，也是唯一的爱情。\n并非无声才叫寂静，深巷夜更、月落乌啼、雨滴石阶、风疾掠竹……寂静之声，更显清幽，更让人神思旷远。美景除了悦目，必营养耳朵。",
-    book: {
-        bookName: "耳根的清静",
-        userName: "-----王开岭",
-        showSentences: [
-          "音乐未诞生前，它是耳朵最大的福祉，也是唯一的爱情。",
-          "美景除了悦目，必营养耳朵。"
-        ]
-      }
-    
+    isbn: "",
+    sentenceContent: "",
+    thoughtContent: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      isbn: options.isbn
+    });
+    if (options.sentence != null) {
+      this.setData({
+        sentenceContent: options.sentence
+      });
+    }
   },
 
   /**
@@ -77,6 +79,37 @@ Page({
   goBack() {
     wx.navigateBack({
       delta:1
+    })
+  },
+
+  changeSentencePreview(e) {
+    this.setData({
+      sentenceContent: e.detail.value
+    })
+  },
+
+  changeThoughtPreview(e) {
+    this.setData({
+      thoughtContent: e.detail.value
+    })
+  },
+
+  submitNewNote() {
+    var that = this;
+    JJRequest({
+      url: 'http://111.230.135.232:3000/api/sentence?isbn='+that.data.isbn,
+      method: 'POST',
+      data: {
+        content: that.data.sentenceContent,
+        thought: that.data.thoughtContent
+      },
+      success: res => {
+        console.log(res);
+        that.goBack();
+      },
+      fail: {
+        // ...
+      }
     })
   }
 })

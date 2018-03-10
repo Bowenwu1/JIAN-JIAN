@@ -9,7 +9,8 @@
     "pages/newNote/newNote",
     "pages/square/square",
     "pages/Camera/Camera",
-    "pages/raft/raft"
+    "pages/raft/raft",
+    "pages/SentencesOfBook/SentencesOfBook"
   ],
   "window": {
     "backgroundTextStyle": "light",
