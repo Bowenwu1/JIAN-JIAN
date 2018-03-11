@@ -1,5 +1,5 @@
 <!--pages/SentencesOfBook/SentencesOfBook.wxml-->
-<view class='page'>
+<view class='page' scroll-x='false'>
 
   <view class='page_hd'>
     <view class="weui-search-bar__form searchbar" style="border-radius:20px">
@@ -11,19 +11,39 @@
   </view>
 
   <view class='item-wrapper'>
+
     <view class='book-info-row'>
       <text class='book-name'>《{{title}}》</text>
       <text class='from-username'> ——{{author}}</text>
-      <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
     </view>
-    
-    <view class='sentences-wrapper' wx:for="{{sentences}}">
-      <view class='sentences-item-wrapper'>
-        <text class='sentences-item'>{{item.content}}</text>
-      </view>
-      <view class='thought-row' wx:if="{{item.thought != null && item.thought !== 'undefined'}}">
-        <text class='thought'>{{item.thought}}</text>
-      </view>
-    </view>
+
+    <scroll-view class='sentences-box' scroll-y='true'>
+      <checkbox-group bindchange="checkboxChange" wx:for="{{sentences}}">
+        <view class='sentence-list-item'>
+          <view class='sentences-wrapper'>
+            <view class='sentences-item-wrapper'>
+              <text class='sentences-item'>{{item.content}}</text>
+            </view>
+            <view class='thought-row' wx:if="{{item.thought != null && item.thought !== 'undefined'}}">
+              <text class='thought'>{{item.thought}}</text>
+            </view>
+          </view>
+          <checkbox class='sentence-checkbox' value="{{item.sentence_id}}" wx:if="{{show_checkbox}}" checked="{{item.checked}}"/>{{item.value}}
+        </view>
+      </checkbox-group>
+    </scroll-view>
   </view>
+
+  <view class='icon-buttons-wrapper' hidden="{{show_checkbox}}">
+      <image class='button-image' bindtap='onAddSentenceClick' src='/icons/add.png' mode='aspectFit' />
+      <image class='button-image' bindtap='onDeleteSentenceClick' src='/icons/delete.png' mode='aspectFit' />
+      <image class='button-image' bindtap='onShareSentenceClick' src='/icons/share.png' mode='aspectFit' />
+    </view>
+
+    <view class='buttons-row' wx:if="{{show_checkbox}}">
+      <button class='bottom-button' type='default' size='mini' bindtap='cancelChecking'>取消</button>
+      <button class='bottom-button' type='primary' wx:if="{{share_or_delete}}" size='mini' bindtap='shareChecking'>分享</button>
+      <button class='bottom-button' type='warn' wx:if="{{!share_or_delete}}" size='mini' bindtap='deleteChecking'>删除</button>
+    </view>
+
 </view>

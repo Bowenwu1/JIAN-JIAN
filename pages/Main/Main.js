@@ -3,7 +3,7 @@
 import {JJRequest} from '../../utils/util.js'
 
 Page({
-  
+  host: "http://111.230.135.232:3000/api",
   /**
    * 页面的初始数据
    */
@@ -33,7 +33,7 @@ Page({
     var that = this;
     /*
     JJRequest({
-      url: 'http://111.230.135.232:3000/api/books',
+      url: that.host + '/books',
       method: 'POST',
       data: {
         isbn: "9787534155550"
@@ -44,12 +44,12 @@ Page({
     })*/
     
     JJRequest({
-      url: 'http://111.230.135.232:3000/api/books',
+      url: that.host+'/books',
       method: 'GET',
       success: res => {
         if (res.data.data.length == 0) {
           JJRequest({
-            url: 'http://111.230.135.232:3000/api/books',
+            url: that.host + '/books',
             method: 'POST',
             data: {
               isbn: "9787534155550"
@@ -57,7 +57,7 @@ Page({
             success: res => {
               console.log(res);
               JJRequest({
-                url: 'http://111.230.135.232:3000/api/books',
+                url: that.host + '/books',
                 method: 'GET',
                 success: res => {
                   that.setData({
@@ -75,7 +75,7 @@ Page({
           });
         }
       }
-    })
+    });
   },
 
   /**
@@ -157,16 +157,32 @@ Page({
   onAddBookClick: function () {
     var that = this;
     wx.showActionSheet({
-      itemList: ['扫描条形码添加书籍','输入isbn码添加书籍'],
+      itemList: ['新增书籍','添加书摘'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
           case 0:
-            // 扫条形码
-            that.showWorking();
+            // new Book
+            wx.navigateTo({
+              url: '../newBook/newBook',
+              success: function () {
+              },
+              fail: function () {
+                wx.showToast({
+                  title: '失败',
+                  icon: '',
+                  image: '../../icons/working.png',
+                  duration: 1000,
+                  mask: true,
+                  success: function (res) { },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                })
+              }
+            })
             break;
           case 1:
-            // 输入isbn
+            // new Note
             that.showWorking();
             break;
         }

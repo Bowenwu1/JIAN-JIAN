@@ -2,11 +2,14 @@
 import { JJRequest } from '../../utils/util.js'
 
 Page({
-
+  host: "http://111.230.135.232:3000/api",
   /**
    * 页面的初始数据
    */
   data: {
+    share_or_delete: true, // true for share and false for delete 
+    show_checkbox: false,
+    checked_value: [],
     title: "",
     author: "",
     isbn: "",
@@ -39,7 +42,7 @@ Page({
   onShow: function () {
     var that = this;
     JJRequest({
-      url: 'http://111.230.135.232:3000/api/sentence?isbn=' + that.data.isbn,
+      url: that.host + '/sentence?isbn=' + that.data.isbn,
       method: 'GET',
       success: res => {
         console.log("get sentences successfully");
@@ -86,6 +89,12 @@ Page({
   
   },
 
+  checkboxChange: function(e) {
+    this.setData({
+      checked_value: this.data.checked_value.concat(e.detail.value)
+    });
+  },
+
   onAddSentenceClick: function (position) {
     var that = this;
     wx.showActionSheet({
@@ -119,6 +128,66 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-  }
+  },
+
+  onDeleteSentenceClick: function(e) {
+    this.setData({
+      show_checkbox: true,
+      share_or_delete: false
+    });
+  },
+
+  onShareSentenceClick: function(e) {
+    this.setData({
+      show_checkbox: true,
+      share_or_delete: true
+    });
+  },
+
+  cancelChecking: function(e) {
+    this.setData({
+      show_checkbox: false,
+      checked_value: []
+    });
+  },
+
+  shareCheckinng: function(e) {
+
+  },
+
+  deleteChecking: function(e) {
+    console.log(this.data.checked_value);
+    var that = this;
+    wx.showModal({
+      title: '删除',
+      content: '您将要删除这' + that.data.checked_value.length + '条书摘。',
+      success: function(res) {
+        if (res.confirm) {
+          console.log("删除");
+          JJRequest({
+            url: that.host + '/sentence',
+            method: 'DELETE',
+            data: {
+              sentence_id: that.data.checked_value
+            },
+            success: res => {
+              console.log("delete seccessfully");
+              wx.redirectTo({
+                url: '../SentencesOfBook/SentencesOfBook?isbn=' + that.data.isbn + '&title=' + that.data.title + '&author=' + that.data.author
+              })
+            },
+            fail: res => {
+              console.log(res);
+            }
+          })
+        } else if (res.cancel) {
+          console.log("取消删除操作");
+        }
+
+      }
+
+    });
+  },
+  
 
 })

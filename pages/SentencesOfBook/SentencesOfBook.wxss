@@ -31,8 +31,8 @@
 .item-wrapper {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 80rpx;
-  padding-right: 80rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
   font-size: 9pt;
   margin-top: 30rpx;
   margin-bottom: 80rpx;
@@ -44,46 +44,58 @@
 .from-username {
   color: #bbbbbb;
 }
-.book-info-row {
-  position: relative;
-  /*border: 2rpx solid #bbbbbb;*/
-}
+
 .book-info-row > text {
   margin-top: auto;
   margin-bottom: auto;
 }
 
+.sentences-box {
+  height: 900rpx;
+}
+
 .sentences-wrapper {
-  margin-top: 50rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+  margin-left: 8%;
+  width: 84%;
+  float: left;
 }
 
 .sentences-item-wrapper {
   margin-bottom: 10rpx;
-  margin-top: 50rpx;
 }
 
 
-.add-button-wrapper {
-
-  margin-top: auto;
-  margin-bottom: auto;
-  color: #FF0000;
+.icon-buttons-wrapper {
   font-size: 11pt;
-  position: absolute;
-  top: 50%;
-  right: 0%;
-  transform: translateY(-50%);
+  margin-top: 20rpx;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.button-image {
+  width: 28px;
+  height: 28px;
+  margin-right: 20rpx;
 }
 
-.add-button-wrapper > text {
-  font-size: 15pt;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  right: 0%;
-  transform: translateY(-50%);
+.sentence-checkbox {
+  float: right;
+  zoom: 60%;
+  margin-top: 50rpx;
 }
 
 .thought {
   color: #bbbbbb;
+}
+
+.buttons-row {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 20rpx;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
 }
