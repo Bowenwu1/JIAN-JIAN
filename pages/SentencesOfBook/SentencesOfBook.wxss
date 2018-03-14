@@ -66,6 +66,9 @@
   margin-bottom: 10rpx;
 }
 
+.sentences-item {
+  word-break:break-all;
+}
 
 .icon-buttons-wrapper {
   font-size: 11pt;
@@ -88,6 +91,7 @@
 
 .thought {
   color: #bbbbbb;
+  word-break:break-all;
 }
 
 .buttons-row {

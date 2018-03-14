@@ -1,0 +1,82 @@
+/* pages/shareNote/shareNote.wxss */
+
+
+.item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 9pt;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
+}
+
+
+.book-name {
+  color: #bbbbbb;
+}
+
+.sentences-wrapper {
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+
+.sentences-item {
+  word-break:break-all;
+}
+
+.thought {
+  color: #bbbbbb;
+}
+
+.bottom-button {
+  margin: 20rpx 40rpx;
+}
+
+
+.hint-row {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 11pt;
+}
+
+
+.text-box {
+  width: 90%;
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  border: #bbbbbb 0.5rpx solid;
+  margin-bottom: 50rpx;
+}
+
+.thought {
+  color: #bbbbbb;
+}
+.from-username {
+  color: #bbbbbb;
+}
+
+
+.sentences-wrapper {
+  margin-top: 30rpx;
+}
+
+.sentences-ta {
+  min-height: 200rpx;
+  width: 100%;
+}
+
+.thought-content {
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  border: #bbbbbb 0.5rpx solid;
+}
+
+.buttons-row {
+  text-align: center;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
+}

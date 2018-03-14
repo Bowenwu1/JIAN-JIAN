@@ -29,16 +29,14 @@
 }
 
 .round-button {
-  border-radius: 20rpx;
   font-size: 28rpx;
   display: block;
   float: right;
-  height: 45rpx;
-  width: 80rpx;
+  height: auto;
+  width: 128rpx;
   text-align: center;
   margin-top: 14rpx;
-  background: #FAF2E8;
-  box-shadow: 5rpx 5rpx 5rpx gray;
+  padding: 2rpx;
 }
 
 .item-body-wrapper {
@@ -56,6 +54,10 @@
 
 .item-footer, .item-like-comment {
   text-align: right;
+}
+
+.item-thought-content {
+  color: #bbbbbb;
 }
 
 .item-like-comment {

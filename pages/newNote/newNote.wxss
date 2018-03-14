@@ -24,28 +24,31 @@
   border: #bbbbbb 0.5rpx solid;
 }
 
+.sentences-ta {
+  width: 100%;
+}
+
+.thought-row {
+  width: 100%;
+}
 .thought {
   color: #bbbbbb;
-}
-.from-username {
-  color: #bbbbbb;
-}
-.thought-row {
-  position: relative;
-  /*border: 2rpx solid #bbbbbb;*/
-}
-.thought-row > thought {
-  margin-top: auto;
-  margin-bottom: auto;
+  word-break:break-all;
 }
 
 .sentences-wrapper {
   margin-top: 30rpx;
+  width: 100%;
 }
 
 .sentences-item-wrapper {
   margin-bottom: 30rpx;
   margin-top: 30rpx;
+  width: 100%
+}
+
+.sentences-item {
+  word-break:break-all;
 }
 
 .thought-content {

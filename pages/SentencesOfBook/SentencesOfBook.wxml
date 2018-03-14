@@ -18,8 +18,8 @@
     </view>
 
     <scroll-view class='sentences-box' scroll-y='true'>
-      <checkbox-group bindchange="checkboxChange" wx:for="{{sentences}}">
-        <view class='sentence-list-item'>
+      <checkbox-group bindchange="checkboxChange">
+        <view class='sentence-list-item' wx:for="{{sentences}}">
           <view class='sentences-wrapper'>
             <view class='sentences-item-wrapper'>
               <text class='sentences-item'>{{item.content}}</text>
@@ -28,7 +28,7 @@
               <text class='thought'>{{item.thought}}</text>
             </view>
           </view>
-          <checkbox class='sentence-checkbox' value="{{item.sentence_id}}" wx:if="{{show_checkbox}}" checked="{{item.checked}}"/>{{item.value}}
+          <checkbox class='sentence-checkbox' value="{{index}}" wx:if="{{show_checkbox}}" />{{item.value}}
         </view>
       </checkbox-group>
     </scroll-view>

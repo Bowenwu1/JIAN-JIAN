@@ -1,0 +1,28 @@
+<!--pages/shareNote/shareNote.wxml-->
+<view class='page' scroll-x='false'>
+
+  <view class='item-wrapper'>
+
+    <view class='book-info-row'>
+      <text class='book-name'>《{{title}}》</text>
+      <text class='from-username'> ——{{author}}</text>
+    </view>
+
+    <view class='sentences-wrapper'>
+      <view class='sentences-item-wrapper' wx:for="{{sentences_content}}">
+        <text class='sentences-item'>{{item}}</text>
+      </view>
+    </view>
+
+    <view class="text-box">
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeThought"	placeholder="写一写感受..." />
+    </view>
+
+    <view class='buttons-row'>
+      <button class='bottom-button' type='default' size='mini' bindtap='goBack'>取消</button>
+      <button class='bottom-button' type='primary'  size='mini' bindtap='shareToSquare'>分享</button>
+    </view>
+
+  </view>
+
+</view>

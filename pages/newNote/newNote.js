@@ -77,25 +77,25 @@ Page({
 
   },
 
-  changeSentencePreview(e) {
+  changeSentencePreview: function(e) {
     this.setData({
       sentenceContent: e.detail.value
     })
   },
 
-  changeThoughtPreview(e) {
+  changeThoughtPreview: function(e) {
     this.setData({
       thoughtContent: e.detail.value
     })
   },
 
-  goBack() {
+  goBack: function() {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  submitNewNote() {
+  submitNewNote: function() {
     var that = this;
     JJRequest({
       url: that.host + '/sentence?isbn='+that.data.isbn,
@@ -105,6 +105,7 @@ Page({
         thought: that.data.thoughtContent
       },
       success: res => {
+        getApp().globalData.sentencesChange++;
         console.log(res);
         that.goBack();
       },

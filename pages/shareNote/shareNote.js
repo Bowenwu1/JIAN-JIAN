@@ -1,25 +1,30 @@
-// pages/newBook/newBook.js
-import {JJRequest} from '../../utils/util.js'
+// pages/shareNote/shareNote.js
+import { JJRequest } from '../../utils/util.js'
 
 Page({
   host: "http://111.230.135.232:3000/api",
-
   /**
    * 页面的初始数据
    */
   data: {
-    title: "暂无",
-    author: "暂无",
-    isbn: "暂无",
-    title_page_url: ""
-
+    thoughts: "",
+    snetences_content: [],
+    title: "",
+    author: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.showScanning();
+    var share_info = (wx.getStorageSync('share_info') || {});
+    console.log(share_info);
+    this.setData({
+      isbn: share_info.isbn,
+      title: share_info.title,
+      author: share_info.author,
+      sentences_content: share_info.sentences_content
+    });
   },
 
   /**
@@ -71,56 +76,41 @@ Page({
   
   },
 
-  showScanning: function() {
-    var that = this;
-    wx.scanCode({
-      scanType: 'barCode',
-      success: (res) => {
-        console.log(res)
-        var isbn = res.result;
-        JJRequest({
-          url: that.host + '/book_info?isbn=' + isbn,
-          success: res => {
-            console.log(res);
-            that.setData({
-              title: res.data.data.title,
-              author: res.data.data.author,
-              isbn: res.data.data.isbn,
-              title_page_url: res.data.data.title_page_url
-            });
-          },
-          fail: res => {
-            console.log('fail');
-            console.log(res);
-          }
-        });
-      }
-    });
+  changeThought: function(e) {
+    this.setData({
+      thoughts: e.detail.value
+    })
   },
 
-  goBack() {
+  goBack: function() {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  submitNewBook() {
+  shareToSquare: function() {
     var that = this;
+    console.log({
+      sentences: that.data.sentences_content,
+      isbn: that.data.isbn,
+      thoughts: that.data.thoughts
+    });
     JJRequest({
-      url: that.host + '/books',
+      url: that.host + '/square_sentences',
       method: 'POST',
       data: {
-        isbn: that.data.isbn
+        sentences: that.data.sentences_content,
+        isbn: that.data.isbn,
+        thoughts: that.data.thoughts
       },
       success: res => {
-        getApp().globalData.booksChange++;
         console.log(res);
+        console.log("share to square successfully")
         that.goBack();
       },
-      fail: {
+      fail: res => {
         // ...
       }
-    })
+    });
   }
-
 })

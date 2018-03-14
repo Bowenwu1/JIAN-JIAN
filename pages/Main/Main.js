@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    booksChange: -1,
+    sentencesChange: -1,
+
     booksList: [
       /*{
         "isbn": "9787534155550",
@@ -61,7 +64,8 @@ Page({
                 method: 'GET',
                 success: res => {
                   that.setData({
-                    booksList: res.data.data
+                    booksList: res.data.data,
+                    booksChange: getApp().globaldata.booksChange
                   });
                 }
               })
@@ -89,7 +93,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.booksChange != getApp().globalData.booksChange ||
+        this.data.sentencesChange != getApp().globalData.sentencesChange) {
+      this.onLoad();
+    }
   },
 
   /**
@@ -183,7 +190,10 @@ Page({
             break;
           case 1:
             // new Note
-            that.showWorking();
+            //that.showWorking();
+            wx.navigateTo({
+              url:"../test/test"
+            });
             break;
         }
       },
@@ -201,25 +211,6 @@ Page({
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
-    })
-  },
-  showCamera: function () {
-    wx.navigateTo({
-      url: '../Camera/Camera',
-      success: function () {
-      },
-      fail:function() {
-        wx.showToast({
-          title: '失败',
-          icon: '',
-          image: '../../icons/working.png',
-          duration: 1000,
-          mask: true,
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      }
     })
   },
   onBookItemClick: function(e) {

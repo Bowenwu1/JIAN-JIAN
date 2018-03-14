@@ -11,7 +11,9 @@
     "pages/Camera/Camera",
     "pages/raft/raft",
     "pages/SentencesOfBook/SentencesOfBook",
-    "pages/newBook/newBook"
+    "pages/newBook/newBook",
+    "pages/test/test",
+    "pages/shareNote/shareNote"
   ],
   "window": {
     "backgroundTextStyle": "light",

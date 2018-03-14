@@ -9,6 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    booksChange: 0,
+    groupsChange: 0,
+
     bookshelf_image:[
       '/images/txx.jpg',
       '/images/lc.jpg',
@@ -50,6 +53,8 @@ Page({
       success: res => {
         console.log("get bookList successful");
         that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
           booksList: res.data.data
         });
       }
@@ -80,7 +85,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.booksChange != getApp().globalData.booksChange ||
+      this.data.groupsChange != getApp().globalData.groupsChange) {
+      this.updateData();
+    }
   },
 
   /**
@@ -122,5 +130,22 @@ Page({
     wx.navigateTo({
       url: '../SentencesOfBook/SentencesOfBook?isbn=' + e.currentTarget.dataset.isbn + '&title=' + e.currentTarget.dataset.title + '&author=' + e.currentTarget.dataset.author
     })
+  },
+
+  updateData: function() {
+    var that = this;
+    JJRequest({
+      url: that.host + '/books',
+      method: 'GET',
+      success: res => {
+        console.log("get bookList successful");
+        that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
+          booksList: res.data.data
+        });
+      }
+    });
   }
+
 })

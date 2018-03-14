@@ -1,7 +1,9 @@
 // pages/square/square.js
 
+import { JJRequest } from '../../utils/util.js'
 
 Page({
+  host: "http://111.230.135.232:3000/api",
 
   /**
    * 页面的初始数据
@@ -54,6 +56,19 @@ Page({
         self[callback]()
       }
     });
+    JJRequest({
+      url: self.host + '/square_sentences',
+      method: 'GET',
+      success: res => {
+        console.log(res);
+        self.setData({
+          "tabs[0].list": res.data.data
+        });
+      },
+      fail: res => {
+
+      }
+    })
   },
 
   /**
