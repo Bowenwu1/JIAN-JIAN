@@ -56,19 +56,6 @@ Page({
         self[callback]()
       }
     });
-    JJRequest({
-      url: self.host + '/square_sentences',
-      method: 'GET',
-      success: res => {
-        console.log(res);
-        self.setData({
-          "tabs[0].list": res.data.data
-        });
-      },
-      fail: res => {
-
-      }
-    })
   },
 
   /**
@@ -133,7 +120,22 @@ Page({
   
   
   getNews() {
-    const [ {list} ] = this.data.tabs
+    const self = this;
+    JJRequest({
+      url: self.host + '/square_sentences',
+      method: 'GET',
+      success: res => {
+        console.log(res);
+        self.setData({
+          "tabs[0].list": res.data.data
+        });
+      },
+      fail: res => {
+        // ...
+      }
+    });
+
+    const [{ list }] = this.data.tabs
     if (list.length === 0) list.push(...mork());
     this.setData({
       "tabs[0].list": list,

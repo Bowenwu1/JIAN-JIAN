@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/Main/Main",
     "pages/Mine/Mine",
     "pages/community/detail/detail",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/community/community",
     "pages/newNote/newNote",

@@ -65,7 +65,8 @@ Page({
                 success: res => {
                   that.setData({
                     booksList: res.data.data,
-                    booksChange: getApp().globaldata.booksChange
+                    booksChange: getApp().globaldata.booksChange,
+                    sentencesChange: getApp().globaldata.sentencesChange
                   });
                 }
               })

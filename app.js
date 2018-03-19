@@ -7,45 +7,6 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    wx.getUserInfo({
-      success: res => {
-        var userInfo = res.userInfo;
-        var nickName = userInfo.nickName;
-        var avatarUrl = userInfo.avatarUrl;
-        // 登录
-        wx.login({
-          success: res => {
-            // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            if (res.code) {
-              JJRequest({
-                url: 'http://111.230.135.232:3000/api/user/login',
-                data: {
-                  code: res.code,
-                  nickname: nickName,
-                  avatar: avatarUrl
-                },
-                method: 'POST',
-                success: function (res) {
-                  if (res.status == "OK") {
-                    console.log("登陆成功");
-                  } else {
-                    // ...???
-                  }
-                },
-                fail: function () {
-                  // don't know what to do yet.....
-                }
-
-              })
-            } else {
-              console.log('获取用户登录态失败！' + res.errMsg)
-            }
-          }
-        })
-      }
-    })
-
     
     // 获取用户信息
     wx.getSetting({
@@ -68,61 +29,10 @@ App({
       }
     })
   },
-  onShow: function() {
-    JJRequest({
-      url: 'http://111.230.135.232:3000/api/user/login',
-      method: 'GET',
-      success: function (res) {
-        console.log(res);
-        if (res.status == "NOT_AUTHORIZED") {
-          wx.getUserInfo({
-            success: res => {
-              var userInfo = res.userInfo;
-              var nickName = userInfo.nickName;
-              var avatarUrl = userInfo.avatarUrl;
-              // 登录
-              wx.login({
-                success: res => {
-                  // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                  if (res.code) {
-                    JJRequest({
-                      url: 'http://111.230.135.232:3000/api/user/login',
-                      data: {
-                        code: res.code,
-                        nickname: nickName,
-                        avatar: avatarUrl
-                      },
-                      method: 'POST',
-                      success: function (res) {
-                        if (res.status == "OK") {
-                          console.log("登陆成功");
-                        } else {
-                          // ...???
-                        }
-                      },
-                      fail: function () {
-                        // don't know what to do yet.....
-                      }
-
-                    })
-                  } else {
-                    console.log('获取用户登录态失败！' + res.errMsg)
-                  }
-                }
-              })
-            }
-          })
-        }
-      },
-      fail: function () {
-        // don't know what to do yet.....
-      }
-
-    })
-  },
+  onShow: function() {},
   globalData: {
     userInfo: null,
-    sentencesChange: 0,
+    sentencesChange: 0, // 标记变化...控制是否重新请求数据
     booksChange: 0,
     groupChange: 0
   }
