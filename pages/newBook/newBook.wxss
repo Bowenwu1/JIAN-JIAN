@@ -1,0 +1,37 @@
+/* pages/newBook/newBook.wxss */
+
+.book-info-wrapper {
+  margin: 50rpx;
+}
+
+.book-info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-info-avator {
+  width: 160rpx;
+  height: 224rpx;
+  margin-right: 50rpx;
+}
+.book-info-word-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-info-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-info-others {
+  color: #bbbbbb;
+  font-size: 11pt;
+}
+
+.buttons-row {
+  text-align: center;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
+}

@@ -7,8 +7,8 @@
           <text class='username'>{{username}}</text>
         </view>
         <view class='second-row'>
-          <text>读过的书:</text><text>{{read_book}}</text>
-          <text> 读书时长:</text><text>{{read_hour}}</text>
+          <text>读过的书:</text><text>{{booksList.length}}</text>
+          <text>读书时长:</text><text>{{read_hour}}</text>
         </view>
       </view>
   </view>
@@ -16,7 +16,7 @@
   <view class='bookshelf-wrapper'>
     <text class='bookshelf-title'>看过的书</text>
     <scroll-view class='bookshelf' scroll-x="true">
-      <image wx:for = "{{bookshelf_image}}" src='{{item}}' class='bookshelf-item'></image>
+      <image wx:for = "{{booksList}}" src="{{item.title_page_image}}" class='bookshelf-item'data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap="onBookItemClick"></image>
     </scroll-view>
   </view>
 

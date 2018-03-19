@@ -1,6 +1,11 @@
 <!--pages/Camera/Camera.wxml-->
-<camera device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
+<camera hidden="{{cameraHidden}}" device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
   <cover-view class='takeButton' bindtap='takePhoto' >
     <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
   </cover-view>
 </camera>
+
+<view class='img-wrapper'>
+  <image class='words' src="{{tmpImgSrc}}" mode='aspectFit'/>
+  <canvas class='drawCanvas' style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+</view>

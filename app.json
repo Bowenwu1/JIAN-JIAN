@@ -1,16 +1,19 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/Main/Main",
     "pages/Mine/Mine",
     "pages/community/detail/detail",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/community/community",
     "pages/newNote/newNote",
     "pages/square/square",
     "pages/Camera/Camera",
     "pages/raft/raft",
-    "pages/SentencesOfBook/SentencesOfBook"
+    "pages/SentencesOfBook/SentencesOfBook",
+    "pages/newBook/newBook",
+    "pages/test/test",
+    "pages/shareNote/shareNote"
   ],
   "window": {
     "backgroundTextStyle": "light",

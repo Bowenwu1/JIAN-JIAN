@@ -80,6 +80,9 @@
   margin-bottom: 30rpx;
   margin-top: 30rpx;
 }
+.sentences-item {
+  word-break:break-all;
+}
 
 .add-book-button {
   position: fixed;

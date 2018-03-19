@@ -1,11 +1,17 @@
 const app = getApp()
 // pages/Mine/Mine.js
+import { JJRequest } from '../../utils/util.js'
+
 Page({
+  host: "http://111.230.135.232:3000/api",
 
   /**
    * 页面的初始数据
    */
   data: {
+    booksChange: 0,
+    groupsChange: 0,
+
     bookshelf_image:[
       '/images/txx.jpg',
       '/images/lc.jpg',
@@ -26,7 +32,7 @@ Page({
         number_partner: '群成员：4人'
       }
     ],
-    personal_avator: '/images/sample-avator.png',
+    personal_avator: '',
     username:'藤椒兔',
     read_book:3,
     read_hour:20,
@@ -39,28 +45,20 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad')
-    // if (this.data.canIUse) {
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       username:res.userInfo.nickName,
-    //       personal_avator: res.userInfo.avatarUrl
-    //     })
-    //     conosle.log(res);
-    //   }
-    // } else {
-    //   wx.getUserInfo({
-    //     success:res=> {
-    //       this.setData({
-    //         username: res.userInfo.nickName,
-    //         personal_avator: res.userInfo.avatarUrl
-    //       })
-    //       conosle.log(res);
-    //     },
-    //     fail:function() {
-    //       console.log('fail')
-    //     }
-    //   })
-    // }
+    var that = this;
+
+    JJRequest({
+      url: that.host + '/books',
+      method: 'GET',
+      success: res => {
+        console.log("get bookList successful");
+        that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
+          booksList: res.data.data
+        });
+      }
+    });
 
     wx.getUserInfo({
       success:res=> {
@@ -87,7 +85,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.booksChange != getApp().globalData.booksChange ||
+      this.data.groupsChange != getApp().globalData.groupsChange) {
+      this.updateData();
+    }
   },
 
   /**
@@ -123,5 +124,28 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  onBookItemClick: function (e) {
+    wx.navigateTo({
+      url: '../SentencesOfBook/SentencesOfBook?isbn=' + e.currentTarget.dataset.isbn + '&title=' + e.currentTarget.dataset.title + '&author=' + e.currentTarget.dataset.author
+    })
+  },
+
+  updateData: function() {
+    var that = this;
+    JJRequest({
+      url: that.host + '/books',
+      method: 'GET',
+      success: res => {
+        console.log("get bookList successful");
+        that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
+          booksList: res.data.data
+        });
+      }
+    });
   }
+
 })

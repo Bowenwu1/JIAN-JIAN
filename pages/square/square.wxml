@@ -3,17 +3,22 @@
 <template name="square-item">
   <view class="item-wrapper">
     <view class="item-title-wrapper">
-      <image bindtap="avatarTap" class="user-avatar" src="{{avatar}}" background-size="cover"/>
-      <text class="item-name">{{name}}</text>
-      <text class="item-time">{{time}}</text>
-      <view class="round-button" bindtap="digestItem">摘走</view>
+      <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
+      <text class="item-name">{{nick_name}}</text>
+      <text class="item-time">{{add_time}}</text>
+      <button class="round-button" type="default" bindtap="digestItem">摘走</button>
     </view>
     <view class="item-body-wrapper">
-      <text class="item-sentence">{{sentence}}</text>
+      <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
+        <text class="item-sentence">{{item}}</text>
+      </view>
       <view class="item-footer">
         <text class="item-breakdash">——</text>
-        <text class="item-book">《{{book}}》</text>
+        <text class="item-book">《{{title}}》</text>
         <text class="item-author">{{author}}</text>
+      </view>
+      <view class="item-thought">
+        <text class="item-thought-content">{{thoughts}}</text>
       </view>
       <view class="item-like-comment">
         <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" bindtap="toggleLike"/>
