@@ -39,7 +39,7 @@ Page({
         console.log(res.data.data);
         that.setData({
           sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange1
+          sentencesChange: getApp().globalData.sentencesChange
         });
       }
     })
@@ -150,8 +150,9 @@ Page({
     })
   },
   showCamera: function () {
+    var that = this;
     wx.navigateTo({
-      url: '../Camera/Camera',
+      url: '../Camera/Camera?isbn='+that.data.isbn,
       success: function (res) {
       },
       fail: function () {
@@ -261,7 +262,7 @@ Page({
         console.log(res.data.data);
         that.setData({
           sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange1
+          sentencesChange: getApp().globalData.sentencesChange
         });
       }
     })

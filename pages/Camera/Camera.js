@@ -27,6 +27,9 @@ Page({
         })
       },
     })
+    this.setData({
+      isbn: options.isbn
+    })
   },
 
   canvasIdErrorCallback: function (e) {
@@ -102,7 +105,8 @@ Page({
           name: 'test',
           success: (res) => {
             console.log(res);
-            var recSentence = res.data.data;
+            res.data = JSON.parse(res.data);
+            var recSentence = res.data.data.content;
             console.log('识别成功');
             console.log(recSentence);
             wx.setStorage({
@@ -110,7 +114,7 @@ Page({
               data: recSentence
             });
             wx.redirectTo({
-              url: '../newNote/newNote?rec=true',
+              url: '../newNote/newNote?isbn='+ this.data.isbn +'&rec=true',
             })
           }
         })

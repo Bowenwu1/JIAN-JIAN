@@ -1,12 +1,12 @@
 <!--pages/square/square.wxml-->
 
 <template name="square-item">
-  <view class="item-wrapper">
+  <view class="item-wrapper" data-share="{{index}}" bindtap="selectShareItem">
     <view class="item-title-wrapper">
       <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
       <text class="item-name">{{nick_name}}</text>
       <text class="item-time">{{add_time}}</text>
-      <button class="round-button" type="default" bindtap="digestItem">摘走</button>
+      <button class="round-button" type="default" catchtap="digestItem">摘走</button>
     </view>
     <view class="item-body-wrapper">
       <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
@@ -21,8 +21,8 @@
         <text class="item-thought-content">{{thoughts}}</text>
       </view>
       <view class="item-like-comment">
-        <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" bindtap="toggleLike"/>
-        <view class="fa fa-edit icon-edit"/>
+        <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" catchtap="toggleLike"/>
+        <!--<view class="fa fa-edit icon-edit" bindtap="addComment"/>-->
       </view>
     </view>
   </view>

@@ -13,7 +13,8 @@
     "pages/SentencesOfBook/SentencesOfBook",
     "pages/newBook/newBook",
     "pages/test/test",
-    "pages/shareNote/shareNote"
+    "pages/shareNote/shareNote",
+    "pages/SquareItem/SquareItem"
   ],
   "window": {
     "backgroundTextStyle": "light",

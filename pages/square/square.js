@@ -38,7 +38,7 @@ Page({
   onLoad: function (options) {
     const self = this
     wx.getSystemInfo({
-      success (res) {
+      success(res) {
         const {
           tabs,
           activeIndex,
@@ -69,7 +69,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -166,8 +166,19 @@ Page({
     this.setData({
       [likeKey]: !liked,
     })
+  },
+  selectShareItem(e) {
+    var index = e.currentTarget.dataset.share;
+    wx.setStorage({
+      key: 'squareItem',
+      data: this.data.tabs[0].list[index]
+    });
+    wx.navigateTo({
+      url: '../SquareItem/SquareItem',
+    })
   }
-})
+
+});
 
 function mork() {
   const morkData = [

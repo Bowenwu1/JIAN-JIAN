@@ -116,7 +116,8 @@ Page({
         console.log(res);
         that.goBack();
       },
-      fail: {
+      fail: res => {
+        console.log('fail to add', res);
         // ...
       }
     })
