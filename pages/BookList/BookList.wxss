@@ -1,0 +1,52 @@
+/* pages/BookList/BookList.wxss */
+
+.page {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.raft-book-wrapper {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.book-image {
+  width: 150rpx;
+  height: 210rpx; 
+}
+
+.book-detail-wrapper {
+  width: calc(100% - 150rpx);
+}
+
+.book-info-horizontal-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-detail-wrapper > text {
+  display: block;
+  font-size: 9pt;
+  margin-top: 20rpx;
+}
+.book-detail-wrapper > .book-isbn {
+  margin-left: 15rpx;
+}
+.book-detail-wrapper {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.contact-button {
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 9pt;
+  align-self: flex-end;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 40rpx;
+}

@@ -78,6 +78,10 @@ Page({
           that.setData({
             booksList: res.data.data
           });
+          wx.setStorage({
+            key: 'bookList',
+            data: res.data.data,
+          })
         }
       }
     });
@@ -193,7 +197,7 @@ Page({
             // new Note
             //that.showWorking();
             wx.navigateTo({
-              url:"../test/test"
+              url:"../BookList/BookList"
             });
             break;
         }

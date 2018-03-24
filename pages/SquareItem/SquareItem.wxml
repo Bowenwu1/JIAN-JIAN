@@ -25,7 +25,8 @@
   </view>
   <view class="comment-wrapper" wx:for="comments">
     <view class="comment-item-wrapper">
-    
+      <text class="user-name"></text>
+      <text class="comment-content"></text>
     </view>
   </view>
 </view>

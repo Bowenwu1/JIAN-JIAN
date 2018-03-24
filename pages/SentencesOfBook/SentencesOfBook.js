@@ -106,7 +106,7 @@ Page({
   onAddSentenceClick: function (position) {
     var that = this;
     wx.showActionSheet({
-      itemList: ['拍一拍', '读一读', '写一写'],
+      itemList: ['拍一拍', '写一写'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
@@ -115,11 +115,6 @@ Page({
             that.showCamera();
             break;
           case 1:
-            // go to talk
-            // not good
-            that.showWorking();
-            break;
-          case 2:
             // go to write
             // not good
             wx.navigateTo({

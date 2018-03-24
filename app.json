@@ -14,7 +14,8 @@
     "pages/newBook/newBook",
     "pages/test/test",
     "pages/shareNote/shareNote",
-    "pages/SquareItem/SquareItem"
+    "pages/SquareItem/SquareItem",
+    "pages/BookList/BookList"
   ],
   "window": {
     "backgroundTextStyle": "light",
