@@ -82,6 +82,9 @@ Page({
             },
             fail: function (res) {
               // don't know what to do yet.....
+              that.setData({
+                motto: "登录失败，请重试"
+              })
               console.log('fail to login');
               console.log(res);
             }

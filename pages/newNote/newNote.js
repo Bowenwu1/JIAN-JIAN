@@ -21,9 +21,16 @@ Page({
     this.setData({
       isbn: options.isbn
     });
-    if (options.sentence != null) {
-      this.setData({
-        sentenceContent: options.sentence
+    var that = this;
+    if (options.rec != null) {
+      wx.getStorage({
+        key: 'recSentence',
+        success: res => {
+          console.log(res);
+          that.setData({
+            sentenceContent: res.data
+          })
+        },
       });
     }
   },
@@ -109,7 +116,8 @@ Page({
         console.log(res);
         that.goBack();
       },
-      fail: {
+      fail: res => {
+        console.log('fail to add', res);
         // ...
       }
     })

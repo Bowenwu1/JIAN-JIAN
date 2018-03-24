@@ -39,7 +39,7 @@ Page({
         console.log(res.data.data);
         that.setData({
           sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange1
+          sentencesChange: getApp().globalData.sentencesChange
         });
       }
     })
@@ -106,7 +106,7 @@ Page({
   onAddSentenceClick: function (position) {
     var that = this;
     wx.showActionSheet({
-      itemList: ['拍一拍', '读一读', '写一写'],
+      itemList: ['拍一拍', '写一写'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
@@ -115,11 +115,6 @@ Page({
             that.showCamera();
             break;
           case 1:
-            // go to talk
-            // not good
-            that.showWorking();
-            break;
-          case 2:
             // go to write
             // not good
             wx.navigateTo({
@@ -150,8 +145,9 @@ Page({
     })
   },
   showCamera: function () {
+    var that = this;
     wx.navigateTo({
-      url: '../Camera/Camera',
+      url: '../Camera/Camera?isbn='+that.data.isbn,
       success: function (res) {
       },
       fail: function () {
@@ -261,7 +257,7 @@ Page({
         console.log(res.data.data);
         that.setData({
           sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange1
+          sentencesChange: getApp().globalData.sentencesChange
         });
       }
     })

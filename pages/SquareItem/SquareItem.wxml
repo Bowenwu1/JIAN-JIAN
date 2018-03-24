@@ -1,0 +1,32 @@
+<!--pages/SquareItem/SquareItem.wxml-->
+<view class="item-wrapper">
+  <view class="item-title-wrapper">
+    <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
+    <text class="item-name">{{nick_name}}</text>
+    <text class="item-time">{{add_time}}</text>
+    <button class="round-button" type="default" catchtap="digestItem">摘走</button>
+  </view>
+  <view class="item-body-wrapper">
+    <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
+      <text class="item-sentence">{{item}}</text>
+    </view>
+    <view class="item-footer">
+      <text class="item-breakdash">——</text>
+      <text class="item-book">《{{title}}》</text>
+      <text class="item-author">{{author}}</text>
+    </view>
+    <view class="item-thought">
+      <text class="item-thought-content">{{thoughts}}</text>
+    </view>
+    <view class="item-like-comment">
+      <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" catchtap="toggleLike"/>
+      <view class="fa fa-edit icon-edit" bindtap="addComment"/>
+    </view>
+  </view>
+  <view class="comment-wrapper" wx:for="comments">
+    <view class="comment-item-wrapper">
+      <text class="user-name"></text>
+      <text class="comment-content"></text>
+    </view>
+  </view>
+</view>

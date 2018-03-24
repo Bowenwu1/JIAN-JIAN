@@ -109,6 +109,7 @@ Page({
         that.goBack();
       },
       fail: res => {
+        console.log('fail: ', res);
         // ...
       }
     });

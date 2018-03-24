@@ -1,0 +1,21 @@
+<view class='page'>
+
+  <view class='page_hd'>
+    <view class="weui-search-bar__form searchbar" style="border-radius:20px">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
+      </view>
+    </view>
+  </view>
+
+  <view class='raft-book-wrapper' wx:for='{{bookList}}'>
+    <view class='book-info-horizontal-wrapper' data-isbn='isbn' bindtap='selectBook'>      
+      <image class='book-image' src='{{item.title_page_image}}'></image>
+      <view class='book-detail-wrapper'>
+        <text class='book-name'>{{item.title}}</text>
+        <text class='book-isbn'>{{item.author}}</text>
+      </view>
+    </view>
+  </view>
+</view>
