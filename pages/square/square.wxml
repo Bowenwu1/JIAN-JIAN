@@ -31,16 +31,16 @@
 <template name="raft-item">
   <view class="raft-book-wrapper">
     <view class="book-owner-info">
-      <image class="book-owner-avator" src="{{book_owner_avator}}"></image>
-      <text class="book-owner-name">{{book_owner_name}}</text>
+      <image class="book-owner-avator" src="{{avator_url}}"></image>
+      <text class="book-owner-name">{{nick_name}}</text>
     </view>
 
     <view class="book-info-horizontal-wrapper">      
-      <image class="book-image" src="{{book_avator}}"></image>
+      <image class="book-image" src="{{title_page_image}}"></image>
       <view class="book-detail-wrapper">
-        <text class="book-name">{{book_name}}</text>
-        <text class="book-isbn">ISBN：{{book_isbn}}</text>
-        <text class="owner-content">{{owner_content}}</text>
+        <text class="book-name">{{title}}</text>
+        <text class="book-isbn">ISBN：{{isbn}}</text>
+        <text class="owner-content">{{content}}</text>
       </view>
     </view>
   </view>

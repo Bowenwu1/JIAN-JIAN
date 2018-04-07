@@ -1,12 +1,4 @@
-, function filteremoji(){
-    var ranges = [
-        '\ud83c[\udf00-\udfff]', 
-        '\ud83d[\udc00-\ude4f]', 
-        '\ud83d[\ude80-\udeff]'
-    ];
-    var emojireg = $("#emoji_input").val();
-    emojireg = emojireg .replace(new RegExp(ranges.join('|'), 'g'), ''));
-}sssssssss<view class='page'>
+<view class='page'>
 
   <view class='page_hd'>
     <view class="weui-search-bar__form searchbar" style="border-radius:20px">

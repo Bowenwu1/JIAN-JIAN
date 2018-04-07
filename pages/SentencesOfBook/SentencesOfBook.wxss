@@ -79,15 +79,13 @@
   margin-left: 10%;
   width: 90%;
 }
-.sentences-content {
-  width: 100%;
-}
 .sentences-item-wrapper {
   margin-bottom: 10rpx;
 }
 
 .sentences-item {
   width: 100%;
+  color: #353535;
   word-break:break-all;
 }
 
@@ -101,7 +99,7 @@
   margin-top: 20rpx;
   position: fixed;
   bottom: 20rpx;
-  left: 20rpx;
+  left: 40rpx;
 }
 .button-image {
   width: 56rpx;

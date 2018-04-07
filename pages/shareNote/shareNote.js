@@ -7,7 +7,8 @@ Page({
    */
   data: {
     thoughts: "",
-    snetences_content: [],
+    sentences_content: [],
+    sentences_id: [],
     title: "",
     author: ""
   },
@@ -22,7 +23,8 @@ Page({
       isbn: share_info.isbn,
       title: share_info.title,
       author: share_info.author,
-      sentences_content: share_info.sentences_content
+      sentences_content: share_info.sentences_content,
+      sentences_id: share_info.senteces_id
     });
   },
 
@@ -89,16 +91,12 @@ Page({
 
   shareToSquare: function() {
     var that = this;
-    console.log({
-      sentences: that.data.sentences_content,
-      isbn: that.data.isbn,
-      thoughts: that.data.thoughts
-    });
+    
     JJRequest({
       url: getApp().globalData.baseUrl + '/square_sentences',
       method: 'POST',
       data: {
-        sentences: that.data.sentences_content,
+        sentence_ids: that.data.sentences_id,
         isbn: that.data.isbn,
         thoughts: that.data.thoughts
       },

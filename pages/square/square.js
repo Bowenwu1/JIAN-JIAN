@@ -189,7 +189,17 @@ Page({
     })
   },
   getRaft() {
-
+    var that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/driftings',
+      method: 'GET',
+      success: res=> {
+        console.log(res);
+        that.setData({
+          "tabs[1].list": res.data.data.result
+        })
+      }
+    })
   }
 
 });

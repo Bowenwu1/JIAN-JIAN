@@ -177,16 +177,19 @@ Page({
   shareChecking: function(e) {
     var that = this;
     var checked_sentence = [];
+    var checked_id = [];
     for (var i in that.data.checked_index) {
       console.log(i);
       checked_sentence.push(that.data.sentences[that.data.checked_index[i]].content);
+      checked_id.push(that.data.sentences[that.data.checked_index[i]].sentence_id);
     }
 
     var share_info = {
       isbn: that.data.isbn,
       title: that.data.title,
       author: that.data.author,
-      sentences_content: checked_sentence
+      sentences_content: checked_sentence,
+      sentences_id: checked_id
     }
     
     wx.setStorageSync('share_info', share_info);
@@ -249,6 +252,10 @@ Page({
         });
       }
     })
+  },
+
+  inputTyping(e) {
+    
   }
   
 

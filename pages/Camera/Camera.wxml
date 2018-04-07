@@ -6,6 +6,9 @@
 </camera>
 
 <view class='img-wrapper'>
-  <image class='words' src="{{tmpImgSrc}}" mode='aspectFit'/>
+  <image class='words-img' src="{{tmpImgSrc}}" mode='aspectFit'/>
   <canvas class='drawCanvas' style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
+  <view>
+    <text class='hint-wait'>图片上传中，可能花费较长时间，请稍候...</text>
+  </view>
 </view>

@@ -93,7 +93,7 @@ Page({
   shareToSquare() {
     var that = this;
     JJRequest({
-      url: getApp().globalData.baseUrl + '/driftings/4',
+      url: getApp().globalData.baseUrl + '/driftings',
       method: 'POST',
       data: {
         "isbn": that.data.isbn,

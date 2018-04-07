@@ -81,10 +81,9 @@
 }
 
 .raft-book-wrapper {
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
+  border-bottom: solid 0.5rpx #dedede;
+  margin: 38rpx;
+  padding-bottom: 38rpx;
 }
 
 .book-owner-info {
@@ -118,6 +117,7 @@
 .book-info-horizontal-wrapper {
   display: flex;
   flex-direction: row;
+  word-break: break-all;
 }
 
 .book-detail-wrapper > text {
