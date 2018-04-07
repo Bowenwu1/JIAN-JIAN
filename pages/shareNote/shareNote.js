@@ -2,13 +2,13 @@
 import { JJRequest } from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
   /**
    * 页面的初始数据
    */
   data: {
     thoughts: "",
-    snetences_content: [],
+    sentences_content: [],
+    sentences_id: [],
     title: "",
     author: ""
   },
@@ -23,7 +23,8 @@ Page({
       isbn: share_info.isbn,
       title: share_info.title,
       author: share_info.author,
-      sentences_content: share_info.sentences_content
+      sentences_content: share_info.sentences_content,
+      sentences_id: share_info.senteces_id
     });
   },
 
@@ -90,23 +91,30 @@ Page({
 
   shareToSquare: function() {
     var that = this;
-    console.log({
-      sentences: that.data.sentences_content,
-      isbn: that.data.isbn,
-      thoughts: that.data.thoughts
-    });
+    
     JJRequest({
-      url: that.host + '/square_sentences',
+      url: getApp().globalData.baseUrl + '/square_sentences',
       method: 'POST',
       data: {
-        sentences: that.data.sentences_content,
+        sentence_ids: that.data.sentences_id,
         isbn: that.data.isbn,
         thoughts: that.data.thoughts
       },
       success: res => {
         console.log(res);
         console.log("share to square successfully")
-        that.goBack();
+        wx.showToast({
+          title: '分享成功',
+          icon: 'success',
+          image: '',
+          duration: 1000,
+          mask: true,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) {
+            setTimeout(that.goBack, 1000);
+          },
+        });
       },
       fail: res => {
         console.log('fail: ', res);

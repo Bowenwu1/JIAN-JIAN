@@ -13,6 +13,7 @@
   <view class='item-wrapper' wx:for="{{booksList}}">
     <view item-content data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap='onBookItemClick'>
       <view class='book-info-row'>
+        <image class='list-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
         <text class='book-name'>《{{item.title}}》</text>
         <text class='from-username'> ——{{item.author}}</text>
         <!--

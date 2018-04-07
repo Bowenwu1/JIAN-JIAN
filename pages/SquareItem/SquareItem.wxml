@@ -18,7 +18,7 @@
     <view class="item-thought">
       <text class="item-thought-content">{{thoughts}}</text>
     </view>
-    <view class="item-like-comment">
+    <view class="item-like-comment" hidden="{{showCommentAddArea}}">
       <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" catchtap="toggleLike"/>
       <view class="fa fa-edit icon-edit" bindtap="addComment"/>
     </view>
@@ -27,6 +27,16 @@
     <view class="comment-item-wrapper">
       <text class="user-name"></text>
       <text class="comment-content"></text>
+    </view>
+  </view>
+
+  <view class='comment-add-area'  hidden="{{!showCommentAddArea}}"> 
+    <view class="text-box">
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeCommentContent" placeholder="评论..."/>
+    </view>
+    <view class='buttons-row'>
+      <button class='bottom-button' type='default' size='mini' bindtap='cancelComment'>取消</button>
+      <button class='bottom-button' type='primary'  size='mini' bindtap='submitComment'>评论</button>
     </view>
   </view>
 </view>

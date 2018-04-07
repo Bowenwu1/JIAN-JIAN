@@ -3,8 +3,6 @@ const app = getApp()
 import { JJRequest } from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
-
   /**
    * 页面的初始数据
    */
@@ -48,7 +46,7 @@ Page({
     var that = this;
 
     JJRequest({
-      url: that.host + '/books',
+      url: getApp().globalData.baseUrl + '/books',
       method: 'GET',
       success: res => {
         console.log("get bookList successful");
@@ -135,7 +133,7 @@ Page({
   updateData: function() {
     var that = this;
     JJRequest({
-      url: that.host + '/books',
+      url: getApp().globalData.baseUrl + '/books',
       method: 'GET',
       success: res => {
         console.log("get bookList successful");

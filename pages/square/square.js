@@ -3,7 +3,6 @@
 import { JJRequest } from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
 
   /**
    * 页面的初始数据
@@ -11,20 +10,32 @@ Page({
   data: {
     tabs: [
       {
-        name: "动态",
+        name: "摘录",
         list: [],
         callback: "getNews",
       },
       {
-        name: "热门",
-        list: [],
-        callback: "getHot",
-      },
-      {
-        name: "推荐",
-        list: [],
-        callback: "getSuggest",
-      },
+        name: "漂流",
+        list: [
+            {
+              book_owner_avator: '../../images/avatar1.jpg',
+              book_owner_name: '藤椒兔',
+              book_avator: '../../images/txx.jpg',
+              book_name: '《檀香刑》莫言',
+              book_isbn: '9787505735446',
+              owner_content: 'abcd@abc.com'
+            },
+            {
+              book_owner_avator: '../../images/avatar1.jpg',
+              book_owner_name: '藤椒兔',
+              book_avator: '../../images/mss.jpg',
+              book_name: '《写给大家的西方美术史》蒋勋',
+              book_isbn: '9787123132232',
+              owner_content: '123456789110'
+            }
+        ],
+        callback: "getRaft",
+      }
     ],
     activeIndex: 0,
     sliderOffset: 0,
@@ -122,7 +133,7 @@ Page({
   getNews() {
     const self = this;
     JJRequest({
-      url: self.host + '/square_sentences',
+      url: getApp().globalData.baseUrl + '/square_sentences',
       method: 'GET',
       success: res => {
         console.log(res);
@@ -174,7 +185,20 @@ Page({
       data: this.data.tabs[0].list[index]
     });
     wx.navigateTo({
-      url: '../SquareItem/SquareItem',
+      url: '../SquareItem/SquareItem?square_id=' + this.data.tabs[0].list[index].square_id,
+    })
+  },
+  getRaft() {
+    var that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/driftings',
+      method: 'GET',
+      success: res=> {
+        console.log(res);
+        that.setData({
+          "tabs[1].list": res.data.data.result
+        })
+      }
     })
   }
 

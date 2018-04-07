@@ -1,4 +1,4 @@
-// pages/SquareItem/SquareItem.js
+// pages/shareBook/shareBook.js
 import { JJRequest } from '../../utils/util.js'
 
 Page({
@@ -7,8 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showCommentAddArea: false,
-    newCommentContent: ''
+    ownerContent: ''
   },
 
   /**
@@ -16,22 +15,24 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      squareId: options.square_id
-    });
+      isbn: options.isbn,
+      title: options.title,
+      author: options.author
+    })
     var that = this;
-    wx.getStorage({
-      key: 'squareItem',
-      success: function(res) {
-        that.setData(res.data);
-      },
-    });
     JJRequest({
-      url: getApp().globalData.baseUrl + '/comment?square_id=' + that.data.squareId,
-      method: 'GET',
+      url: getApp().globalData.baseUrl + '/book_info?isbn=' + that.data.isbn,
       success: res => {
         console.log(res);
+        that.setData({
+          title_page_url: res.data.data.title_page_image
+        });
+      },
+      fail: res => {
+        console.log('fail');
+        console.log(res);
       }
-    })
+    });
   },
 
   /**
@@ -88,35 +89,20 @@ Page({
       delta: 1
     })
   },
-  
-  addComment() {
-    this.setData({
-      showCommentAddArea: true
-    });
-  },
-  changeCommentContent(e) {
-    this.setData({
-      newCommentContent: e.detail.value
-    })
-  },
-  cancelComment() {
-    this.setData({
-      showCommentAddArea: false
-    })
-  },
-  submitComment() {
-    let that = this;
+
+  shareToSquare() {
+    var that = this;
     JJRequest({
-      url: getApp().globalData.baseUrl + '/comment',
+      url: getApp().globalData.baseUrl + '/driftings',
       method: 'POST',
       data: {
-        "squareId": that.data.squareId,
-        "comment": that.data.newCommentContent
+        "isbn": that.data.isbn,
+        "content": that.ownerContent
       },
       success: res => {
         console.log(res);
         wx.showToast({
-          title: '评论成功',
+          title: '漂流成功',
           icon: 'success',
           image: '',
           duration: 1000,
@@ -127,7 +113,13 @@ Page({
             setTimeout(that.goBack, 1000);
           },
         });
-      }
+      },
+    });
+  },
+
+  changeOwnerContent(e) {
+    this.setData({
+      ownerContent: e.detail.value
     })
   }
 })

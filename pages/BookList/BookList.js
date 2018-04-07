@@ -71,10 +71,10 @@ Page({
   onShareAppMessage: function () {
   
   },
-  showCamera: function () {
+  showCamera: function (isbn) {
     var that = this;
     wx.navigateTo({
-      url: '../Camera/Camera?isbn=' + that.data.isbn,
+      url: '../Camera/Camera?isbn=' + isbn,
       success: function (res) {
       },
       fail: function () {
@@ -100,7 +100,7 @@ Page({
         switch (res.tapIndex) {
           case 0:
             // go to camera
-            that.showCamera();
+            that.showCamera(e.currentTarget.dataset.isbn);
             break;
           case 1:
             // go to write

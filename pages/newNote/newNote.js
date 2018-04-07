@@ -3,8 +3,6 @@
 import { JJRequest } from '../../utils/util'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
-
   /**
    * 页面的初始数据
    */
@@ -105,7 +103,7 @@ Page({
   submitNewNote: function() {
     var that = this;
     JJRequest({
-      url: that.host + '/sentence?isbn='+that.data.isbn,
+      url: getApp().globalData.baseUrl + '/sentence?isbn='+that.data.isbn,
       method: 'POST',
       data: {
         content: that.data.sentenceContent,
@@ -114,7 +112,18 @@ Page({
       success: res => {
         getApp().globalData.sentencesChange++;
         console.log(res);
-        that.goBack();
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success',
+          image: '',
+          duration: 1000,
+          mask: true,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) {
+            setTimeout(that.goBack, 1000);
+          },
+        });
       },
       fail: res => {
         console.log('fail to add', res);
