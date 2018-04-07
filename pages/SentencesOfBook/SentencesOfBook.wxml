@@ -15,11 +15,16 @@
     <view class='book-info-row'>
       <text class='book-name'>《{{title}}》</text>
       <text class='from-username'> ——{{author}}</text>
+      <image class='raft-button' bindtap='onRaftClick' src="{{rafted ? '/icons/drift.png' :'/icons/drift_selected.png'}}" mode='aspectFit' hidden="{{show_checkbox}}"/>
     </view>
 
     <scroll-view class='sentences-box' scroll-y='true'>
       <checkbox-group bindchange="checkboxChange">
         <view class='sentence-list-item' wx:for="{{sentences}}">
+          <view class='sentence-label-wrapper'>
+            <image class='sentence-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
+          </view>
+          <checkbox class='sentence-checkbox' value="{{index}}" wx:if="{{show_checkbox}}" />
           <view class='sentences-wrapper'>
             <view class='sentences-item-wrapper'>
               <text class='sentences-item'>{{item.content}}</text>
@@ -28,16 +33,15 @@
               <text class='thought'>{{item.thought}}</text>
             </view>
           </view>
-          <checkbox class='sentence-checkbox' value="{{index}}" wx:if="{{show_checkbox}}" />{{item.value}}
         </view>
       </checkbox-group>
     </scroll-view>
   </view>
 
   <view class='icon-buttons-wrapper' hidden="{{show_checkbox}}">
-      <image class='button-image' bindtap='onAddSentenceClick' src='/icons/add.png' mode='aspectFit' />
       <image class='button-image' bindtap='onDeleteSentenceClick' src='/icons/delete.png' mode='aspectFit' />
       <image class='button-image' bindtap='onShareSentenceClick' src='/icons/share.png' mode='aspectFit' />
+      <image class='button-image' bindtap='onAddSentenceClick' src='/icons/add.png' mode='aspectFit' />
     </view>
 
     <view class='buttons-row' wx:if="{{show_checkbox}}">

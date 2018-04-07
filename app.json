@@ -15,7 +15,8 @@
     "pages/test/test",
     "pages/shareNote/shareNote",
     "pages/SquareItem/SquareItem",
-    "pages/BookList/BookList"
+    "pages/BookList/BookList",
+    "pages/shareBook/shareBook"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -44,12 +45,6 @@
         "text": "社群",
         "iconPath": "icons/community.png",
         "selectedIconPath": "icons/community_selected.png"
-      },
-      {
-        "pagePath": "pages/raft/raft",
-        "text": "漂流",
-        "iconPath": "icons/drift.png",
-        "selectedIconPath": "icons/drift_selected.png"
       },
       {
         "pagePath": "pages/Mine/Mine",

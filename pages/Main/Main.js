@@ -3,7 +3,6 @@
 import {JJRequest} from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
   /**
    * 页面的初始数据
    */
@@ -34,55 +33,24 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    /*
-    JJRequest({
-      url: that.host + '/books',
-      method: 'POST',
-      data: {
-        isbn: "9787534155550"
-      },
-      success: res => {
-        console.log(res);
-      }
-    })*/
     
     JJRequest({
-      url: that.host+'/books',
+      url: getApp().globalData.baseUrl+'/books',
       method: 'GET',
       success: res => {
-        if (res.data.data.length == 0) {
-          JJRequest({
-            url: that.host + '/books',
-            method: 'POST',
-            data: {
-              isbn: "9787534155550"
-            },
-            success: res => {
-              console.log(res);
-              JJRequest({
-                url: that.host + '/books',
-                method: 'GET',
-                success: res => {
-                  that.setData({
-                    booksList: res.data.data,
-                    booksChange: getApp().globaldata.booksChange,
-                    sentencesChange: getApp().globaldata.sentencesChange
-                  });
-                }
-              })
-            }
-          })
-        } else {
-          console.log("get bookList successful");
-          console.log(res.data)
-          that.setData({
-            booksList: res.data.data
-          });
-          wx.setStorage({
-            key: 'bookList',
-            data: res.data.data,
-          })
-        }
+        console.log('get bookList success');
+        that.setData({
+          booksList: res.data.data,
+          booksChange: getApp().globalData.booksChange,
+          sentencesChange: getApp().globalData.sentencesChange
+        });
+        wx.setStorage({
+          key: 'bookList',
+          data: res.data.data,
+        })
+      },
+      failed: res => {
+        console.log('fail to get bookList');
       }
     });
   },

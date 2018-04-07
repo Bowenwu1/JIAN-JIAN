@@ -2,7 +2,6 @@
 import {JJRequest} from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
 
   /**
    * 页面的初始数据
@@ -78,14 +77,14 @@ Page({
         console.log(res)
         var isbn = res.result;
         JJRequest({
-          url: that.host + '/book_info?isbn=' + isbn,
+          url: getApp().globalData.baseUrl + '/book_info?isbn=' + isbn,
           success: res => {
             console.log(res);
             that.setData({
               title: res.data.data.title,
               author: res.data.data.author,
               isbn: res.data.data.isbn,
-              title_page_url: res.data.data.title_page_url
+              title_page_url: res.data.data.title_page_image
             });
           },
           fail: res => {
@@ -106,7 +105,7 @@ Page({
   submitNewBook() {
     var that = this;
     JJRequest({
-      url: that.host + '/books',
+      url: getApp().globalData.baseUrl + '/books',
       method: 'POST',
       data: {
         isbn: that.data.isbn

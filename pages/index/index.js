@@ -57,14 +57,16 @@ Page({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var loginData = {
+          code: res.code,
+          nickname: that.data.userInfo.nickName,
+          avatar: that.data.userInfo.avatarUrl
+        }; 
+        console.log(loginData.nickname);
         if (res.code) {
           JJRequest({
-            url: 'http://111.230.135.232:3000/api/user/login',
-            data: {
-              code: res.code,
-              nickname: that.data.userInfo.nickName,
-              avatar: that.data.userInfo.avatarUrl
-            },
+            url: getApp().globalData.baseUrl+'/user/login',
+            data: loginData,
             method: 'POST',
             success: function (res) {
               if (res.data.status == "OK") {

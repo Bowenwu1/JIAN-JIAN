@@ -79,3 +79,61 @@
   font-size: 50rpx;
   vertical-align: text-bottom;
 }
+
+.raft-book-wrapper {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.book-owner-info {
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.book-owner-info > image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 45rpx;
+}
+.book-owner-info > text {
+  font-size: 9pt;
+  margin-left: 30rpx;
+  align-self: flex-end;
+}
+.book-image {
+  width: 150rpx;
+  height: 210rpx; 
+}
+
+.book-detail-wrapper {
+  width: calc(100% - 150rpx);
+}
+
+.book-info-horizontal-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.book-detail-wrapper > text {
+  display: block;
+  font-size: 9pt;
+  margin-top: 8rpx;
+}
+.book-detail-wrapper > .book-name {
+  font-size: 11pt;
+}
+.book-detail-wrapper > .owner-content {
+  color: #bbbbbb;
+}
+.book-detail-wrapper {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

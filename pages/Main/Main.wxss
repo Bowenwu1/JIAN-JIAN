@@ -16,13 +16,6 @@
   padding-bottom: 0;
 }
 
-.title {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: 25px;
-}
-
 .searchbar {
   margin-left: 20px;
   margin-right: 20px;
@@ -38,12 +31,11 @@
   margin-bottom: 80rpx;
 }
 
-.book-name {
+.book-name, .from-username {
   color: #bbbbbb;
+  font-size: 11pt;
 }
-.from-username {
-  color: #bbbbbb;
-}
+
 .book-info-row {
   position: relative;
   /*border: 2rpx solid #bbbbbb;*/

@@ -1,28 +1,37 @@
-// pages/shareNote/shareNote.js
+// pages/shareBook/shareBook.js
 import { JJRequest } from '../../utils/util.js'
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    thoughts: "",
-    snetences_content: [],
-    title: "",
-    author: ""
+    ownerContent: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var share_info = (wx.getStorageSync('share_info') || {});
-    console.log(share_info);
     this.setData({
-      isbn: share_info.isbn,
-      title: share_info.title,
-      author: share_info.author,
-      sentences_content: share_info.sentences_content
+      isbn: options.isbn,
+      title: options.title,
+      author: options.author
+    })
+    var that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/book_info?isbn=' + that.data.isbn,
+      success: res => {
+        console.log(res);
+        that.setData({
+          title_page_url: res.data.data.title_page_image
+        });
+      },
+      fail: res => {
+        console.log('fail');
+        console.log(res);
+      }
     });
   },
 
@@ -75,38 +84,25 @@ Page({
   
   },
 
-  changeThought: function(e) {
-    this.setData({
-      thoughts: e.detail.value
-    })
-  },
-
-  goBack: function() {
+  goBack: function () {
     wx.navigateBack({
       delta: 1
     })
   },
 
-  shareToSquare: function() {
+  shareToSquare() {
     var that = this;
-    console.log({
-      sentences: that.data.sentences_content,
-      isbn: that.data.isbn,
-      thoughts: that.data.thoughts
-    });
     JJRequest({
-      url: getApp().globalData.baseUrl + '/square_sentences',
+      url: getApp().globalData.baseUrl + '/driftings/4',
       method: 'POST',
       data: {
-        sentences: that.data.sentences_content,
-        isbn: that.data.isbn,
-        thoughts: that.data.thoughts
+        "isbn": that.data.isbn,
+        "content": that.ownerContent
       },
       success: res => {
         console.log(res);
-        console.log("share to square successfully")
         wx.showToast({
-          title: '分享成功',
+          title: '漂流成功',
           icon: 'success',
           image: '',
           duration: 1000,
@@ -118,10 +114,12 @@ Page({
           },
         });
       },
-      fail: res => {
-        console.log('fail: ', res);
-        // ...
-      }
     });
+  },
+
+  changeOwnerContent(e) {
+    this.setData({
+      ownerContent: e.detail.value
+    })
   }
 })

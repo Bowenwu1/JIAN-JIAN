@@ -2,7 +2,6 @@
 import { JJRequest } from '../../utils/util.js'
 
 Page({
-  host: "http://111.230.135.232:3000/api",
   /**
    * 页面的初始数据
    */
@@ -11,6 +10,7 @@ Page({
 
     share_or_delete: true, // true for share and false for delete 
     show_checkbox: false,
+    rafted: false,
     checked_index: [],
 
     title: "",
@@ -29,21 +29,6 @@ Page({
       title: options.title,
       author: options.author
     })
-
-    var that = this;
-    JJRequest({
-      url: that.host + '/sentence?isbn=' + that.data.isbn,
-      method: 'GET',
-      success: res => {
-        console.log("get sentences successfully");
-        console.log(res.data.data);
-        that.setData({
-          sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange
-        });
-      }
-    })
-    
   },
 
   /**
@@ -57,9 +42,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (this.data.sentencesChange != getApp().globalData.sentencesChange) {
       this.updateData();
-    }
   },
 
   /**
@@ -178,7 +161,12 @@ Page({
       share_or_delete: true
     });
   },
-
+  onRaftClick() {
+    var that = this;
+    wx.navigateTo({
+      url: '../shareBook/shareBook?isbn=' + that.data.isbn + '&title=' + that.data.title + '&author=' + that.data.author
+    })
+  },
   cancelChecking: function(e) {
     this.setData({
       show_checkbox: false,
@@ -222,7 +210,7 @@ Page({
           }
           console.log(checked_value);
           JJRequest({
-            url: that.host + '/sentence',
+            url: getApp().globalData.baseUrl + '/sentence',
             method: 'DELETE',
             data: {
               sentence_id: checked_value
@@ -250,7 +238,7 @@ Page({
   updateData: function() {
     var that = this;
     JJRequest({
-      url: that.host + '/sentence?isbn=' + that.data.isbn,
+      url: getApp().globalData.baseUrl + '/sentence?isbn=' + that.data.isbn,
       method: 'GET',
       success: res => {
         console.log("get sentences successfully");

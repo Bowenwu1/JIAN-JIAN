@@ -2,7 +2,6 @@
 
 import { JJRequest } from '../../utils/util.js'
 Page({
-  host: "http://111.230.135.232:3000/api",
 
   /**
    * 页面的初始数据
@@ -100,7 +99,7 @@ Page({
       complete: (res) => {
         var that = this;
         wx.uploadFile({
-          url: that.host + '/OCR',
+          url: getApp().globalData.baseUrl + '/OCR',
           filePath: res.tempImagePath,
           name: 'test',
           success: (res) => {

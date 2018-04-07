@@ -11,9 +11,19 @@
   padding-bottom: 0;
 }
 
-.edit-button {
-  float: right;
-  padding-bottom: 0;
+.searchbar {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  font-size: 9pt;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
 }
 
 .title {
@@ -23,26 +33,15 @@
   font-size: 25px;
 }
 
-.searchbar {
-  margin-left: 20px;
-  margin-right: 20px;
+.raft-button {
+  float: right;
+  width: 52rpx;
+  height: 52rpx;
 }
 
-.item-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 60rpx;
-  padding-right: 60rpx;
-  font-size: 9pt;
-  margin-top: 30rpx;
-  margin-bottom: 80rpx;
-}
-
-.book-name {
+.book-name, .from-username {
   color: #bbbbbb;
-}
-.from-username {
-  color: #bbbbbb;
+  font-size: 11pt;
 }
 
 .book-info-row > text {
@@ -51,22 +50,49 @@
 }
 
 .sentences-box {
+  margin-top: 52rpx;
   height: 900rpx;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.sentences-wrapper {
-  margin-top: 30rpx;
-  margin-bottom: 50rpx;
-  margin-left: 8%;
-  width: 84%;
+.sentences-list-item {
+  margin-top: 40rpx;
+  width: 100%;
+}
+.sentence-label-wrapper {
+  width: 10%;
+}
+.sentence-label {
+  margin: 8rpx;
   float: left;
+  width: 16rpx;
+  height: 16rpx;
 }
-
+.sentence-checkbox {
+  float: left;
+  zoom: 60%;
+  max-width: 10%;
+}
+.sentences-wrapper {
+  margin-bottom: 30rpx;
+  margin-left: 10%;
+  width: 90%;
+}
+.sentences-content {
+  width: 100%;
+}
 .sentences-item-wrapper {
   margin-bottom: 10rpx;
 }
 
 .sentences-item {
+  width: 100%;
+  word-break:break-all;
+}
+
+.thought {
+  color: #bbbbbb;
   word-break:break-all;
 }
 
@@ -75,23 +101,12 @@
   margin-top: 20rpx;
   position: fixed;
   bottom: 20rpx;
-  right: 20rpx;
+  left: 20rpx;
 }
 .button-image {
-  width: 28px;
-  height: 28px;
+  width: 56rpx;
+  height: 56rpx;
   margin-right: 20rpx;
-}
-
-.sentence-checkbox {
-  float: right;
-  zoom: 60%;
-  margin-top: 50rpx;
-}
-
-.thought {
-  color: #bbbbbb;
-  word-break:break-all;
 }
 
 .buttons-row {
@@ -99,6 +114,7 @@
   width: 100%;
   text-align: center;
   bottom: 20rpx;
+  left: 40rpx;
 }
 .bottom-button {
   margin: 20rpx 40rpx;

@@ -31,6 +31,7 @@ App({
   },
   onShow: function() {},
   globalData: {
+    baseUrl: "http://111.230.135.232:3000/api",
     userInfo: null,
     sentencesChange: 0, // 标记变化...控制是否重新请求数据
     booksChange: 0,
