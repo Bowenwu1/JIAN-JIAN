@@ -96,14 +96,13 @@
 }
 
 .book-owner-info > image {
-  width: 70rpx;
-  height: 70rpx;
-  border-radius: 45rpx;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
 }
 .book-owner-info > text {
-  font-size: 9pt;
-  margin-left: 30rpx;
-  align-self: flex-end;
+  font-size: 11pt;
+  margin-left: 35rpx;
 }
 .book-image {
   width: 150rpx;
@@ -118,6 +117,7 @@
   display: flex;
   flex-direction: row;
   word-break: break-all;
+  padding: 20rpx 60rpx;
 }
 
 .book-detail-wrapper > text {

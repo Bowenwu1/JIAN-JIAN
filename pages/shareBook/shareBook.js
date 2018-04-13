@@ -97,7 +97,7 @@ Page({
       method: 'POST',
       data: {
         "isbn": that.data.isbn,
-        "content": that.ownerContent
+        "content": that.data.ownerContent
       },
       success: res => {
         console.log(res);

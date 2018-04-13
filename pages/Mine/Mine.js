@@ -64,10 +64,9 @@ Page({
           username: res.userInfo.nickName,
           personal_avator: res.userInfo.avatarUrl
         })
-        console.log(res);
       },
       fail:function() {
-        console.log('fail')
+        console.log('fail to get userinfo')
       }
     })
   },

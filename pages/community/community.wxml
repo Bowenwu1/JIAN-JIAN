@@ -37,7 +37,7 @@
                     <view class="weui-navbar__title">{{item}}</view>
                 </view>
             </block>
-            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"></view>
+            <view class="weui-navbar__slider" style="background-color: #8f7b76; width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"></view>
           </view>
           <view class="weui-tab__panel">
             <view class="weui-tab__content" hidden="{{activeIndex != 0}}">

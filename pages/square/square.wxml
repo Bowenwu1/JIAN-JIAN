@@ -6,11 +6,11 @@
       <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
       <text class="item-name">{{nick_name}}</text>
       <text class="item-time">{{add_time}}</text>
-      <button class="round-button" type="default" catchtap="digestItem">摘走</button>
+      <button class="round-button" data-squareid="{{square_id}}" type="default" catchtap="digestItem">摘走</button>
     </view>
     <view class="item-body-wrapper">
       <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
-        <text class="item-sentence">{{item}}</text>
+        <text class="item-sentence">{{item.content}}</text>
       </view>
       <view class="item-footer">
         <text class="item-breakdash">——</text>
@@ -62,7 +62,7 @@
             <view class="weui-navbar__title">{{item.name}}</view>
         </view>
       </block>
-      <view class="weui-navbar__slider" style="width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"/>
+      <view class="weui-navbar__slider" style="background-color: #8f7b76; width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"/>
     </view>
     <view class="weui-tab__panel">
       <block wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="tabId" wx:key="name">

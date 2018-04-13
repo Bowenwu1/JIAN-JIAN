@@ -8,7 +8,7 @@
   </view>
   <view class="item-body-wrapper">
     <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
-      <text class="item-sentence">{{item}}</text>
+      <text class="item-sentence">{{item.content}}</text>
     </view>
     <view class="item-footer">
       <text class="item-breakdash">——</text>

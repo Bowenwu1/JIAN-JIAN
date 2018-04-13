@@ -19,9 +19,7 @@
 }
 
 .item-wrapper {
-  border-bottom: solid 0.5rpx #dedede;
   padding: 38rpx;
-  padding-bottom: 25rpx;
 }
 
 .round-button {

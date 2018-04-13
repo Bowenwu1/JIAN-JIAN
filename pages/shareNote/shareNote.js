@@ -24,7 +24,7 @@ Page({
       title: share_info.title,
       author: share_info.author,
       sentences_content: share_info.sentences_content,
-      sentences_id: share_info.senteces_id
+      sentences_id: share_info.sentences_id
     });
   },
 
@@ -91,7 +91,7 @@ Page({
 
   shareToSquare: function() {
     var that = this;
-    
+    console.log(that.data.sentences_id);
     JJRequest({
       url: getApp().globalData.baseUrl + '/square_sentences',
       method: 'POST',

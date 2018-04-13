@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    squareId: '',
     showCommentAddArea: false,
     newCommentContent: ''
   },
@@ -124,10 +125,34 @@ Page({
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) {
-            setTimeout(that.goBack, 1000);
+            setTimeout(that.onLoad, 1000);
           },
         });
       }
     })
+  },
+  digestItem() {
+    if (this.data.squareId !== '') {
+      let that = this;
+      console.log(`摘走id为${that.data.squareId}`);
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/sentence/' + that.data.squareId,
+        method: 'POST',
+        success: res => {
+          console.log('摘走', res);
+          getApp().globalData.sentencesChange++;
+          wx.showToast({
+            title: '摘录成功',
+            icon: 'success',
+            image: '',
+            duration: 1000,
+            mask: true,
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          });
+        }
+      })
+    }
   }
 })

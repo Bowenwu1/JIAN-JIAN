@@ -16,24 +16,7 @@ Page({
       },
       {
         name: "漂流",
-        list: [
-            {
-              book_owner_avator: '../../images/avatar1.jpg',
-              book_owner_name: '藤椒兔',
-              book_avator: '../../images/txx.jpg',
-              book_name: '《檀香刑》莫言',
-              book_isbn: '9787505735446',
-              owner_content: 'abcd@abc.com'
-            },
-            {
-              book_owner_avator: '../../images/avatar1.jpg',
-              book_owner_name: '藤椒兔',
-              book_avator: '../../images/mss.jpg',
-              book_name: '《写给大家的西方美术史》蒋勋',
-              book_isbn: '9787123132232',
-              owner_content: '123456789110'
-            }
-        ],
+        list: [],
         callback: "getRaft",
       }
     ],
@@ -198,6 +181,28 @@ Page({
         that.setData({
           "tabs[1].list": res.data.data.result
         })
+      }
+    })
+  },
+  digestItem(e) {
+    let squareId = e.currentTarget.dataset.squareid;
+    console.log(`摘走id为${squareId}`);
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/sentence/' + squareId,
+      method: 'POST',
+      success: res => {
+        console.log('摘走', res);
+        getApp().globalData.sentencesChange++;
+        wx.showToast({
+          title: '摘录成功',
+          icon: 'success',
+          image: '',
+          duration: 1000,
+          mask: true,
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        });
       }
     })
   }
