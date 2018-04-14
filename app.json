@@ -16,7 +16,9 @@
     "pages/shareNote/shareNote",
     "pages/SquareItem/SquareItem",
     "pages/BookList/BookList",
-    "pages/shareBook/shareBook"
+    "pages/shareBook/shareBook",
+    "pages/OfflineVersion/SentencesOfBook/SentencesOfBook",
+    "pages/OfflineVersion/Main/Main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -42,7 +44,7 @@
       },
       {
         "pagePath": "pages/community/community",
-        "text": "社群",
+        "text": "社群开发中",
         "iconPath": "icons/community.png",
         "selectedIconPath": "icons/community_selected.png"
       },
@@ -53,5 +55,9 @@
         "selectedIconPath": "icons/my_selected.png"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "uploadFile": 15000
   }
 }

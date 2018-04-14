@@ -20,7 +20,7 @@
 
     <scroll-view class='sentences-box' scroll-y='true'>
       <checkbox-group bindchange="checkboxChange">
-        <view class='sentence-list-item' wx:for="{{sentences}}">
+        <view class='sentence-list-item' wx:for="{{sentences}}" wx:key="name">
           <view class='sentence-label-wrapper'>
             <image class='sentence-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
           </view>

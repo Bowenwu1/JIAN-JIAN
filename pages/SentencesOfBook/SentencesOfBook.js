@@ -250,6 +250,10 @@ Page({
           sentences: res.data.data,
           sentencesChange: getApp().globalData.sentencesChange
         });
+        wx.setStorage({
+          key: `sentece-isbn${that.data.isbn}`,
+          data: res.data.data,
+        })
       }
     })
   },

@@ -18,13 +18,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let res = wx.getStorageSync('addBookInfo');
+    this.setData({
+      title: res.data.data.title,
+      author: res.data.data.author,
+      isbn: res.data.data.isbn,
+      title_page_url: res.data.data.title_page_image
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.showScanning();
   },
 
   /**

@@ -31,10 +31,10 @@ App({
   },
   onShow: function() {},
   globalData: {
-    baseUrl: "http://111.230.135.232:3000/api",
+    baseUrl: "https://bobwu.cn/api",
     userInfo: null,
     sentencesChange: 0, // 标记变化...控制是否重新请求数据
     booksChange: 0,
-    groupChange: 0
+    groupsChange: 0
   }
 })

@@ -128,12 +128,6 @@ Page({
         // ...
       }
     });
-
-    const [{ list }] = this.data.tabs
-    if (list.length === 0) list.push(...mork());
-    this.setData({
-      "tabs[0].list": list,
-    })
   },
   getHot() {
     const [, { list }] = this.data.tabs

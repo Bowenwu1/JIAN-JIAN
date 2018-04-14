@@ -9,7 +9,7 @@
       <button class="round-button" data-squareid="{{square_id}}" type="default" catchtap="digestItem">摘走</button>
     </view>
     <view class="item-body-wrapper">
-      <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
+      <view class="item-sentence-body-wrapper" wx:for="{{sentences}}" wx:key="name">
         <text class="item-sentence">{{item.content}}</text>
       </view>
       <view class="item-footer">

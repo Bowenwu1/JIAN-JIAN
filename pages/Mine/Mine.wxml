@@ -16,13 +16,13 @@
   <view class='bookshelf-wrapper'>
     <text class='bookshelf-title'>看过的书</text>
     <scroll-view class='bookshelf' scroll-x="true">
-      <image wx:for = "{{booksList}}" src="{{item.title_page_image}}" class='bookshelf-item'data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap="onBookItemClick"></image>
+      <image wx:for = "{{booksList}}" src="{{item.title_page_image}}" class='bookshelf-item'data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap="onBookItemClick" wx:key="name"></image>
     </scroll-view>
   </view>
 
   <view class='join-community-wrapper'>
     <text class='join-community-title'>加入的社群</text>
-    <view class='community-info-wrapper' wx:for='{{join_community}}'>
+    <view class='community-info-wrapper' wx:for='{{join_community}}' wx:key="name">
       <image src='{{item.avator}}' class='community-info-avator'></image>
       <view class='community-info-word-wrapper'>
         <text class='community-info-word-name'>{{item.title}}</text>

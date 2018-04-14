@@ -1,14 +1,5 @@
-<!--pages/Main/Main.wxml-->
+<!--pages/OfflineVersion/Main/Main.wxml-->
 <view class='page'>
-
-  <view class='page_hd'>
-    <view class="weui-search-bar__form searchbar" style="border-radius:20px">
-      <view class="weui-search-bar__box">
-        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
-      </view>
-    </view>
-  </view>
 
   <view class='item-wrapper' wx:for="{{bookList}}" wx:key="name">
     <view item-content data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap='onBookItemClick'>
@@ -29,5 +20,4 @@
     </view>
   </view>
 
-  <button class='add-book-button' bindtap='onAddBookClick'><text>+</text></button>
 </view>
