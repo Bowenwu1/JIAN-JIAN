@@ -18,6 +18,8 @@ Page({
     isbn: "",
     sentences: [ ],
     sentences_filter: [ ],
+
+    motto: "Loading..."
   },
 
   /**
@@ -89,7 +91,7 @@ Page({
   onAddSentenceClick: function (position) {
     var that = this;
     wx.showActionSheet({
-      itemList: ['拍一拍', '写一写'],
+      itemList: ['拍一拍（文字识别）', '写一写'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
@@ -178,24 +180,33 @@ Page({
     var that = this;
     var checked_sentence = [];
     var checked_id = [];
-    for (var i in that.data.checked_index) {
-      console.log(i);
-      checked_sentence.push(that.data.sentences[that.data.checked_index[i]].content);
-      checked_id.push(that.data.sentences[that.data.checked_index[i]].sentence_id);
-    }
+    if (that.data.checked_index.length === 0) {
+      wx.showModal({
+        title: '出错了！',
+        content: '您还没有选择要分享的摘录',
+        image: '../../images/request-fail.png'
+      })
+    } else {
+      for (var i in that.data.checked_index) {
+        console.log(i);
+        checked_sentence.push(that.data.sentences[that.data.checked_index[i]].content);
+        checked_id.push(that.data.sentences[that.data.checked_index[i]].sentence_id);
+      }
 
-    var share_info = {
-      isbn: that.data.isbn,
-      title: that.data.title,
-      author: that.data.author,
-      sentences_content: checked_sentence,
-      sentences_id: checked_id
+      var share_info = {
+        isbn: that.data.isbn,
+        title: that.data.title,
+        author: that.data.author,
+        sentences_content: checked_sentence,
+        sentences_id: checked_id
+      }
+      
+      wx.setStorageSync('share_info', share_info);
+      that.cancelChecking();
+      wx.navigateTo({
+        url: '../shareNote/shareNote'
+      })
     }
-    
-    wx.setStorageSync('share_info', share_info);
-    wx.navigateTo({
-      url: '../shareNote/shareNote'
-    })
   },
 
   deleteChecking: function(e) {
@@ -250,7 +261,8 @@ Page({
           that.setData({
             sentences: res.data.data,
             sentencesChange: getApp().globalData.sentencesChange,
-            sentences_filter: res.data && res.data.data ? res.data.data.map(()=>true) : []
+            sentences_filter: res.data && res.data.data ? res.data.data.map(()=>true) : [],
+            motto: "这本书还没有摘录噢，点击\"+\"添加一些吧！"
           });
           wx.setStorage({
             key: `sentece-isbn${that.data.isbn}`,

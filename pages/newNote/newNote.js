@@ -101,34 +101,41 @@ Page({
   },
 
   submitNewNote: function() {
-    var that = this;
-    JJRequest({
-      url: getApp().globalData.baseUrl + '/sentence?isbn='+that.data.isbn,
-      method: 'POST',
-      data: {
-        content: that.data.sentenceContent,
-        thought: that.data.thoughtContent
-      },
-      success: res => {
-        getApp().globalData.sentencesChange++;
-        console.log(res);
-        wx.showToast({
-          title: '添加成功',
-          icon: 'success',
-          image: '',
-          duration: 1000,
-          mask: true,
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) {
-            setTimeout(that.goBack, 1000);
-          },
-        });
-      },
-      fail: res => {
-        console.log('fail to add', res);
-        // ...
-      }
-    })
+    if (this.data.sentenceContent.replace(/[ \n]/g, '').length === 0) {
+      wx.showModal({
+        title: '出错了！',
+        content: '您还没有输入书斋的内容',
+      });
+    } else {
+      var that = this;
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/sentence?isbn='+that.data.isbn,
+        method: 'POST',
+        data: {
+          content: that.data.sentenceContent,
+          thought: that.data.thoughtContent
+        },
+        success: res => {
+          getApp().globalData.sentencesChange++;
+          console.log(res);
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            image: '',
+            duration: 1000,
+            mask: true,
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) {
+              setTimeout(that.goBack, 1000);
+            },
+          });
+        },
+        fail: res => {
+          console.log('fail to add', res);
+          // ...
+        }
+      });
+    }
   }
 })

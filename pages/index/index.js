@@ -5,7 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '笺笺登录中...',
+    motto: '笺笺登录中...\n若时间过长可尝试退出后重新进入',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -18,22 +18,32 @@ Page({
     // })
   },
   onLoad: function () {
+    /*
     if (app.globalData.userInfo) {
+      console.log('globaldata');
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       });
       this.userLogin();
     } else if (this.data.canIUse){
+      console.log('caniuse');
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.log(this.data);
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
         });
         this.userLogin();
       }
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.userLogin();
+        }
+      });
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
@@ -43,6 +53,21 @@ Page({
         }
       })
     }
+    */
+    wx.getUserInfo({
+      success: res => {
+        console.log(res);
+        app.globalData.userInfo = res.userInfo;
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        this.userLogin();
+      },
+      complete: res => {
+        console.log(res);
+      }
+    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -83,7 +108,7 @@ Page({
                       url: '/pages/Main/Main',
                     });
                   }
-                })
+                });
               } else {
                 that.setData({
                   motto: "登录失败，请重试",

@@ -9,6 +9,12 @@
   margin-bottom: 80rpx;
 }
 
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
 .book-name, .from-username {
   color: #353535;
   font-size: 11pt;

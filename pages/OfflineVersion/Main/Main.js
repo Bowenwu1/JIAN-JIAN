@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bookList: []
+    bookList: [],
+    motto: "小程序上没有相关离线数据呢..",
   },
 
   /**
