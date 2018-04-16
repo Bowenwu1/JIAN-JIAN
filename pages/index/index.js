@@ -5,7 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '笺笺登陆中...',
+    motto: '笺笺登录中...',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -70,10 +70,19 @@ Page({
             data: loginData,
             method: 'POST',
             success: function (res) {
+              console.log('login',res);
               if (res.statusCode === 200) {
-                console.log("登陆成功");
-                wx.switchTab({
-                  url: '/pages/Main/Main',
+                console.log("登录成功");
+                JJRequest({
+                  url: getApp().globalData.baseUrl + '/user/self',
+                  method: 'GET',
+                  success: res => {
+                    console.log(res);
+                    getApp().globalData.__userId__ = res.data.data.self['user_id'];
+                    wx.switchTab({
+                      url: '/pages/Main/Main',
+                    });
+                  }
                 })
               } else {
                 that.setData({
@@ -114,7 +123,7 @@ Page({
   },
   onRetryTap() {
     this.setData({
-      motto: '笺笺登陆中...',
+      motto: '笺笺登录中...',
       showButtons: false
     });
     this.onLoad();

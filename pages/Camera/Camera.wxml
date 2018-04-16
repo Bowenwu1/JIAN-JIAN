@@ -1,7 +1,10 @@
 <!--pages/Camera/Camera.wxml-->
 <camera hidden="{{cameraHidden}}" device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
-  <cover-view class='takeButton' bindtap='takePhoto' >
-    <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
+  <cover-view class='flex-wrapper'>
+    <cover-view class='takeButton' bindtap='takePhoto' >
+      <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
+    </cover-view>
+    <cover-view class="hint-view">目前仅支持竖屏拍摄</cover-view>
   </cover-view>
 </camera>
 

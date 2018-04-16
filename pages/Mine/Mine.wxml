@@ -8,7 +8,7 @@
         </view>
         <view class='second-row'>
           <text>读过的书:</text><text>{{booksList.length}}</text>
-          <text>读书时长:</text><text>{{read_hour}}</text>
+          <!--<text>读书时长:</text><text>{{read_hour}}</text>-->
         </view>
       </view>
   </view>
@@ -21,7 +21,7 @@
   </view>
 
   <view class='join-community-wrapper'>
-    <text class='join-community-title'>加入的社群</text>
+    <text class='join-community-title'>加入的社群-开发中</text>
     <view class='community-info-wrapper' wx:for='{{join_community}}' wx:key="name">
       <image src='{{item.avator}}' class='community-info-avator'></image>
       <view class='community-info-word-wrapper'>

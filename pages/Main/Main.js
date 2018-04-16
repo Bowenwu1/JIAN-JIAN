@@ -9,8 +9,9 @@ Page({
   data: {
     booksChange: -1,
     sentencesChange: -1,
-
-    bookList: [ ]
+    motto: 'Loading..',
+    bookList: [ ],
+    book_filter: []
   },
 
   /**
@@ -102,7 +103,7 @@ Page({
   onAddBookClick: function () {
     let that = this;
     wx.showActionSheet({
-      itemList: ['新增书籍','添加书摘'],
+      itemList: ['新增书籍','添加摘录'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
@@ -202,10 +203,12 @@ Page({
           console.log('get bookList', res);
           that.setData({
             bookList: res.data.data,
+            book_filter: res.data.data ? res.data.data.map(() => true) : [],
             booksChange: getApp().globalData.booksChange,
-            sentencesChange: getApp().globalData.sentencesChange
+            sentencesChange: getApp().globalData.sentencesChange,
+            motto: '您是不是还没有做过书摘呢？点击右下角添加第一本书吧！'
           });
-          callback();
+          if (callback) callback();
           wx.setStorage({
             key: 'bookList',
             data: res.data.data,
@@ -217,20 +220,35 @@ Page({
             success: res => {
               that.setData({
                 bookList: res,
+                book_filter: res ? res.map(()=>true) : [],
                 booksChange: -1,
                 sentencesChange: -1 //下次show时要请求数据库
               })
             },
             complete: res => {
-              callback();
+              if (callback) callback();
             }
           });
         }
       },
       failed: res => {
         console.log('get booklist request failed');
-        callback();
+        if (callback) callback();
       }
     });
-  }
+  },
+  inputTyping(e) {
+    this.setData({
+      book_filter: this.data.bookList ? this.data.bookList.map((item) => {
+        return (item.author.indexOf(e.detail.value) !== -1 ||
+          item.title.indexOf(e.detail.value) !== -1 || 
+          item.sample_sentence.some(item => {
+            return (item.content.indexOf(e.detail.value) !== -1 ||
+            item.thought.indexOf(e.detail.value) !== -1);
+          })
+        );
+      }) : []
+    })
+  },
+
 })

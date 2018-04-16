@@ -24,6 +24,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     sliderWidth: 0,
+    __userId__: getApp().globalData.__userId__,
   },
 
   /**
@@ -84,7 +85,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    console.log(this.data.activeIndex);
+    this[this.data.tabs[this.data.activeIndex].callback](()=>{
+      wx.stopPullDownRefresh();
+    });
   },
 
   /**
@@ -113,19 +117,29 @@ Page({
   
   
   
-  getNews() {
+  getNews(callback) {
     const self = this;
     JJRequest({
       url: getApp().globalData.baseUrl + '/square_sentences',
       method: 'GET',
       success: res => {
         console.log(res);
-        self.setData({
-          "tabs[0].list": res.data.data
-        });
+        if (res.statusCode === 200) {
+          let newsList = res.data.data ? res.data.data.map((item) => {
+            item.add_time = item.add_time.slice(0, 10);
+            item.canDelete = item.author_user_id === getApp().globalData.__userId__ ? 1 : 0;
+            return item;
+          }) : [];
+          self.setData({
+            "tabs[0].list": newsList
+          });
+        }
       },
       fail: res => {
         // ...
+      },
+      complete: res => {
+        if (callback) callback();
       }
     });
   },
@@ -165,7 +179,7 @@ Page({
       url: '../SquareItem/SquareItem?square_id=' + this.data.tabs[0].list[index].square_id,
     })
   },
-  getRaft() {
+  getRaft(callback) {
     var that = this;
     JJRequest({
       url: getApp().globalData.baseUrl + '/driftings',
@@ -175,6 +189,9 @@ Page({
         that.setData({
           "tabs[1].list": res.data.data.result
         })
+      },
+      complete: res => {
+        if (callback) callback();
       }
     })
   },
@@ -197,6 +214,114 @@ Page({
           fail: function (res) { },
           complete: function (res) { },
         });
+      }
+    })
+  },
+  toggleLike(e) {
+    let that = this;
+    let item = this.data.tabs[0].list[e.currentTarget.dataset.index];
+    console.log(`点赞操作id为${item.square_id}`);
+    if (item.whetherZanByMe === 0) {
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/zan?squareId='+item.square_id,
+        method: 'POST',
+        success: res => {
+          console.log(res);
+          if (res.statusCode == '200' && res.data.data.result == true) {
+            item.whetherZanByMe = 1;
+            item.zan_num++;
+            that.setData({
+              ['tabs[0].list['+ e.currentTarget.dataset.index+']']: item
+            })
+          }
+        }
+      })
+    } else {
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/zan?squareId=' + item.square_id,
+        method: 'DELETE',
+        success: res => {
+          console.log(res);
+          if (res.statusCode == '200' && res.data.data.result == true) {
+            item.whetherZanByMe = 0;
+            item.zan_num--;
+            that.setData({
+              ['tabs[0].list[' + e.currentTarget.dataset.index + ']']: item
+            })
+          }
+        }
+      })
+    }
+  },
+  toggleDelete(e) {
+    let squareId = e.currentTarget.dataset.squareid;
+    let that = this;
+    wx.showModal({
+      title: '删除',
+      content: '您将要删除这条分享',
+      success: res => {
+        if (res.confirm) {
+          console.log(`删除id为${squareId}的广场分享`);
+          JJRequest({
+            url: getApp().globalData.baseUrl + '/square_sentences?square_id='+ squareId,
+            method: 'DELETE',
+            success: res => {
+              console.log(res);
+              if (res.statusCode === 200) {
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  image: '',
+                  duration: 1000,
+                  mask: true,
+                  success: function (res) {
+                    that.getNews();
+                  },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                });
+              }
+            }
+          })
+        } else {
+          console.log('取消删除');
+        }
+      }
+    })
+  },
+  toggleDeleteDrift(e) {
+    let driftingId = e.currentTarget.dataset.driftingid;
+    let that = this;
+    wx.showModal({
+      title: '删除',
+      content: '您将要删除这条漂流',
+      success: res => {
+        if (res.confirm) {
+          console.log(`删除id为${driftingId}的广场漂流`);
+          JJRequest({
+            url: getApp().globalData.baseUrl + '/driftings/' + driftingId,
+            method: 'DELETE',
+            success: res => {
+              console.log(res);
+              if (res.statusCode === 200) {
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  image: '',
+                  duration: 1000,
+                  mask: true,
+                  success: function (res) {
+                    that.getRaft();
+                  },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                });
+              }
+            }
+          })
+        } else {
+          console.log('取消删除');
+        }
       }
     })
   }

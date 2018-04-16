@@ -14,7 +14,7 @@ Page({
         bookImgPath: '../../images/hn.jpg'
       }, {
         identity: 'BOB',
-        leader: '李看山',
+        leader: 'BOB粉丝后援团',
         memberNum: 7,
         reason: '热门',
         bookImgPath: '../../images/mss.jpg'

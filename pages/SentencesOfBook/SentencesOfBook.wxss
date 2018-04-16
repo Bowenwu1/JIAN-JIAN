@@ -95,16 +95,24 @@
 }
 
 .icon-buttons-wrapper {
-  font-size: 11pt;
-  margin-top: 20rpx;
   position: fixed;
-  bottom: 20rpx;
-  left: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  width: 90%;
+  margin: 20rpx 40rpx;
 }
 .button-image {
   width: 56rpx;
   height: 56rpx;
   margin-right: 20rpx;
+}
+.icon-buttons-right-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 11pt;
+  color: #8f7b76;
+  margin-bottom: 10rpx;
 }
 
 .buttons-row {

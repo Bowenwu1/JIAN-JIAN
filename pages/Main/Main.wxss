@@ -21,6 +21,13 @@
   margin-right: 20px;
 }
 
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
+
 .item-wrapper {
   margin-left: auto;
   margin-right: auto;
