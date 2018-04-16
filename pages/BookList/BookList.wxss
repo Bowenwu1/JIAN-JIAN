@@ -4,7 +4,12 @@
   padding-left: 30rpx;
   padding-right: 30rpx;
 }
-
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
 .raft-book-wrapper {
   padding-top: 30rpx;
   padding-bottom: 30rpx;

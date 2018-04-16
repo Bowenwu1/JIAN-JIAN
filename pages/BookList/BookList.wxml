@@ -8,7 +8,7 @@
       </view>
     </view>
   </view>
-
+  <text class="hint-text" wx:if="{{bookList.length === 0}}">{{motto}}</text>
   <view class='raft-book-wrapper' wx:for='{{bookList}}'>
     <view class='book-info-horizontal-wrapper' data-isbn='isbn' bindtap='selectBook'>      
       <image class='book-image' src='{{item.title_page_image}}'></image>

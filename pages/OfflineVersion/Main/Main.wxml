@@ -1,6 +1,6 @@
 <!--pages/OfflineVersion/Main/Main.wxml-->
 <view class='page'>
-
+  <text class="hint-text" wx:if="{{bookList.length === 0}}">{{motto}}</text>
   <view class='item-wrapper' wx:for="{{bookList}}" wx:key="name">
     <view item-content data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap='onBookItemClick'>
       <view class='book-info-row'>

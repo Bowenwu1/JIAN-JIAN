@@ -18,6 +18,8 @@ Page({
     isbn: "",
     sentences: [ ],
     sentences_filter: [ ],
+
+    motto: "Loading..."
   },
 
   /**
@@ -89,7 +91,7 @@ Page({
   onAddSentenceClick: function (position) {
     var that = this;
     wx.showActionSheet({
-      itemList: ['拍一拍', '写一写'],
+      itemList: ['拍一拍（文字识别）', '写一写'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
@@ -250,7 +252,8 @@ Page({
           that.setData({
             sentences: res.data.data,
             sentencesChange: getApp().globalData.sentencesChange,
-            sentences_filter: res.data && res.data.data ? res.data.data.map(()=>true) : []
+            sentences_filter: res.data && res.data.data ? res.data.data.map(()=>true) : [],
+            motto: "这本书还没有摘录噢，点击"+"添加一些吧！"
           });
           wx.setStorage({
             key: `sentece-isbn${that.data.isbn}`,

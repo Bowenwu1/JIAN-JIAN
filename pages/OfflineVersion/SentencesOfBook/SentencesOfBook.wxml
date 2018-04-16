@@ -6,7 +6,7 @@
       <text class='book-name'>《{{title}}》</text>
       <text class='from-username'> ——{{author}}</text>
     </view>
-
+    <text class="hint-text" wx:if="{{sentences.length === 0}}">{{motto}}</text>
     <scroll-view class='sentences-box' scroll-y='true'>
       <checkbox-group bindchange="checkboxChange">
         <view class='sentence-list-item' wx:for="{{sentences}}" wx:key="name">

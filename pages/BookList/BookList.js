@@ -5,22 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    motto: '您的书架上还没有书籍噢，先去添加一些吧！'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getStorage({
-      key: 'bookList',
-      success: function(res) {
-        that.setData({
-          bookList: res.data
-        })
-      },
-    })
+    this.setData({
+      bookList: wx.getStorageSync('bookList')
+    });
   },
 
   /**

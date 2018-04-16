@@ -31,7 +31,7 @@
   </view>
   <view class='comment-add-area'  hidden="{{!showCommentAddArea}}"> 
     <view class="text-box">
-      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeCommentContent" placeholder="添加评论..."/>
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeCommentContent" placeholder="评论还不能删除噢，请谨言慎评"/>
     </view>
     <view class='buttons-row'>
       <button class='bottom-button' type='default' size='mini' bindtap='cancelComment'>取消</button>

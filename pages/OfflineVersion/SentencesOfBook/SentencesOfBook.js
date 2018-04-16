@@ -15,7 +15,9 @@ Page({
     author: "",
     isbn: "",
     sentences: [
-    ]
+    ],
+
+    motto: "小程序上没有这本书的摘录数据呢..."
   },
 
   /**
