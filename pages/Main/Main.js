@@ -103,7 +103,7 @@ Page({
   onAddBookClick: function () {
     let that = this;
     wx.showActionSheet({
-      itemList: ['新增书籍','添加摘录'],
+      itemList: ['新增书籍（扫描条形码）','添加摘录'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {
