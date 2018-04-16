@@ -3,7 +3,9 @@
 <view class='book-info-wrapper'>
     <text>书籍信息</text>
     <view class='book-info-content'>
-      <image src='{{title_page_url}}' class='book-info-avator'></image>
+      <view class='book-info-avator-wrapper'>
+        <image src='{{title_page_url}}' class='book-info-avator'></image>
+      </view>
       <view class='book-info-word-wrapper'>
         <text class='book-info-title'>书名：{{title}}</text>
         <text class='book-info-others'>作者：{{author}}</text>

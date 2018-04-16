@@ -4,11 +4,12 @@
     <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
     <text class="item-name">{{nick_name}}</text>
     <text class="item-time">{{add_time}}</text>
-    <button class="round-button" type="default" catchtap="digestItem">摘走</button>
+    <button class="round-button" type="default" wx:if="{{canDelete !== 1}}" catchtap="digestItem">摘走</button>
+    <view class="item-delete" wx:if="{{canDelete === 1}}"> <text>删除</text></view>
   </view>
   <view class="item-body-wrapper">
     <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">
-      <text class="item-sentence">{{item}}</text>
+      <text class="item-sentence">{{item.content}}</text>
     </view>
     <view class="item-footer">
       <text class="item-breakdash">——</text>
@@ -18,25 +19,32 @@
     <view class="item-thought">
       <text class="item-thought-content">{{thoughts}}</text>
     </view>
-    <view class="item-like-comment" hidden="{{showCommentAddArea}}">
-      <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" catchtap="toggleLike"/>
-      <view class="fa fa-edit icon-edit" bindtap="addComment"/>
+    <view class="item-operation">
+      <view class="item-operation-right">
+        <view class="item-zan-wrapper" data-index="{{index}}" catchtap="toggleLike">
+          <view class="fa fa-heart {{ whetherZanByMe === 1 ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}"/>
+          <view class="zan-num"><text class="delete-button">{{zan_num}}</text></view>
+        </view>
+        <view class="fa fa-comment-o icon-edit" bindtap="addComment"/>
+      </view>
     </view>
   </view>
-  <view class="comment-wrapper" wx:for="comments">
-    <view class="comment-item-wrapper">
-      <text class="user-name"></text>
-      <text class="comment-content"></text>
-    </view>
-  </view>
-
   <view class='comment-add-area'  hidden="{{!showCommentAddArea}}"> 
     <view class="text-box">
-      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeCommentContent" placeholder="评论..."/>
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeCommentContent" placeholder="添加评论..."/>
     </view>
     <view class='buttons-row'>
       <button class='bottom-button' type='default' size='mini' bindtap='cancelComment'>取消</button>
       <button class='bottom-button' type='primary'  size='mini' bindtap='submitComment'>评论</button>
     </view>
   </view>
+  <view class="comment-wrapper" wx:for="{{comments}}">
+    <view class="comment-item-wrapper">
+      <text class="user-name">{{item.nick_name}}</text>
+      <text>: </text>
+      <text class="comment-content">{{item.content}}</text>
+    </view>
+  </view>
+
+  
 </view>

@@ -1,0 +1,28 @@
+<!--pages/OfflineVersion/SentencesOfBook/SentencesOfBook.wxml-->
+<view class='page' scroll-x='false'>
+
+  <view class='item-wrapper'>
+    <view class='book-info-row'>
+      <text class='book-name'>《{{title}}》</text>
+      <text class='from-username'> ——{{author}}</text>
+    </view>
+
+    <scroll-view class='sentences-box' scroll-y='true'>
+      <checkbox-group bindchange="checkboxChange">
+        <view class='sentence-list-item' wx:for="{{sentences}}" wx:key="name">
+          <view class='sentence-label-wrapper'>
+            <image class='sentence-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
+          </view>
+          <view class='sentences-wrapper'>
+            <view class='sentences-item-wrapper'>
+              <text class='sentences-item'>{{item.content}}</text>
+            </view>
+            <view class='thought-row' wx:if="{{item.thought != null && item.thought !== 'undefined'}}">
+              <text class='thought'>{{item.thought}}</text>
+            </view>
+          </view>
+        </view>
+      </checkbox-group>
+    </scroll-view>
+  </view>
+</view>

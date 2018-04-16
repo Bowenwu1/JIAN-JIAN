@@ -7,12 +7,15 @@
 .book-info-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
+.book-info-avator-wrapper {
+  margin: 50rpx auto;
+}
 .book-info-avator {
   width: 160rpx;
   height: 224rpx;
-  margin-right: 50rpx;
 }
 .book-info-word-wrapper {
   display: flex;

@@ -1,21 +1,4 @@
-/* pages/SentencesOfBook/SentencesOfBook.wxss */
-.action-bar {
-  height: 30%;
-  background-color: #fae8d2;
-  text-align: center;
-  padding-top: 25px;
-}
-
-.new-button {
-  float: left;
-  padding-bottom: 0;
-}
-
-.searchbar {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
+/* pages/OfflineVersion/SentencesOfBook/SentencesOfBook.wxss */
 .item-wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -69,11 +52,6 @@
   width: 16rpx;
   height: 16rpx;
 }
-.sentence-checkbox {
-  float: left;
-  zoom: 60%;
-  max-width: 10%;
-}
 .sentences-wrapper {
   margin-bottom: 30rpx;
   margin-left: 10%;
@@ -92,36 +70,4 @@
 .thought {
   color: #bbbbbb;
   word-break:break-all;
-}
-
-.icon-buttons-wrapper {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  bottom: 0;
-  width: 90%;
-  margin: 20rpx 40rpx;
-}
-.button-image {
-  width: 56rpx;
-  height: 56rpx;
-  margin-right: 20rpx;
-}
-.icon-buttons-right-wrapper {
-  display: flex;
-  align-items: center;
-  font-size: 11pt;
-  color: #8f7b76;
-  margin-bottom: 10rpx;
-}
-
-.buttons-row {
-  position: fixed;
-  width: 100%;
-  text-align: center;
-  bottom: 20rpx;
-  left: 40rpx;
-}
-.bottom-button {
-  margin: 20rpx 40rpx;
 }

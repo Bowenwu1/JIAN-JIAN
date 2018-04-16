@@ -5,7 +5,7 @@
     <view class="weui-search-bar__form searchbar" style="border-radius:20px">
       <view class="weui-search-bar__box">
         <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
+        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" bindconfirm="doSearch"/>
       </view>
     </view>
   </view>
@@ -15,13 +15,12 @@
     <view class='book-info-row'>
       <text class='book-name'>《{{title}}》</text>
       <text class='from-username'> ——{{author}}</text>
-      <image class='raft-button' bindtap='onRaftClick' src="{{rafted ? '/icons/drift.png' :'/icons/drift_selected.png'}}" mode='aspectFit' hidden="{{show_checkbox}}"/>
     </view>
 
     <scroll-view class='sentences-box' scroll-y='true'>
       <checkbox-group bindchange="checkboxChange">
-        <view class='sentence-list-item' wx:for="{{sentences}}">
-          <view class='sentence-label-wrapper'>
+        <view class='sentence-list-item' wx:for="{{sentences}}" hidden="{{!sentences_filter[index]}}" wx:key="name">
+          <view class='sentence-label-wrapper' >
             <image class='sentence-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
           </view>
           <checkbox class='sentence-checkbox' value="{{index}}" wx:if="{{show_checkbox}}" />
@@ -39,15 +38,20 @@
   </view>
 
   <view class='icon-buttons-wrapper' hidden="{{show_checkbox}}">
+    <view class='icon-buttons-left-wrapper'>
       <image class='button-image' bindtap='onDeleteSentenceClick' src='/icons/delete.png' mode='aspectFit' />
       <image class='button-image' bindtap='onShareSentenceClick' src='/icons/share.png' mode='aspectFit' />
       <image class='button-image' bindtap='onAddSentenceClick' src='/icons/add.png' mode='aspectFit' />
     </view>
-
-    <view class='buttons-row' wx:if="{{show_checkbox}}">
-      <button class='bottom-button' type='default' size='mini' bindtap='cancelChecking'>取消</button>
-      <button class='bottom-button' type='primary' wx:if="{{share_or_delete}}" size='mini' bindtap='shareChecking'>分享</button>
-      <button class='bottom-button' type='warn' wx:if="{{!share_or_delete}}" size='mini' bindtap='deleteChecking'>删除</button>
+    <view class='icon-buttons-right-wrapper' bindtap='onRaftClick'>
+      <text>漂流 </text>
+      <image class='button-image' src="{{rafted ? '/icons/drift.png' :'/icons/drift_selected.png'}}" mode='aspectFit'/>
     </view>
+  </view>
 
+  <view class='buttons-row' wx:if="{{show_checkbox}}">
+    <button class='bottom-button' type='default' size='mini' bindtap='cancelChecking'>取消</button>
+    <button class='bottom-button' type='primary' wx:if="{{share_or_delete}}" size='mini' bindtap='shareChecking'>分享</button>
+    <button class='bottom-button' type='warn' wx:if="{{!share_or_delete}}" size='mini' bindtap='deleteChecking'>删除</button>
+  </view>
 </view>

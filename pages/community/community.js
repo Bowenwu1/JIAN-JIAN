@@ -1,7 +1,4 @@
 // community.js
-
-var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-
 Page({
   data: {
     tabs: ["推荐", "我的"],
@@ -17,7 +14,7 @@ Page({
         bookImgPath: '../../images/hn.jpg'
       }, {
         identity: 'BOB',
-        leader: '李看山',
+        leader: 'BOB粉丝后援团',
         memberNum: 7,
         reason: '热门',
         bookImgPath: '../../images/mss.jpg'
@@ -44,13 +41,24 @@ Page({
     ]
   },
   onLoad: function () {
-    var that = this;
+    let self = this;
     wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+      success(res) {
+        const {
+          tabs,
+          activeIndex,
+        } = self.data
+        const { windowWidth } = res
+        const tabWidth = windowWidth / tabs.length
+        const sliderWidth = tabWidth * 0.75
+        const sliderLeft = tabWidth * 0.125
+        self.setData({
+          sliderLeft,
+          sliderOffset: tabWidth * activeIndex,
+          sliderWidth,
         });
+        //const callback = tabs[0].callback
+        //self[callback]()
       }
     });
   },

@@ -7,8 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    squareId: '',
     showCommentAddArea: false,
-    newCommentContent: ''
+    newCommentContent: '',
+    comments: []
   },
 
   /**
@@ -23,15 +25,9 @@ Page({
       key: 'squareItem',
       success: function(res) {
         that.setData(res.data);
+        that.getComment();
       },
     });
-    JJRequest({
-      url: getApp().globalData.baseUrl + '/comment?square_id=' + that.data.squareId,
-      method: 'GET',
-      success: res => {
-        console.log(res);
-      }
-    })
   },
 
   /**
@@ -88,11 +84,45 @@ Page({
       delta: 1
     })
   },
-  
+  toggleLike(e) {
+    let that = this;
+    console.log(`点赞操作id为${that.data.square_id}`);
+    if (that.data.whetherZanByMe === 0) {
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/zan?squareId=' + that.data.square_id,
+        method: 'POST',
+        success: res => {
+          if (res.statusCode == '200' && res.data.data.result == true) {
+            that.setData({
+              whetherZanByMe: 1,
+              zan_num: that.data.zan_num+1
+            })
+          }
+        }
+      });
+    } else {
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/zan?squareId=' + that.data.square_id,
+        method: 'DELETE',
+        success: res => {
+          if (res.statusCode == '200' && res.data.data.result == true) {
+            that.setData({
+              whetherZanByMe: 0,
+              zan_num: that.data.zan_num-1
+            })
+          }
+        }
+      });
+    }
+  },
   addComment() {
-    this.setData({
-      showCommentAddArea: true
-    });
+    if (this.data.showCommentAddArea === true) {
+      this.cancelComment();
+    } else {
+      this.setData({
+        showCommentAddArea: true
+      });
+    }
   },
   changeCommentContent(e) {
     this.setData({
@@ -107,10 +137,9 @@ Page({
   submitComment() {
     let that = this;
     JJRequest({
-      url: getApp().globalData.baseUrl + '/comment',
+      url: getApp().globalData.baseUrl + '/comment?squareId=' + that.data.squareId,
       method: 'POST',
       data: {
-        "squareId": that.data.squareId,
         "comment": that.data.newCommentContent
       },
       success: res => {
@@ -124,9 +153,49 @@ Page({
           success: function (res) { },
           fail: function (res) { },
           complete: function (res) {
-            setTimeout(that.goBack, 1000);
+            setTimeout(()=>{
+              that.getComment();
+              that.cancelComment();
+            }, 1000);
           },
         });
+      }
+    })
+  },
+  digestItem() {
+    if (this.data.squareId !== '') {
+      let that = this;
+      console.log(`摘走id为${that.data.squareId}`);
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/sentence/' + that.data.squareId,
+        method: 'POST',
+        success: res => {
+          console.log('摘走', res);
+          getApp().globalData.sentencesChange++;
+          wx.showToast({
+            title: '摘录成功',
+            icon: 'success',
+            image: '',
+            duration: 1000,
+            mask: true,
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          });
+        }
+      })
+    }
+  },
+  getComment() {
+    let that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/comment?squareId=' + that.data.squareId,
+      method: 'GET',
+      success: res => {
+        console.log('get comment', res);
+        that.setData({
+          comments: res.data.data.comments
+        })
       }
     })
   }

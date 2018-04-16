@@ -5,10 +5,11 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '笺笺登陆中...',
+    motto: '笺笺登录中...',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    showButtons: false
   },
   //事件处理函数
   bindViewTap: function() {
@@ -69,14 +70,24 @@ Page({
             data: loginData,
             method: 'POST',
             success: function (res) {
-              if (res.data.status == "OK") {
-                console.log("登陆成功");
-                wx.switchTab({
-                  url: '/pages/Main/Main',
+              console.log('login',res);
+              if (res.statusCode === 200) {
+                console.log("登录成功");
+                JJRequest({
+                  url: getApp().globalData.baseUrl + '/user/self',
+                  method: 'GET',
+                  success: res => {
+                    console.log(res);
+                    getApp().globalData.__userId__ = res.data.data.self['user_id'];
+                    wx.switchTab({
+                      url: '/pages/Main/Main',
+                    });
+                  }
                 })
               } else {
                 that.setData({
-                  motto: "登录失败，请重试"
+                  motto: "登录失败，请重试",
+                  showButtons: true
                 })
                 console.log('fail to login');
                 console.log(res);
@@ -85,7 +96,8 @@ Page({
             fail: function (res) {
               // don't know what to do yet.....
               that.setData({
-                motto: "登录失败，请重试"
+                motto: "登录失败，请重试",
+                showButtons: true
               })
               console.log('fail to login');
               console.log(res);
@@ -94,8 +106,31 @@ Page({
           })
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
+          that.setData({
+            motto: "登录失败，请重试",
+            showButtons: true
+          })
         }
+      },
+      fail: res => {
+        that.setData({
+          motto: "登录失败，请重试",
+          showButtons: true
+        })
+        console.log('fail to login');
       }
+    })
+  },
+  onRetryTap() {
+    this.setData({
+      motto: '笺笺登录中...',
+      showButtons: false
+    });
+    this.onLoad();
+  },
+  onOfflineTap() {
+    wx.navigateTo({
+      url: '../OfflineVersion/Main/Main'
     })
   }
 })

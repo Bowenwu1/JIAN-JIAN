@@ -1,6 +1,5 @@
 /* pages/SquareItem/SquareItem.wxss */
 
-
 .user-avatar {
   width: 72rpx;
   height: 72rpx;
@@ -19,9 +18,7 @@
 }
 
 .item-wrapper {
-  border-bottom: solid 0.5rpx #dedede;
   padding: 38rpx;
-  padding-bottom: 25rpx;
 }
 
 .round-button {
@@ -48,7 +45,7 @@
   display: block;
 }
 
-.item-footer, .item-like-comment {
+.item-footer, .item-operation {
   text-align: right;
 }
 
@@ -56,24 +53,49 @@
   color: #bbbbbb;
 }
 
-.item-like-comment {
+.item-operation {
   margin-top: 10rpx;
+}
+.item-delete {
+  color: #576b95;
+  font-size: 11pt;
+  float: right;
+  margin-right: 20rpx;
+}
+.item-zan-wrapper {
+  display: inline-block;
 }
 .icon-like, .icon-unlike {
   font-size: 45rpx;
-  vertical-align: text-top;
-  margin-right: 30rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
   transition-duration: 0.2s;
 }
 .icon-like {
   color: pink;
 }
 .icon-unlike {
-  color: grey;
+  color: #bbbbbb;
+}
+.zan-num {
+  display: inline-block;
+  font-size: 11pt;
+  color: #bbbbbb;
 }
 .icon-edit {
-  font-size: 50rpx;
-  vertical-align: text-bottom;
+  color: #8f7b76;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  vertical-align: middle;
+}
+.comment-wrapper {
+  color: #353535;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 11pt;
+}
+.user-name {
+  color: #888888;
 }
 
 .text-box {

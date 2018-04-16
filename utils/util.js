@@ -35,7 +35,32 @@ function JJRequest(param) {
     if (res.header && res.header['Set-Cookie']) {
       cookies.setCookies(res.header['Set-Cookie']);
     }
-    if (success) {
+    if (res.statusCode === 401) {
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          let loginData = {
+            code: res.code,
+            nickname: getApp().globalData.userInfo.nickName,
+            avatar: getApp().globalData.avatarUrl
+          };
+          console.log(loginData.nickname);
+          JJRequest({
+            url: getApp().globalData.baseUrl + '/user/login',
+            data: loginData,
+            method: 'POST',
+            success: function (res) {
+              console.log('login', res);
+              if (res.statusCode === 200) {
+                console.log("重新登录成功");
+                JJRequest(param);
+              }
+            }
+          });
+        }
+      });
+    }
+    else if (success) {
       success(res);
     }
   }

@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "笺笺"
+  "navigationBarTitleText": "笺笺",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50
 }

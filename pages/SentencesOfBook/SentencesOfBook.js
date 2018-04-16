@@ -16,8 +16,8 @@ Page({
     title: "",
     author: "",
     isbn: "",
-    sentences: [
-    ]
+    sentences: [ ],
+    sentences_filter: [ ],
   },
 
   /**
@@ -244,19 +244,30 @@ Page({
       url: getApp().globalData.baseUrl + '/sentence?isbn=' + that.data.isbn,
       method: 'GET',
       success: res => {
-        console.log("get sentences successfully");
-        console.log(res.data.data);
-        that.setData({
-          sentences: res.data.data,
-          sentencesChange: getApp().globalData.sentencesChange
-        });
+        if (res.statusCode === 200) {
+          console.log("get sentences successfully");
+          console.log(res.data.data);
+          that.setData({
+            sentences: res.data.data,
+            sentencesChange: getApp().globalData.sentencesChange,
+            sentences_filter: res.data && res.data.data ? res.data.data.map(()=>true) : []
+          });
+          wx.setStorage({
+            key: `sentece-isbn${that.data.isbn}`,
+            data: res.data.data,
+          })
+        }
       }
     })
   },
 
   inputTyping(e) {
-    
-  }
-  
+    this.setData({
+      sentences_filter: this.data.sentences ? this.data.sentences.map((item) => {
+        return (item.content.indexOf(e.detail.value) !== -1 || 
+                item.thought.indexOf(e.detail.value) !== -1);
+      }) : []
+    })
+  },
 
 })

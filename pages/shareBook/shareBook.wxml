@@ -15,7 +15,7 @@
     </view>
 
     <view class="text-box">
-      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeOwnerContent" placeholder="留言，可以留下您的联系方式（邮箱、QQ...）" />
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeOwnerContent" placeholder="将这本书分享到广场“漂流”，可以在这里留下您的联系方式（邮箱、QQ...），让其他人联系到您" />
     </view>
 
     <view class='buttons-row'>

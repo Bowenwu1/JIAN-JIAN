@@ -16,7 +16,8 @@
 }
 
 .book-detail-wrapper {
-  width: calc(100% - 150rpx);
+  padding-left: 40rpx;
+  padding-right: 40rpx;
 }
 
 .book-detail-wrapper > text {

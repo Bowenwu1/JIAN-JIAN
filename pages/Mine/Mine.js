@@ -10,12 +10,7 @@ Page({
     booksChange: 0,
     groupsChange: 0,
 
-    bookshelf_image:[
-      '/images/txx.jpg',
-      '/images/lc.jpg',
-      '/images/hn.jpg',
-      '/images/mss.jpg'
-    ],
+    bookshelf_image:[  ],
     join_community:[
       {
         avator: '/images/hn.jpg',
@@ -31,9 +26,9 @@ Page({
       }
     ],
     personal_avator: '',
-    username:'藤椒兔',
-    read_book:3,
-    read_hour:20,
+    username:'',
+    read_book:0,
+    read_hour:0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {}
   },
@@ -64,10 +59,9 @@ Page({
           username: res.userInfo.nickName,
           personal_avator: res.userInfo.avatarUrl
         })
-        console.log(res);
       },
       fail:function() {
-        console.log('fail')
+        console.log('fail to get userinfo')
       }
     })
   },

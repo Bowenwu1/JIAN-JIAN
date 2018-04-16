@@ -15,7 +15,7 @@
     </view>
 
     <view class="text-box">
-      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeThought"	placeholder="写一写感受..." />
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeThought"	placeholder="分享书摘到广场，写一写感受..." />
     </view>
 
     <view class='buttons-row'>
