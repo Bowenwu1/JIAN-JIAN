@@ -35,30 +35,22 @@ function JJRequest(param) {
     if (res.header && res.header['Set-Cookie']) {
       cookies.setCookies(res.header['Set-Cookie']);
     }
+    // 如果收到401返回信息重新登陆一下...
     if (res.statusCode === 401) {
-      wx.login({
-        success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          let loginData = {
-            code: res.code,
-            nickname: getApp().globalData.userInfo.nickName,
-            avatar: getApp().globalData.avatarUrl
-          };
-          console.log(loginData.nickname);
-          JJRequest({
-            url: getApp().globalData.baseUrl + '/user/login',
-            data: loginData,
-            method: 'POST',
-            success: function (res) {
-              console.log('login', res);
-              if (res.statusCode === 200) {
-                console.log("重新登录成功");
-                JJRequest(param);
-              }
-            }
-          });
-        }
-      });
+      if (getApp().globalData) {
+        reLogin(param);
+      } else {
+        wx.getUserInfo({
+          success: res => {
+            console.log(res);
+            app.globalData.userInfo = res.userInfo;
+            reLogin(param);
+          },
+          complete: res => {
+            console.log(res);
+          }
+        });
+      }
     }
     else if (success) {
       success(res);
@@ -66,6 +58,41 @@ function JJRequest(param) {
   }
 }
 
+const reLogin = function(param) {
+  wx.login({
+    success: res => {
+      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      let loginData = {
+        code: res.code,
+        nickname: getApp().globalData.userInfo.nickName,
+        avatar: getApp().globalData.avatarUrl
+      };
+      console.log(loginData.nickname);
+      // 发送登录请求
+      JJRequest({
+        url: getApp().globalData.baseUrl + '/user/login',
+        data: loginData,
+        method: 'POST',
+        success: function (res) {
+          console.log('login', res);
+          if (res.statusCode === 200) {
+            console.log("重新登录成功");
+            // 获取userId
+            JJRequest({
+              url: getApp().globalData.baseUrl + '/user/self',
+              method: 'GET',
+              success: res => {
+                console.log(res);
+                getApp().globalData.__userId__ = res.data.data.self['user_id'];
+                JJRequest(param);
+              }
+            });
+          }
+        }
+      });
+    }
+  });
+}
 module.exports = {
   formatTime: formatTime,
   JJRequest: JJRequest,

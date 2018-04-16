@@ -156,6 +156,9 @@ Page({
             setTimeout(()=>{
               that.getComment();
               that.cancelComment();
+              that.setData({
+                newCommentContent: ''
+              })
             }, 1000);
           },
         });

@@ -43,7 +43,7 @@
   margin: 50rpx auto 100rpx;
 }
 .sentences-ta {
-  min-height: 100rpx;
+  min-height: 140rpx;
   font-size: 11pt;
   width: 100%;
 }

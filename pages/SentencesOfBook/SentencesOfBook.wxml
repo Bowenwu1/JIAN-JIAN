@@ -18,7 +18,7 @@
     </view>
 
     <scroll-view class='sentences-box' scroll-y='true'>
-      <text class="hint-text" wx:if="{{bookList.length === 0}}">{{motto}}</text>
+      <text class="hint-text" wx:if="{{sentences.length === 0}}">{{motto}}</text>
       <checkbox-group bindchange="checkboxChange">
         <view class='sentence-list-item' wx:for="{{sentences}}" hidden="{{!sentences_filter[index]}}" wx:key="name">
           <view class='sentence-label-wrapper' >

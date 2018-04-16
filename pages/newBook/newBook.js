@@ -23,7 +23,7 @@ Page({
       title: res.data.data.title,
       author: res.data.data.author,
       isbn: res.data.data.isbn,
-      title_page_url: res.data.data.title_page_image
+      title_page_url: res.data.data.title_page_url
     });
   },
 

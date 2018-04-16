@@ -5,7 +5,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '笺笺登录中...',
+    motto: '笺笺登录中...\n若时间过长可尝试退出后重新进入',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -108,7 +108,7 @@ Page({
                       url: '/pages/Main/Main',
                     });
                   }
-                })
+                });
               } else {
                 that.setData({
                   motto: "登录失败，请重试",
