@@ -75,13 +75,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
   checkboxChange: function(e) {
     this.setData({
       checked_index: e.detail.value

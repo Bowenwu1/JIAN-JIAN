@@ -1,4 +1,9 @@
 /* pages/Camera/Camera.wxss */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .flex-wrapper {
   position: absolute;
   bottom: 10%;
@@ -35,19 +40,41 @@
 }
 
 .img-wrapper {
-  position: relative;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  width: 640rpx;
+  padding: 0;
 }
 .words-img {
-  height: 1000rpx;
+  display: block;
+  width: 640rpx;
+  margin: 0;
 }
 
 .drawCanvas {
-  position: absolute;
+  display: block;
+  width: 640rpx;
+  border: #bbbbbb 0.5rpx solid;
+}
+.hint-bottom {
+  position: fixed;
+  top: 5%;
+  display: flex;
+  justify-content: center;
+}
+.hint-wait {
+  display: block;
+  max-width: 520rpx;
+  font-size: 9pt;
+  padding: 8rpx 40rpx;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10rpx;
+  color: white;
 }
 
-.hint-wait {
-  color: #bbbbbb;
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
 }

@@ -70,13 +70,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
   changeThought: function(e) {
     this.setData({
       thoughts: e.detail.value

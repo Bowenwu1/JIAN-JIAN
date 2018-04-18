@@ -59,12 +59,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   showCamera: function (isbn) {
     var that = this;
     wx.navigateTo({
@@ -88,7 +82,7 @@ Page({
   selectBook: function(e) {
     var that = this;
     wx.showActionSheet({
-      itemList: ['拍一拍', '写一写'],
+      itemList: ['拍一拍（文字识别）', '写一写'],
       itemColor: '#000000',
       success: function (res) {
         switch (res.tapIndex) {

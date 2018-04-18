@@ -75,13 +75,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   changeSentencePreview: function(e) {
     this.setData({
       sentenceContent: e.detail.value
@@ -104,7 +97,7 @@ Page({
     if (this.data.sentenceContent.replace(/[ \n]/g, '').length === 0) {
       wx.showModal({
         title: '出错了！',
-        content: '您还没有输入书斋的内容',
+        content: '您还没有输入书摘的内容',
       });
     } else {
       var that = this;

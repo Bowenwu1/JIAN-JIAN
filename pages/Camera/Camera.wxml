@@ -1,17 +1,23 @@
 <!--pages/Camera/Camera.wxml-->
-<camera hidden="{{cameraHidden}}" device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
-  <cover-view class='flex-wrapper'>
-    <cover-view class='takeButton' bindtap='takePhoto' >
-      <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
+<view class="page">
+  <camera hidden="{{cameraHidden}}" device-position="back" flash="off" binderror="error" style="width: {{windowWidth}}px; height: {{windowHeight}}px;">
+    <cover-view class='flex-wrapper'>
+      <cover-view class='takeButton' bindtap='takePhoto' >
+        <cover-image src='../../icons/takephoto.png' class='takeButtonIcon'></cover-image>
+      </cover-view>
+      <cover-view class="hint-view">目前仅支持竖屏拍摄</cover-view>
     </cover-view>
-    <cover-view class="hint-view">目前仅支持竖屏拍摄</cover-view>
-  </cover-view>
-</camera>
+  </camera>
 
-<view class='img-wrapper'>
-  <image class='words-img' src="{{tmpImgSrc}}" mode='aspectFit'/>
-  <canvas class='drawCanvas' style="width: 300px; height: 200px;" canvas-id="firstCanvas"></canvas>
-  <view>
-    <text class='hint-wait'>图片上传中，可能花费较长时间，请稍候...</text>
+  <view class='img-wrapper'>
+    <canvas class="drawCanvas" style="height: {{imageHeight*640/imageWidth}}rpx;"canvas-id="drawROICanvas" bindtouchstart="startDrawing" bindtouchmove="onDrawing" bindtouchend="endDrawing">
+    <image class='words-img' src="{{tmpImgSrc}}" mode='widthFix'/></canvas>
+  </view>
+  <view class="hint-bottom" hidden="{{!showHint}}">
+    <text class='hint-wait'>{{motto}}</text>
+  </view>
+  <view class='buttons-row' hidden="{{!showHint}}">
+    <button class='bottom-button' type='default' size='mini' bindtap='reTake'>重拍</button>
+    <button class='bottom-button' type='primary' size='mini' bindtap='uploadImage'>确认</button>
   </view>
 </view>

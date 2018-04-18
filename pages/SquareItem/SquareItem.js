@@ -72,13 +72,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
   goBack: function () {
     wx.navigateBack({
       delta: 1
@@ -201,5 +194,41 @@ Page({
         })
       }
     })
-  }
+  },
+  toggleDelete() {
+    let squareId = this.data.squareId;
+    let that = this;
+    wx.showModal({
+      title: '删除',
+      content: '您将要删除这条分享',
+      success: res => {
+        if (res.confirm) {
+          console.log(`删除id为${squareId}的广场分享`);
+          JJRequest({
+            url: getApp().globalData.baseUrl + '/square_sentences?square_id=' + squareId,
+            method: 'DELETE',
+            success: res => {
+              console.log(res);
+              if (res.statusCode === 200) {
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  image: '',
+                  duration: 1000,
+                  mask: true,
+                  success: function (res) {
+                    setTimeout(that.goBack, 1000);
+                  },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                });
+              }
+            }
+          })
+        } else {
+          console.log('取消删除');
+        }
+      }
+    })
+  },
 })
