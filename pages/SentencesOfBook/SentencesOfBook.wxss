@@ -124,10 +124,10 @@
 
 .buttons-row {
   position: fixed;
-  width: 100%;
-  text-align: center;
   bottom: 20rpx;
-  left: 40rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .bottom-button {
   margin: 20rpx 40rpx;

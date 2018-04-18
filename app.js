@@ -35,6 +35,7 @@ App({
     userInfo: null,
     sentencesChange: 0, // 标记变化...控制是否重新请求数据
     booksChange: 0,
-    groupsChange: 0
+    groupsChange: 0,
+    imageQuality: 'normal'
   }
 })

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rectPos: {
+    rectPos_begin: {
       x: 0,
       y: 0
     },
@@ -134,13 +134,13 @@ Page({
   },
   onDrawing: function (e) {
     this.data.context.setStrokeStyle('#FF0000');
-    this.data.context.strokeRect(this.data.rectPos.x, this.data.rectPos.y, e.changedTouches[0].x - this.data.rectPos.x, e.changedTouches[0].y - this.data.rectPos.y);
+    this.data.context.strokeRect(this.data.rectPos_begin.x, this.data.rectPos_begin.y, e.changedTouches[0].x - this.data.rectPos_begin.x, e.changedTouches[0].y - this.data.rectPos_begin.y);
     this.data.context.draw();
 
   },
   endDrawing: function (e) {
     this.data.context.setStrokeStyle('#FF0000');
-    this.data.context.strokeRect(this.data.rectPos.x, this.data.rectPos.y, e.changedTouches[0].x - this.data.rectPos.x, e.changedTouches[0].y - this.data.rectPos.y);
+    this.data.context.strokeRect(this.data.rectPos_begin.x, this.data.rectPos_begin.y, e.changedTouches[0].x - this.data.rectPos_begin.x, e.changedTouches[0].y - this.data.rectPos_begin.y);
     this.data.context.draw();
     this.setData({
       rectPos_end: {

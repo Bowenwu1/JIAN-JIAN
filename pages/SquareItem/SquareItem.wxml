@@ -5,7 +5,7 @@
     <text class="item-name">{{nick_name}}</text>
     <text class="item-time">{{add_time}}</text>
     <button class="round-button" type="default" wx:if="{{canDelete !== 1}}" catchtap="digestItem">摘走</button>
-    <view class="item-delete" wx:if="{{canDelete === 1}}"> <text>删除</text></view>
+    <view class="item-delete" wx:if="{{canDelete === 1}}" catchtap="toggleDelete"> <text>删除</text></view>
   </view>
   <view class="item-body-wrapper">
     <view class="item-sentence-body-wrapper" wx:for="{{sentences}}">

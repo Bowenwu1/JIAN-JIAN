@@ -62,12 +62,6 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   onBookItemClick: function (e) {
     wx.navigateTo({
       url: '../SentencesOfBook/SentencesOfBook?isbn=' + e.currentTarget.dataset.isbn + '&title=' + e.currentTarget.dataset.title + '&author=' + e.currentTarget.dataset.author

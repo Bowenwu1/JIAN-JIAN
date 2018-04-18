@@ -112,7 +112,9 @@
 }
 
 .buttons-row {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .bottom-button {
   margin: 20rpx 40rpx;
