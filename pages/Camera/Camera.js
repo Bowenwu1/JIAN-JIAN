@@ -181,6 +181,10 @@ Page({
               motto: '图片过大无法上传，重新拍摄将降低图片质量'
             }),
             getApp().globalData.imageQuality = 'low';
+          } else {
+            that.setData({
+              motto: '上传失败，请再次上传或重新拍摄'
+            })
           }
           wx.showToast({
             title: '上传失败了',

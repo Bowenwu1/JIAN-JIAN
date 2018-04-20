@@ -30,28 +30,16 @@ Page({
     read_book:0,
     read_hour:0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    userInfo: {}
+    userInfo: {},
+    motto: 'Loading...'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad')
     var that = this;
-
-    JJRequest({
-      url: getApp().globalData.baseUrl + '/books',
-      method: 'GET',
-      success: res => {
-        console.log("get bookList successful");
-        that.setData({
-          booksChange: getApp().globalData.booksChange,
-          groupsChange: getApp().globalData.groupsChange,
-          booksList: res.data.data
-        });
-      }
-    });
+    this.updateData();
 
     wx.getUserInfo({
       success:res=> {
@@ -134,7 +122,8 @@ Page({
         that.setData({
           booksChange: getApp().globalData.booksChange,
           groupsChange: getApp().globalData.groupsChange,
-          booksList: res.data.data
+          booksList: res.data.data,
+          motto: '您还没有添加书籍噢，\n先去摘录主页添加一本书吧！'
         });
       }
     });
