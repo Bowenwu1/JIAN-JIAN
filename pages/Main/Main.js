@@ -1,37 +1,24 @@
 // pages/Main/Main.js
 
-Page({
+import {JJRequest} from '../../utils/util.js'
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    booksList: [
-      {
-        bookName: "《有一种候鸟》",
-        userName: "------杨竣然",
-        showSentences: [
-          "梦里我听见莫扎特有似天籁的音乐，随颤动的水纹与微风，一波波传来，推动着一艘船。",
-          "我爱父亲，也爱母亲。不过，是两种不同的爱：对父亲是敬仰和认同；对母亲，在原始的亲情里掺杂着些疏离与叛逆的情结。"
-        ]
-      },
-      {
-        bookName: "《当年的体温》",
-        userName: "-----王开岭",
-        showSentences: [
-          "如果不相信灵魂不死，我们何以堪受这样的悲拗与绝望。",
-          "庄稼在那儿，庄稼不能不回去------这是本分，是骨子里的基因，是祖祖辈辈的规矩。",
-          "哭和泪不同。放声大哭，是灵魂能量的一次迸溅，一次肆意的井喷。"
-        ]
-      }
-    ]
+    booksChange: -1,
+    sentencesChange: -1,
+    motto: 'Loading..',
+    bookList: [ ],
+    book_filter: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -45,7 +32,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.booksChange != getApp().globalData.booksChange ||
+        this.data.sentencesChange != getApp().globalData.sentencesChange) {
+      this.updateBookList(() => { });
+    }
   },
 
   /**
@@ -66,7 +56,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.updateBookList(() => { wx.stopPullDownRefresh();});
   },
 
   /**
@@ -111,12 +101,24 @@ Page({
     })
   },
   onAddBookClick: function () {
-    var that = this;
+    let that = this;
     wx.showActionSheet({
-      itemList: ['扫描条形码添加书籍'],
+      itemList: ['新增书籍（扫描条形码）','添加摘录'],
       itemColor: '#000000',
       success: function (res) {
-        that.showWorking();
+        switch (res.tapIndex) {
+          case 0:
+            // new Book
+            that.showScanning();
+            break;
+          case 1:
+            // new Note
+            //that.showWorking();
+            wx.navigateTo({
+              url:"../BookList/BookList"
+            });
+            break;
+        }
       },
       fail: function (res) { },
       complete: function (res) { },
@@ -134,23 +136,119 @@ Page({
       complete: function (res) { },
     })
   },
-  showCamera: function () {
+  onBookItemClick: function(e) {
     wx.navigateTo({
-      url: '../Camera/Camera',
-      success: function () {
-      },
-      fail:function() {
-        wx.showToast({
-          title: '失败',
-          icon: '',
-          image: '../../icons/working.png',
-          duration: 1000,
-          mask: true,
-          success: function (res) { },
-          fail: function (res) { },
-          complete: function (res) { },
-        })
-      }
+      url: '../SentencesOfBook/SentencesOfBook?isbn=' + e.currentTarget.dataset.isbn +'&title=' + e.currentTarget.dataset.title + '&author=' + e.currentTarget.dataset.author
     })
-  }
+  },
+  showScanning: function () {
+    let that = this;
+    wx.scanCode({
+      scanType: 'barCode',
+      success: (res) => {
+        console.log(res)
+        let isbn = res.result;
+        JJRequest({
+          url: getApp().globalData.baseUrl + '/book_info?isbn=' + isbn,
+          success: res => {
+            console.log('get books information success', res);
+            wx.setStorage({
+              key: 'addBookInfo',
+              data: res,
+              success: res=> {
+                wx.navigateTo({
+                  url: '../newBook/newBook',
+                  success: function () {
+                  },
+                  fail: function () {
+                    wx.showToast({
+                      title: '获得该书本信息失败',
+                      icon: '',
+                      image: '../../images/request-fail.png',
+                      duration: 1000,
+                      mask: true,
+                      success: function (res) { },
+                      fail: function (res) { },
+                      complete: function (res) { },
+                    })
+                  }
+                });
+              }
+            })
+          },
+          fail: res => {
+            console.log('获得该书本信息失败',res);
+            wx.showToast({
+              title: '获得该书本信息失败',
+              icon: '',
+              image: '../../icons/request-fail.png',
+              duration: 1000,
+              mask: true,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          }
+        });
+      }
+    });
+  },
+  updateBookList: function(callback) {
+    var that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/books',
+      method: 'GET',
+      success: res => {
+        if (res.statusCode === 200) {
+          console.log('get bookList', res);
+          that.setData({
+            bookList: res.data.data,
+            book_filter: res.data.data ? res.data.data.map(() => true) : [],
+            booksChange: getApp().globalData.booksChange,
+            sentencesChange: getApp().globalData.sentencesChange,
+            motto: '您是不是还没有做过书摘呢？点击右下角添加第一本书吧！'
+          });
+          if (callback) callback();
+          wx.setStorage({
+            key: 'bookList',
+            data: res.data.data,
+          });
+        } else {
+          console.log('failed, statusCode: ' + res.statusCode);
+          wx.getStorage({
+            key: '',
+            success: res => {
+              that.setData({
+                bookList: res,
+                book_filter: res ? res.map(()=>true) : [],
+                booksChange: -1,
+                sentencesChange: -1 //下次show时要请求数据库
+              })
+            },
+            complete: res => {
+              if (callback) callback();
+            }
+          });
+        }
+      },
+      failed: res => {
+        console.log('get booklist request failed');
+        if (callback) callback();
+      }
+    });
+  },
+  inputTyping(e) {
+    this.setData({
+      book_filter: this.data.bookList ? this.data.bookList.map((item) => {
+        return (item.author.indexOf(e.detail.value) !== -1 ||
+          item.title.indexOf(e.detail.value) !== -1 || 
+          item.sample_sentence.some(item => {
+            return (item.content.indexOf(e.detail.value) !== -1 ||
+            item.thought.indexOf(e.detail.value) !== -1);
+          })
+        );
+      }) : []
+    })
+  },
+
 })

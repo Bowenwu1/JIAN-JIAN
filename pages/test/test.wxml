@@ -1,0 +1,7 @@
+<!--pages/Camera/Camera.wxml-->
+
+
+<view class='img-wrapper'>
+  <image class='words' src="/images/txx.jpg" mode='aspectFit'/>
+  <canvas class='drawCanvas' canvas-id="firstCanvas" bindtouchstart="startDrawing" bindtouchmove="onDrawing" bindtouchend="endDrawing"></canvas>
+</view>

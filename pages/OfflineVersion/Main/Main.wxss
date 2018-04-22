@@ -1,0 +1,92 @@
+/* pages/OfflineVersion/Main/Main.wxss */
+.item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 11pt;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
+}
+
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
+.book-name, .from-username {
+  color: #353535;
+  font-size: 11pt;
+}
+
+.book-info-row {
+  position: relative;
+}
+.book-info-row > text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.add-button-wrapper {
+
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #FF0000;
+  font-size: 11pt;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+}
+
+.add-button-wrapper > text {
+  font-size: 15pt;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+}
+.sentences-wrapper {
+  margin-top: 30rpx;
+}
+
+.sentences-item-wrapper {
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+}
+.sentences-item {
+  word-break:break-all;
+  color: #888888;
+}
+
+.add-book-button {
+  position: fixed;
+  bottom: 5%;
+  right: 10%;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: none;
+  background-color: #8f7b76;
+}
+
+button[class="add-book-button"]::after {
+  border: none;
+} 
+
+.add-book-button > text {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.list-label {
+  vertical-align: center;
+  width: 16rpx;
+  height: 16rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}

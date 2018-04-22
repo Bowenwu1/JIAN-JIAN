@@ -1,0 +1,45 @@
+/* pages/Camera/Camera.wxss */
+
+.takeButton {
+  position: absolute;
+  height: 120rpx;
+  width: 120rpx;
+  bottom: 20%;
+  left: 290rpx;
+  font-size: 17pt;
+  text-align: center;
+  color: green;
+  background: #ffffff;
+  border: solid #bbbbbb 1rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.takeButtonIcon {
+  width: 60rpx;
+  height: 60rpx;
+}
+.review {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.img-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.words {
+  position: absolute;
+  height: 1000rpx;
+}
+
+.drawCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000rpx;
+}
