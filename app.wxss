@@ -1,7 +1,10 @@
 /**app.wxss**/
+<<<<<<< HEAD
 @import 'weui.wxss';
 @import 'FontAwesom.wxss';
 
+=======
+>>>>>>> master
 .container {
   height: 100%;
   display: flex;
