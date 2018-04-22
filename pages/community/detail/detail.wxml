@@ -1,0 +1,112 @@
+<!--pages/community/detail/detail.wxml-->
+<view class='community-digest'>
+  <image class='book-cover' src='/images/hn.jpg'></image>
+  <view class='community-info'>
+     <view class='book-title'>《有一种候鸟》 陈少聪</view>
+    <view class='community-leader'>群主：鲍勃</view>
+    <view class='community-member'>群成员：3 人</view>
+    <view class='member-avatar'>
+      <image src='/images/avatar3.jpg'></image>
+      <image src='/images/avatar1.jpg'></image>
+      <image src='/images/avatar2.jpg'></image>
+    </view>
+  </view>
+</view>
+<view class='information'>
+  <view class='weui-tab'>
+    <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+            <!-- 美句汇集 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+              <view class='share-cell'>
+                <image class='avatar' src='/images/avatar2.jpg'></image>
+                <view class='username'>卓君</view>
+                <view class='extract'>梦里我听见莫扎特有似天籁的音乐，随颤动的水纹与微风，一波波传来，推动着一艘船。</view>
+                <view class='btn-bar'>
+                  <view class='extract-away btn'>摘走</view>
+                  <view class='comment btn'>评论</view>
+                </view>
+              </view>
+              <view class='share-cell'>
+                <image class='avatar' src='/images/avatar3.jpg'></image>
+                <view class='username'>鲍勃</view>
+                <view class='extract'>我爱父亲，也爱母亲。不过，是两种不同的爱：对父亲是敬仰和认同；对母亲，在原始的亲情里掺杂着些疏离与叛逆的情结。</view>
+                <view class='btn-bar'>
+                  <view class='extract-away btn'>摘走</view>
+                  <view class='comment btn'>评论</view>
+                </view>
+              </view>
+            </view>
+            <!-- 讨论区 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+              <scroll-view class='msg-cell-container'scroll-y='true'>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar3.jpg'></image>
+                  <view class='msg-cell__username'>鲍勃</view>
+                  <view class='msg-cell__content'>欢迎藤娇娇进群</view>
+                </view>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar1.jpg'></image>
+                  <view class='msg-cell__username'>藤椒兔</view>
+                  <view class='msg-cell__content'>我特别喜欢这本书，希望有机会和大家一起讨论！</view>
+                </view>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar2.jpg'></image>
+                  <view class='msg-cell__username'>卓君</view>
+                  <view class='msg-cell__content'>哈哈欢迎欢迎！</view>
+                </view>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar1.jpg'></image>
+                  <view class='msg-cell__username'>藤椒兔</view>
+                  <view class='msg-cell__content'>这本书是我在图书馆随手拿的，当时只觉得封面很好看，没想到内容也十分精彩！</view>
+                </view>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar3.jpg'></image>
+                  <view class='msg-cell__username'>鲍勃</view>
+                  <view class='msg-cell__content'>你看到哪一页了？</view>
+                </view>
+                <view class='msg-cell'>
+                  <image class='avatar' src='/images/avatar1.jpg'></image>
+                  <view class='msg-cell__username'>藤椒兔</view>
+                  <view class='msg-cell__content'>第二章</view>
+                </view>
+              </scroll-view>  
+              <input class='weui-input msg-input' placeholder='请输入信息'></input>
+            </view>
+            <!-- 阅读进展 -->
+            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+              <scroll-view scroll-y='true' class='progress-cell-container'>
+                <view class='progress-cell'>
+                  <image class='avatar' src='/images/avatar3.jpg'></image>
+                  <view class='progress-cell-username'>鲍勃</view>
+                  <view class='record-block'>
+                    <view class='record-block__join-date'>入群时间： <view class='record-block__var'>9.24</view></view>
+                    <view class='record-block__extracts-info'>累积发布<view class='record-block__var'> 5 </view>条美句，尚未发布总结</view>
+                    <view class='record-block__comments'>收到<view class='record-block__var'> 13 </view>个赞，<view class='record-block__var'> 4 </view>条评论</view>
+                    <view class='record-block__last-discussion-time'>讨论区最后冒泡时间：<view class='record-block__var'> 三小时前</view></view>
+                    <view class='record-block__finish'>本书尚未读完</view>
+                  </view>
+                </view>
+                <view class='progress-cell'>
+                  <image class='avatar' src='/images/avatar1.jpg'></image>
+                  <view class='progress-cell-username'>藤椒兔</view>
+                  <view class='record-block'>
+                    <view class='record-block__join-date'>入群时间：<view class='record-block__var'> 11.28</view></view>
+                    <view class='record-block__extracts-info'>累积发布<view class='record-block__var'> 0 </view>条美句，尚未发布总结</view>
+                    <view class='record-block__comments'>收到<view class='record-block__var'> 0 </view>个赞，<view class='record-block__var'> 1 条评论</view></view>
+                    <view class='record-block__last-discussion-time'>讨论区最后冒泡时间：<view class='record-block__var'> 半小时前</view></view>
+                    <view class='record-block__finish'>本书尚未读完</view>
+                  </view>
+                </view>
+              </scroll-view>
+            </view>
+        </view>
+  </view>
+</view>

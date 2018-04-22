@@ -1,0 +1,28 @@
+<!--pages/Main/Main.wxml-->
+<view class='page'>
+
+  <view class='page_hd'>
+    <view class="weui-search-bar__form searchbar" style="border-radius:20px">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
+      </view>
+    </view>
+  </view>
+
+  <view class='item-wrapper' wx:for="{{booksList}}">
+    <view class='book-info-row'>
+      <text class='book-name'>{{item.bookName}}</text>
+      <text class='from-username'>{{item.userName}}</text>
+      <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
+    </view>
+
+    <view class='sentences-wrapper' wx:for="{{item.showSentences}}">
+      <view class='sentences-item-wrapper'>
+        <text class='sentences-item'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <button class='add-book-button' bindtap='onAddBookClick'><text>+</text></button>
+</view>

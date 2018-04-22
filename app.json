@@ -1,3 +1,61 @@
+<<<<<<< HEAD
+{
+  "pages": [
+    "pages/Main/Main",
+    "pages/Mine/Mine",
+    "pages/community/detail/detail",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/community/community",
+    "pages/newNote/newNote",
+    "pages/square/square",
+    "pages/Camera/Camera",
+    "pages/raft/raft"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#8f7b76",
+    "list": [
+      {
+        "pagePath": "pages/Main/Main",
+        "text": "摘录",
+        "iconPath": "icons/note.png",
+        "selectedIconPath": "icons/note_selected.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "icons/square.png",
+        "selectedIconPath": "icons/square_selected.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社群",
+        "iconPath": "icons/community.png",
+        "selectedIconPath": "icons/community_selected.png"
+      },
+      {
+        "pagePath": "pages/raft/raft",
+        "text": "漂流",
+        "iconPath": "icons/drift.png",
+        "selectedIconPath": "icons/drift_selected.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_selected.png"
+      }
+    ]
+  }
+}
+=======
 {
   "pages":[
     "pages/index/index",
@@ -28,3 +86,4 @@
     }]
   }
 }
+>>>>>>> master

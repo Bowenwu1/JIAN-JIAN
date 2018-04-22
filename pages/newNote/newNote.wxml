@@ -1,0 +1,44 @@
+<!--pages/newNote/newNote.wxml-->
+<view class='page'>
+
+
+  <view class='hint-row'>
+    <text>请选定你喜欢的美句</text>
+  </view>
+  <view class='item-wrapper'>
+    <view class='choose-box'>
+      <text class='sentences-item'>{{allContent}}</text>
+    </view>
+  </view>
+
+  <view class='hint-row'>
+    <text>小笺预览</text>
+  </view>
+  <view class='item-wrapper'>
+    <view class='book-info-row'>
+      <text class='book-name'>{{book.bookName}}</text>
+      <text class='from-username'>{{book.userName}}</text>
+    </view>
+
+    <view class='sentences-wrapper' wx:for="{{book.showSentences}}">
+      <view class='sentences-item-wrapper'>
+        <text class='sentences-item'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='hint-row'>
+    <text>感受</text>
+  </view>
+  <view class='item-wrapper'>
+    <view class="input-wrapper">
+      <input class='feeling-content' placeholder="写一写感受..." />
+    </view>
+  </view>
+
+  <view class='buttons-row'>
+    <button class='bottom-button' type='default' size='mini' bindtap='goBack'>取消</button>
+    <button class='bottom-button' type='primary' size='mini' bindtap='goBack'>保存</button>
+  </view>
+
+</view>

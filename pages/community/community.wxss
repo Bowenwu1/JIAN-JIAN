@@ -1,0 +1,51 @@
+/* community.wxss */
+page,
+.page,
+.page__bd{
+  height: 100%;
+}
+.weui-tab__content{
+  text-align: center;
+}
+.weui-navbar {
+  background-color:white;
+}
+
+/* template community-item */
+.item-wrapper {
+  border-bottom: solid 0.5rpx #dedede;
+}
+.community-item-content {
+  padding: 40rpx 80rpx;
+  display: flex;
+}
+.community-item-img {
+  width: 150rpx;
+  height: 200rpx;
+  margin-right: 50rpx;
+}
+.community-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.topic-info {
+  font-size: 11pt;
+  color: black;
+}
+.descript-info {
+  font-size: 11pt;
+  color: grey;
+}
+.rcm-reason {
+  font-size: 9pt;
+  border: solid 0.2rpx #09BB07;
+  padding: 0 10rpx;
+  color: #09BB07;
+  border-radius: 10rpx;
+}
+
+/* search-bar */
+.weui-search-bar {
+  border: 0rpx;
+}
