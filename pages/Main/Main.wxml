@@ -9,17 +9,22 @@
       </view>
     </view>
   </view>
+  <text class="hint-text" wx:if="{{bookList.length === 0}}">{{motto}}</text>
+  <view class='item-wrapper' wx:for="{{bookList}}" hidden="{{!book_filter[index]}}" wx:key="name">
+    <view item-content data-isbn="{{item.isbn}}" data-title="{{item.title}}" data-author="{{item.author}}" bindtap='onBookItemClick'>
+      <view class='book-info-row'>
+        <image class='list-label' src='/icons/list-label.png' wx:if="{{!show_checkbox}}" mode='aspectFit'/>
+        <text class='book-name'>《{{item.title}}》</text>
+        <text class='from-username'> ——{{item.author}}</text>
+        <!--
+        <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
+        -->
+      </view>
 
-  <view class='item-wrapper' wx:for="{{booksList}}">
-    <view class='book-info-row'>
-      <text class='book-name'>{{item.bookName}}</text>
-      <text class='from-username'>{{item.userName}}</text>
-      <view class='add-button-wrapper' bindtap='onAddSentenceClick'><text>+</text></view>
-    </view>
-
-    <view class='sentences-wrapper' wx:for="{{item.showSentences}}">
-      <view class='sentences-item-wrapper'>
-        <text class='sentences-item'>{{item}}</text>
+      <view class='sentences-wrapper' wx:for="{{item.sample_sentence}}" wx:key="name">
+        <view class='sentences-item-wrapper'>
+          <text class='sentences-item'>{{item.content}}</text>
+        </view>
       </view>
     </view>
   </view>

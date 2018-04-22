@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {
   "pages": [
     "pages/Main/Main",
@@ -87,3 +88,68 @@
   }
 }
 >>>>>>> master
+=======
+{
+  "pages": [
+    "pages/index/index",
+    "pages/Main/Main",
+    "pages/Mine/Mine",
+    "pages/community/detail/detail",
+    "pages/logs/logs",
+    "pages/community/community",
+    "pages/newNote/newNote",
+    "pages/square/square",
+    "pages/Camera/Camera",
+    "pages/raft/raft",
+    "pages/SentencesOfBook/SentencesOfBook",
+    "pages/newBook/newBook",
+    "pages/test/test",
+    "pages/shareNote/shareNote",
+    "pages/SquareItem/SquareItem",
+    "pages/BookList/BookList",
+    "pages/shareBook/shareBook",
+    "pages/OfflineVersion/SentencesOfBook/SentencesOfBook",
+    "pages/OfflineVersion/Main/Main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#8f7b76",
+    "list": [
+      {
+        "pagePath": "pages/Main/Main",
+        "text": "摘录",
+        "iconPath": "icons/note.png",
+        "selectedIconPath": "icons/note_selected.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "icons/square.png",
+        "selectedIconPath": "icons/square_selected.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社群开发中",
+        "iconPath": "icons/community.png",
+        "selectedIconPath": "icons/community_selected.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "icons/my.png",
+        "selectedIconPath": "icons/my_selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "uploadFile": 15000
+  }
+}
+>>>>>>> 8c332c74b525b4c7ce6d0c04f03560c06f76bbbf

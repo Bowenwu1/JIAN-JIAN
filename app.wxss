@@ -3,8 +3,15 @@
 @import 'weui.wxss';
 @import 'FontAwesom.wxss';
 
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+view {
+  color: #353535;
+  word-break: break-all;
+}
+>>>>>>> 8c332c74b525b4c7ce6d0c04f03560c06f76bbbf
 .container {
   height: 100%;
   display: flex;

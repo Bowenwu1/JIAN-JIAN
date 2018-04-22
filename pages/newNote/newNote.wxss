@@ -18,44 +18,49 @@
   margin-bottom: 80rpx;
 }
 
-.choose-box {
+.text-box {
   border-radius: 10rpx;
   padding: 20rpx 25rpx;
   border: #bbbbbb 0.5rpx solid;
 }
 
-.book-name {
+.sentences-ta {
+  width: 100%;
+}
+
+.thought-row {
+  width: 100%;
+}
+.thought {
   color: #bbbbbb;
-}
-.from-username {
-  color: #bbbbbb;
-}
-.book-info-row {
-  position: relative;
-  /*border: 2rpx solid #bbbbbb;*/
-}
-.book-info-row > text {
-  margin-top: auto;
-  margin-bottom: auto;
+  word-break:break-all;
 }
 
 .sentences-wrapper {
   margin-top: 30rpx;
+  width: 100%;
 }
 
 .sentences-item-wrapper {
   margin-bottom: 30rpx;
   margin-top: 30rpx;
+  width: 100%
 }
 
-.feeling-content {
+.sentences-item {
+  word-break:break-all;
+}
+
+.thought-content {
   border-radius: 10rpx;
   padding: 20rpx 25rpx;
   border: #bbbbbb 0.5rpx solid;
 }
 
 .buttons-row {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .bottom-button {
   margin: 20rpx 40rpx;

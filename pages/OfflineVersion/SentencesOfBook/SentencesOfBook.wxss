@@ -1,0 +1,79 @@
+/* pages/OfflineVersion/SentencesOfBook/SentencesOfBook.wxss */
+.item-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  font-size: 11pt;
+  margin-top: 30rpx;
+  margin-bottom: 80rpx;
+}
+
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+.raft-button {
+  float: right;
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.book-name, .from-username {
+  color: #bbbbbb;
+  font-size: 11pt;
+}
+
+.book-info-row > text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.sentences-box {
+  margin-top: 52rpx;
+  height: 900rpx;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sentences-list-item {
+  margin-top: 40rpx;
+  width: 100%;
+}
+.sentence-label-wrapper {
+  width: 10%;
+}
+.sentence-label {
+  margin: 8rpx;
+  float: left;
+  width: 16rpx;
+  height: 16rpx;
+}
+.sentences-wrapper {
+  margin-bottom: 30rpx;
+  margin-left: 10%;
+  width: 90%;
+}
+.sentences-item-wrapper {
+  margin-bottom: 10rpx;
+}
+
+.sentences-item {
+  width: 100%;
+  color: #353535;
+  word-break:break-all;
+}
+
+.thought {
+  color: #bbbbbb;
+  word-break:break-all;
+}

@@ -16,37 +16,35 @@
   padding-bottom: 0;
 }
 
-.title {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: 25px;
-}
-
 .searchbar {
   margin-left: 20px;
   margin-right: 20px;
 }
 
+.hint-text {
+  display: block;
+  margin: 50rpx 120rpx;
+  color: #888888;
+  font-size: 11pt;
+}
+
 .item-wrapper {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 80rpx;
-  padding-right: 80rpx;
-  font-size: 9pt;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  font-size: 11pt;
   margin-top: 30rpx;
   margin-bottom: 80rpx;
 }
 
-.book-name {
-  color: #bbbbbb;
+.book-name, .from-username {
+  color: #353535;
+  font-size: 11pt;
 }
-.from-username {
-  color: #bbbbbb;
-}
+
 .book-info-row {
   position: relative;
-  /*border: 2rpx solid #bbbbbb;*/
 }
 .book-info-row > text {
   margin-top: auto;
@@ -80,6 +78,10 @@
   margin-bottom: 30rpx;
   margin-top: 30rpx;
 }
+.sentences-item {
+  word-break:break-all;
+  color: #888888;
+}
 
 .add-book-button {
   position: fixed;
@@ -89,7 +91,7 @@
   height: 80rpx;
   border-radius: 40rpx;
   border: none;
-
+  background-color: #8f7b76;
 }
 
 button[class="add-book-button"]::after {
@@ -97,8 +99,17 @@ button[class="add-book-button"]::after {
 } 
 
 .add-book-button > text {
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.list-label {
+  vertical-align: center;
+  width: 16rpx;
+  height: 16rpx;
+  display: inline-block;
+  margin-right: 20rpx;
 }
