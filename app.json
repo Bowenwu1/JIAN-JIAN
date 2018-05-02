@@ -1,15 +1,24 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/Main/Main",
     "pages/Mine/Mine",
     "pages/community/detail/detail",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/community/community",
     "pages/newNote/newNote",
     "pages/square/square",
     "pages/Camera/Camera",
-    "pages/raft/raft"
+    "pages/raft/raft",
+    "pages/SentencesOfBook/SentencesOfBook",
+    "pages/newBook/newBook",
+    "pages/test/test",
+    "pages/shareNote/shareNote",
+    "pages/SquareItem/SquareItem",
+    "pages/BookList/BookList",
+    "pages/shareBook/shareBook",
+    "pages/OfflineVersion/SentencesOfBook/SentencesOfBook",
+    "pages/OfflineVersion/Main/Main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -35,15 +44,9 @@
       },
       {
         "pagePath": "pages/community/community",
-        "text": "社群",
+        "text": "社群开发中",
         "iconPath": "icons/community.png",
         "selectedIconPath": "icons/community_selected.png"
-      },
-      {
-        "pagePath": "pages/raft/raft",
-        "text": "漂流",
-        "iconPath": "icons/drift.png",
-        "selectedIconPath": "icons/drift_selected.png"
       },
       {
         "pagePath": "pages/Mine/Mine",
@@ -52,5 +55,9 @@
         "selectedIconPath": "icons/my_selected.png"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "uploadFile": 15000
   }
 }
