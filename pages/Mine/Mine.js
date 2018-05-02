@@ -1,17 +1,16 @@
 const app = getApp()
 // pages/Mine/Mine.js
-Page({
+import { JJRequest } from '../../utils/util.js'
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    bookshelf_image:[
-      '/images/txx.jpg',
-      '/images/lc.jpg',
-      '/images/hn.jpg',
-      '/images/mss.jpg'
-    ],
+    booksChange: 0,
+    groupsChange: 0,
+
+    bookshelf_image:[  ],
     join_community:[
       {
         avator: '/images/hn.jpg',
@@ -26,10 +25,10 @@ Page({
         number_partner: '群成员：4人'
       }
     ],
-    personal_avator: '/images/sample-avator.png',
-    username:'藤椒兔',
-    read_book:3,
-    read_hour:20,
+    personal_avator: '',
+    username:'',
+    read_book:0,
+    read_hour:0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {}
   },
@@ -39,28 +38,20 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad')
-    // if (this.data.canIUse) {
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       username:res.userInfo.nickName,
-    //       personal_avator: res.userInfo.avatarUrl
-    //     })
-    //     conosle.log(res);
-    //   }
-    // } else {
-    //   wx.getUserInfo({
-    //     success:res=> {
-    //       this.setData({
-    //         username: res.userInfo.nickName,
-    //         personal_avator: res.userInfo.avatarUrl
-    //       })
-    //       conosle.log(res);
-    //     },
-    //     fail:function() {
-    //       console.log('fail')
-    //     }
-    //   })
-    // }
+    var that = this;
+
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/books',
+      method: 'GET',
+      success: res => {
+        console.log("get bookList successful");
+        that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
+          booksList: res.data.data
+        });
+      }
+    });
 
     wx.getUserInfo({
       success:res=> {
@@ -68,10 +59,9 @@ Page({
           username: res.userInfo.nickName,
           personal_avator: res.userInfo.avatarUrl
         })
-        console.log(res);
       },
       fail:function() {
-        console.log('fail')
+        console.log('fail to get userinfo')
       }
     })
   },
@@ -87,7 +77,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.booksChange != getApp().globalData.booksChange ||
+      this.data.groupsChange != getApp().globalData.groupsChange) {
+      this.updateData();
+    }
   },
 
   /**
@@ -123,5 +116,28 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  onBookItemClick: function (e) {
+    wx.navigateTo({
+      url: '../SentencesOfBook/SentencesOfBook?isbn=' + e.currentTarget.dataset.isbn + '&title=' + e.currentTarget.dataset.title + '&author=' + e.currentTarget.dataset.author
+    })
+  },
+
+  updateData: function() {
+    var that = this;
+    JJRequest({
+      url: getApp().globalData.baseUrl + '/books',
+      method: 'GET',
+      success: res => {
+        console.log("get bookList successful");
+        that.setData({
+          booksChange: getApp().globalData.booksChange,
+          groupsChange: getApp().globalData.groupsChange,
+          booksList: res.data.data
+        });
+      }
+    });
   }
+
 })

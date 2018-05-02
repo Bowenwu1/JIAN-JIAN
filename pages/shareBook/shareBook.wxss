@@ -1,0 +1,58 @@
+/* pages/shareBook/shareBook.wxss */
+
+.hint-row {
+  color: #bbbbbb;
+  font: 11pt;
+}
+
+.book-image-wrapper {
+  width: 100%;
+  text-align: center;
+  margin: 100rpx auto 40rpx;
+}
+.book-image {
+  width: 150rpx;
+  height: 210rpx;
+}
+
+.book-detail-wrapper {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.book-detail-wrapper > text {
+  display: block;
+  font-size: 9pt;
+  margin-top: 8rpx;
+}
+
+.book-detail-wrapper > .book-name {
+  font-size: 11pt;
+}
+
+.item-wrapper {
+  padding: 38rpx;
+  padding-bottom: 25rpx;
+}
+
+.text-box {
+  width: 90%;
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  border: #bbbbbb 0.5rpx solid;
+  margin: 50rpx auto 100rpx;
+}
+.sentences-ta {
+  min-height: 140rpx;
+  font-size: 11pt;
+  width: 100%;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
+}

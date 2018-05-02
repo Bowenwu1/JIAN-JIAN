@@ -1,3 +1,5 @@
+import {JJRequest} from './utils/util'
+
 //app.js
 App({
   onLaunch: function () {
@@ -5,13 +7,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -33,7 +29,13 @@ App({
       }
     })
   },
+  onShow: function() {},
   globalData: {
-    userInfo: null
+    baseUrl: "https://bobwu.cn/api",
+    userInfo: null,
+    sentencesChange: 0, // 标记变化...控制是否重新请求数据
+    booksChange: 0,
+    groupsChange: 0,
+    imageQuality: 'normal'
   }
 })

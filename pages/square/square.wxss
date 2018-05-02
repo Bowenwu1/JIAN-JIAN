@@ -4,6 +4,11 @@
   margin-right: 20px;
 }
 
+.item-delete {
+  color: #576b95;
+  font-size: 11pt;
+  margin-right: 20rpx;
+}
 
 .user-avatar {
   width: 72rpx;
@@ -14,7 +19,7 @@
 }
 
 .item-name {
-  font-size: 30rpx;
+  font-size: 11pt;
   margin-right: 28rpx;
 }
 .item-time {
@@ -24,21 +29,29 @@
 
 .item-wrapper {
   border-bottom: solid 0.5rpx #dedede;
-  padding: 38rpx;
-  padding-bottom: 25rpx;
+  margin: 0 38rpx;
+  padding-top: 38rpx;
+  padding-bottom: 38rpx;
 }
 
+.item-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-title-left {
+  display: flex;
+  align-items: center;
+}
 .round-button {
-  border-radius: 20rpx;
   font-size: 28rpx;
   display: block;
   float: right;
-  height: 45rpx;
-  width: 80rpx;
+  height: auto;
+  width: 128rpx;
   text-align: center;
   margin-top: 14rpx;
-  background: #FAF2E8;
-  box-shadow: 5rpx 5rpx 5rpx gray;
+  padding: 2rpx;
 }
 
 .item-body-wrapper {
@@ -54,26 +67,93 @@
   display: block;
 }
 
-.item-footer, .item-like-comment {
+.item-footer, .item-operation {
   text-align: right;
 }
 
-.item-like-comment {
-  margin-top: 10rpx;
+.item-thought-content {
+  color: #bbbbbb;
 }
+
 .icon-like, .icon-unlike {
   font-size: 45rpx;
-  vertical-align: text-top;
-  margin-right: 30rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
   transition-duration: 0.2s;
 }
 .icon-like {
   color: pink;
 }
 .icon-unlike {
-  color: grey;
+  color: #bbbbbb;
 }
-.icon-edit {
-  font-size: 50rpx;
-  vertical-align: text-bottom;
+.zan-num {
+  display: inline-block;
+  font-size: 11pt;
+  color: #bbbbbb;
+}
+
+.raft-book-wrapper {
+  border-bottom: solid 0.5rpx #dedede;
+  margin: 0 38rpx;
+  padding-bottom: 38rpx;
+  padding-top: 38rpx;
+}
+
+.book-info-operation {
+  height: 70rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.book-owner-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.book-owner-info > image {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+}
+.book-owner-info > text {
+  font-size: 11pt;
+  margin-left: 35rpx;
+}
+.book-image {
+  width: 150rpx;
+  height: 210rpx; 
+}
+
+.book-detail-wrapper {
+  width: calc(100% - 150rpx);
+}
+
+.book-info-horizontal-wrapper {
+  display: flex;
+  flex-direction: row;
+  word-break: break-all;
+  padding: 20rpx 60rpx;
+}
+
+.book-detail-wrapper > text {
+  display: block;
+  font-size: 9pt;
+  margin-top: 8rpx;
+}
+.book-detail-wrapper > .book-name {
+  font-size: 11pt;
+}
+.book-detail-wrapper > .owner-content {
+  color: #bbbbbb;
+}
+.book-detail-wrapper {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }

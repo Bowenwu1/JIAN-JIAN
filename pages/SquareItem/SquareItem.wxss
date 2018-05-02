@@ -1,0 +1,121 @@
+/* pages/SquareItem/SquareItem.wxss */
+
+.user-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  vertical-align: bottom;
+  margin-right: 35rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  margin-right: 28rpx;
+}
+.item-time {
+  font-size: 23rpx;
+  font-family: sans-serif;
+}
+
+.item-wrapper {
+  padding: 38rpx;
+}
+
+.round-button {
+  font-size: 28rpx;
+  display: block;
+  float: right;
+  height: auto;
+  width: 128rpx;
+  text-align: center;
+  margin-top: 14rpx;
+  padding: 2rpx;
+}
+
+.item-body-wrapper {
+  padding: 30rpx;
+  padding-bottom: 0;
+}
+
+.item-body-wrapper > text, .item-footer > text {
+  font-size: 30rpx;
+}
+
+.item-sentence {
+  display: block;
+}
+
+.item-footer, .item-operation {
+  text-align: right;
+}
+
+.item-thought-content {
+  color: #bbbbbb;
+}
+
+.item-operation {
+  margin-top: 10rpx;
+}
+.item-delete {
+  color: #576b95;
+  font-size: 11pt;
+  float: right;
+  margin-right: 20rpx;
+}
+.item-zan-wrapper {
+  display: inline-block;
+}
+.icon-like, .icon-unlike {
+  font-size: 45rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  transition-duration: 0.2s;
+}
+.icon-like {
+  color: pink;
+}
+.icon-unlike {
+  color: #bbbbbb;
+}
+.zan-num {
+  display: inline-block;
+  font-size: 11pt;
+  color: #bbbbbb;
+}
+.icon-edit {
+  color: #8f7b76;
+  margin-left: 40rpx;
+  font-size: 45rpx;
+  vertical-align: middle;
+}
+.comment-wrapper {
+  color: #353535;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 11pt;
+}
+.user-name {
+  color: #888888;
+}
+
+.text-box {
+  width: 90%;
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  border: #bbbbbb 0.5rpx solid;
+  margin: 80rpx auto 20rpx;
+}
+.sentences-ta {
+  min-height: 100rpx;
+  font-size: 11pt;
+  width: 100%;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.bottom-button {
+  margin: 20rpx 40rpx;
+}

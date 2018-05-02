@@ -1,35 +1,72 @@
 <!--pages/square/square.wxml-->
 
 <template name="square-item">
-  <view class="item-wrapper">
+  <view class="item-wrapper" data-share="{{index}}" bindtap="selectShareItem">
     <view class="item-title-wrapper">
-      <image bindtap="avatarTap" class="user-avatar" src="{{avatar}}" background-size="cover"/>
-      <text class="item-name">{{name}}</text>
-      <text class="item-time">{{time}}</text>
-      <view class="round-button" bindtap="digestItem">摘走</view>
+      <view class="item-title-left">
+        <image bindtap="avatarTap" class="user-avatar" src="{{avator_url}}" background-size="cover"/>
+        <text class="item-name">{{nick_name}}</text>
+        <text class="item-time">{{add_time}}</text>
+      </view>
+      <view>
+        <button class="round-button" type="default"  data-squareid="{{square_id}}" wx:if="{{canDelete !== 1}}" catchtap="digestItem">摘走</button>
+        <view class="item-delete" wx:if="{{canDelete === 1}}" data-squareid="{{square_id}}" catchtap="toggleDelete"> <text>删除</text></view>
+      </view>
     </view>
     <view class="item-body-wrapper">
-      <text class="item-sentence">{{sentence}}</text>
+      <view class="item-sentence-body-wrapper" wx:for="{{sentences}}" wx:key="name">
+        <text class="item-sentence">{{item.content}}</text>
+      </view>
       <view class="item-footer">
         <text class="item-breakdash">——</text>
-        <text class="item-book">《{{book}}》</text>
+        <text class="item-book">《{{title}}》</text>
         <text class="item-author">{{author}}</text>
       </view>
-      <view class="item-like-comment">
-        <view class="fa fa-heart {{ liked ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}" data-index="{{index}}" bindtap="toggleLike"/>
-        <view class="fa fa-edit icon-edit"/>
+      <view class="item-thought">
+        <text class="item-thought-content">{{thoughts}}</text>
+      </view>
+      <view class="item-operation">
+        <view class="item-operation-right">
+          <view data-index="{{index}}" catchtap="toggleLike">
+            <view class="fa fa-heart {{ whetherZanByMe === 1 ? 'icon-like' : 'icon-unlike'}}" data-tab-id="{{tabId}}"/>
+            <view class="zan-num"><text class="delete-button">{{zan_num}}</text></view>
+          </view>
+          <!--<view class="fa fa-edit icon-edit" bindtap="addComment"/>-->
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="raft-item">
+  <view class="raft-book-wrapper">
+    <view class="book-info-operation">
+      <view class="book-owner-info">
+        <image class="book-owner-avator" src="{{avator_url}}"></image>
+        <text class="book-owner-name">{{nick_name}}</text>
+      </view>
+      <view class="item-delete" wx:if="{{whetherDriftByMe}}" data-driftingid="{{drifting_id}}" catchtap="toggleDeleteDrift"> <text>删除</text></view>
+    </view>
+    <view class="book-info-horizontal-wrapper">      
+      <image class="book-image" src="{{title_page_image}}"></image>
+      <view class="book-detail-wrapper">
+        <text class="book-name">{{title}}</text>
+        <text class="book-isbn">ISBN：{{isbn}}</text>
+        <text class="owner-content">{{content}}</text>
       </view>
     </view>
   </view>
 </template>
 
 <view class="page">
+<!--
   <view class="weui-search-bar__form search-bar" style="border-radius:20px">
     <view class="weui-search-bar__box">
       <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
       <input type="text" class="weui-search-bar__input" placeholder="关键词搜索" bindinput="inputTyping" bindfocus="routeSearch" />
     </view>
   </view>
+  -->
   <view class="weui-tab">
     <view class="weui-navbar">
       <block wx:for="{{tabs}}" wx:key="name">
@@ -37,13 +74,13 @@
             <view class="weui-navbar__title">{{item.name}}</view>
         </view>
       </block>
-      <view class="weui-navbar__slider" style="width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"/>
+      <view class="weui-navbar__slider" style="background-color: #8f7b76; width: {{sliderWidth}}px; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{slidersliderOffset}}px);"/>
     </view>
     <view class="weui-tab__panel">
       <block wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="tabId" wx:key="name">
         <scroll-view class="weui-tab__content" hidden="{{activeIndex != tabId}}">
           <block wx:for="{{tab.list}}" wx:for-item="data" wx:key="this">
-            <template is="square-item" data="{{...data, index, tabId}}"/>
+            <template is="{{tabId == 0 ? 'square-item' : 'raft-item'}}" data="{{...data, index, tabId, __userId__}}"/>
           </block>
         </scroll-view>
       </block>

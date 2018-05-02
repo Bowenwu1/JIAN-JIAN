@@ -27,7 +27,7 @@
             <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
               <view class='share-cell'>
                 <image class='avatar' src='/images/avatar2.jpg'></image>
-                <view class='username'>卓君</view>
+                <view class='username'>画家</view>
                 <view class='extract'>梦里我听见莫扎特有似天籁的音乐，随颤动的水纹与微风，一波波传来，推动着一艘船。</view>
                 <view class='btn-bar'>
                   <view class='extract-away btn'>摘走</view>
@@ -59,7 +59,7 @@
                 </view>
                 <view class='msg-cell'>
                   <image class='avatar' src='/images/avatar2.jpg'></image>
-                  <view class='msg-cell__username'>卓君</view>
+                  <view class='msg-cell__username'>画家</view>
                   <view class='msg-cell__content'>哈哈欢迎欢迎！</view>
                 </view>
                 <view class='msg-cell'>

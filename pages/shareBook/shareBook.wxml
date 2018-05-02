@@ -1,0 +1,28 @@
+<!--pages/shareBook/shareBook.wxml-->
+<view class='page' scroll-x='false'>
+
+  <view class='item-wrapper'> 
+    <view class="hint-row">
+      <text>漂流信息</text>
+    </view>
+
+    <view class="book-image-wrapper">
+      <image class="book-image" src="{{title_page_url}}"></image>
+    </view>
+    <view class="book-detail-wrapper">
+      <text class="book-name">{{title}} ——{{author}}</text>
+      <text class="book-isbn">ISBN：{{isbn}}</text>
+    </view>
+
+    <view class="text-box">
+      <textarea class='sentences-ta' auto-height='true' confirm-type='done' bindinput="changeOwnerContent" placeholder="将这本书分享到广场“漂流”，可以在这里留下您的联系方式（邮箱、QQ...），让其他人联系到您" />
+    </view>
+
+    <view class='buttons-row'>
+      <button class='bottom-button' type='default' size='mini' bindtap='goBack'>取消</button>
+      <button class='bottom-button' type='primary'  size='mini' bindtap='shareToSquare'>漂流</button>
+    </view>
+
+  </view>
+
+</view>
